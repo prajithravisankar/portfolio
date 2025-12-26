@@ -51,9 +51,6 @@ export default function Home() {
           <li>
             <a href="#projects">Projects</a>
           </li>
-          <li>
-            <a href="#experience">Experience</a>
-          </li>
         </ul>
       </nav>
       <section id="about" className="py-16 px-4">
@@ -468,8 +465,8 @@ export default function Home() {
                 </Card>
               </CarouselItem>
             </CarouselContent>
-            <CarouselPrevious className="left-4" />
-            <CarouselNext className="right-4" />
+            <CarouselPrevious className="left-10 top-25 cursor-pointer border-dashed border-yellow-500 bg-blue-200" />
+            <CarouselNext className="right-10 top-25 cursor-pointer border-dashed border-yellow-500 bg-blue-200" />
           </Carousel>
         </div>
       </section>
@@ -784,9 +781,6 @@ export default function Home() {
             </Card>
           </div>
         </div>
-      </section>
-      <section id="experience">
-        <h2>Experience</h2>
       </section>
     </main>
   );

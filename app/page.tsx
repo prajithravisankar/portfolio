@@ -49,10 +49,7 @@ export default function Home() {
             <a href="#opensourcecontributions">Open Source Contributions</a>
           </li>
           <li>
-            <a href="#personalprojects">Personal Projects</a>
-          </li>
-          <li>
-            <a href="#hackathons">Hackathons</a>
+            <a href="#projects">Projects</a>
           </li>
           <li>
             <a href="#experience">Experience</a>
@@ -647,11 +644,146 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id="personalprojects">
-        <h2>Projects</h2>
-      </section>
-      <section id="hackathons">
-        <h2>Hackathons</h2>
+      <section id="projects" className="py-16 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
+            Projects
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            {/* CBESS Project */}
+            <Card className="shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/DY3e02OyIUc"
+                  title="CBESS Project Demo"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl">CBESS</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-4">
+                  CBESS (Chess-Based Encryption and Steganography System) is a
+                  secure communication tool that combines cryptography and
+                  steganography using chess games as a key source. It provides a
+                  way to encrypt a message and hide both the encrypted message
+                  and the key within chessboard images, allowing for discreet
+                  and secure information transfer without relying on
+                  traditional, vulnerable key exchange methods.
+                </p>
+                <div className="flex gap-2">
+                  <Button variant="outline" size="sm" asChild>
+                    <a
+                      href="https://github.com/prajithravisankar/CBESS"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4 mr-1" />
+                      GitHub
+                      <ExternalLink className="w-3 h-3 ml-1" />
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* WALLET Project */}
+            <Card className="shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/DRINEXERaqk"
+                  title="WALLET Project Demo"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl">WALLET</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-4">
+                  A digital wallet application with separate backend and
+                  frontend components for secure financial transactions. A
+                  Personal Finance Management System built as a class project
+                  for COMP 4411 - Programming Languages at Lakehead University.
+                  The project demonstrates various programming paradigms
+                  including Object-Oriented, Procedural, and Concurrent
+                  programming using Kotlin and the Ktor framework.
+                </p>
+                <div className="flex gap-2 flex-wrap">
+                  <Button variant="outline" size="sm" asChild>
+                    <a
+                      href="https://github.com/prajithravisankar/wallet-backend"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4 mr-1" />
+                      Backend
+                      <ExternalLink className="w-3 h-3 ml-1" />
+                    </a>
+                  </Button>
+                  <Button variant="outline" size="sm" asChild>
+                    <a
+                      href="https://github.com/srijanravisankar/wallet-frontend"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4 mr-1" />
+                      Frontend
+                      <ExternalLink className="w-3 h-3 ml-1" />
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* OdysseyELP Project */}
+            <Card className="shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/eiIcP8STSYU"
+                  title="OdysseyELP Project Demo"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl">OdysseYELP</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Odysseyelp is an AI-powered collaborative trip planning and
+                  discovery application that helps users create, share, and
+                  explore personalized and real-world location itineraries. It
+                  leverages Yelp Fusion API to fetch real-time business data
+                  (ratings, reviews, opening hours) for accurate travel
+                  recommendations, combined with the Google Gemini AI for
+                  structured response. This app features interactive mapping,
+                  group collaboration, and social discovery features. (yelp ai
+                  api hackathon 2025 submission)
+                </p>
+                <div className="flex gap-2">
+                  <Button variant="outline" size="sm" asChild>
+                    <a
+                      href="https://github.com/srijanravisankar/odysseyelp"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4 mr-1" />
+                      GitHub
+                      <ExternalLink className="w-3 h-3 ml-1" />
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </section>
       <section id="experience">
         <h2>Experience</h2>

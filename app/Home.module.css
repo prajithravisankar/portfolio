@@ -34,3 +34,12 @@
 /* ABOUT ME SECTION */
 
 /* Removed old styles - now using Tailwind and Shadcn components */
+
+.email {
+  color: darkblue;
+  background-color: lightblue;
+  border: 1px solid blue;
+  border-radius: 15px;
+  padding: 10px 10px;
+  width: auto;
+}

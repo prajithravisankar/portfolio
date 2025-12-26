@@ -160,7 +160,7 @@ export default function Home() {
                         className="p-0 h-auto"
                       >
                         <a href="mailto:pravisa1@lakeheadu.ca?subject=Inquiry from Portfolio">
-                          pravisa1@lakeheadu.ca
+                          <Badge>pravisa1@lakeheadu.ca</Badge>
                         </a>
                       </Button>
                       <br />
@@ -171,7 +171,7 @@ export default function Home() {
                         className="p-0 h-auto"
                       >
                         <a href="mailto:prajithravisankar@gmail.com?subject=Inquiry from Portfolio">
-                          prajithravisankar@gmail.com
+                          <Badge>prajithravisankar@gmail.com</Badge>
                         </a>
                       </Button>
                     </div>

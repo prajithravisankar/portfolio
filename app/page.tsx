@@ -27,6 +27,7 @@ import {
   Mail,
   MapPin,
   Github,
+  Linkedin,
   ExternalLink,
   BookOpen,
 } from "lucide-react";
@@ -134,10 +135,23 @@ export default function Home() {
                           rel="noopener noreferrer"
                         >
                           <Github className="w-4 h-4 mr-1" />
-                          GitHub
+                          Github
                           <ExternalLink className="w-3 h-3 ml-1" />
                         </a>
                       </Button>
+                      <Button variant="outline" size="sm" asChild>
+                        <a
+                          href="https://www.linkedin.com/in/prajithravisankar/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Linkedin className="w-4 h-4 mr-1" />
+                          LinkedIn
+                          <ExternalLink className="w-3 h-3 ml-1" />
+                        </a>
+                      </Button>
+                    </div>
+                    <div className="mt-2">
                       <Button variant="outline" size="sm" asChild>
                         <a
                           href="https://www.boot.dev/u/prajithravisankar"

@@ -627,157 +627,197 @@ export default function Home() {
               <CarouselContent className="py-4">
                 {/* Git */}
                 <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                  <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 h-full overflow-hidden group">
-                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-orange-500 to-red-600">
-                      <img
-                        src="/learn_git.png"
-                        alt="Git Certification"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-black/40"></div>
-                      <div className="absolute bottom-4 left-4">
-                        <Badge className="bg-orange-500/20 text-orange-300 border-orange-500/50">
-                          Version Control
-                        </Badge>
+                  <a
+                    href="https://www.boot.dev/certificates/4b334856-cdc5-47d2-9164-c08543e743bd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block h-full"
+                  >
+                    <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 h-full overflow-hidden group cursor-pointer">
+                      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-orange-500 to-red-600">
+                        <img
+                          src="/learn_git.png"
+                          alt="Git Certification"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-black/40"></div>
+                        <div className="absolute bottom-4 left-4">
+                          <Badge className="bg-orange-500/20 text-orange-300 border-orange-500/50">
+                            Version Control
+                          </Badge>
+                        </div>
                       </div>
-                    </div>
-                    <CardHeader>
-                      <CardTitle className="text-white text-lg">
-                        Git Fundamentals to Internals
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-slate-400 text-sm leading-relaxed">
-                        Comprehensive deep-dive into Git version control,
-                        mastering professional workflows including branching,
-                        rebasing, and remote collaboration.
-                      </p>
-                    </CardContent>
-                  </Card>
+                      <CardHeader>
+                        <CardTitle className="text-white text-lg flex items-center gap-2">
+                          Git Fundamentals to Internals
+                          <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-slate-400 text-sm leading-relaxed">
+                          Comprehensive deep-dive into Git version control,
+                          mastering professional workflows including branching,
+                          rebasing, and remote collaboration.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </a>
                 </CarouselItem>
 
                 {/* Functional Programming */}
                 <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                  <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 h-full overflow-hidden group">
-                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600">
-                      <img
-                        src="/learn_functional_programming.png"
-                        alt="Functional Programming"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-black/40"></div>
-                      <div className="absolute bottom-4 left-4">
-                        <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/50">
-                          Programming Paradigm
-                        </Badge>
+                  <a
+                    href="https://www.boot.dev/certificates/a52170fa-b452-43b8-833f-c00bbbd1dab0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block h-full"
+                  >
+                    <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 h-full overflow-hidden group cursor-pointer">
+                      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600">
+                        <img
+                          src="/learn_functional_programming.png"
+                          alt="Functional Programming"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-black/40"></div>
+                        <div className="absolute bottom-4 left-4">
+                          <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/50">
+                            Programming Paradigm
+                          </Badge>
+                        </div>
                       </div>
-                    </div>
-                    <CardHeader>
-                      <CardTitle className="text-white text-lg">
-                        Functional Programming Mastery
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-slate-400 text-sm leading-relaxed">
-                        Mastered pure functions, closures, and function
-                        transformations to create highly abstract and reusable
-                        codebases.
-                      </p>
-                    </CardContent>
-                  </Card>
+                      <CardHeader>
+                        <CardTitle className="text-white text-lg flex items-center gap-2">
+                          Functional Programming Mastery
+                          <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-slate-400 text-sm leading-relaxed">
+                          Mastered pure functions, closures, and function
+                          transformations to create highly abstract and reusable
+                          codebases.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </a>
                 </CarouselItem>
 
                 {/* Go */}
                 <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                  <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 h-full overflow-hidden group">
-                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-cyan-500 to-blue-600">
-                      <img
-                        src="/learn_go.png"
-                        alt="Go Programming"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-black/40"></div>
-                      <div className="absolute bottom-4 left-4">
-                        <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/50">
-                          Systems Programming
-                        </Badge>
+                  <a
+                    href="https://www.boot.dev/certificates/e8bb361b-55fd-479e-9a40-42e26c63586e"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block h-full"
+                  >
+                    <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 h-full overflow-hidden group cursor-pointer">
+                      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-cyan-500 to-blue-600">
+                        <img
+                          src="/learn_go.png"
+                          alt="Go Programming"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-black/40"></div>
+                        <div className="absolute bottom-4 left-4">
+                          <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/50">
+                            Systems Programming
+                          </Badge>
+                        </div>
                       </div>
-                    </div>
-                    <CardHeader>
-                      <CardTitle className="text-white text-lg">
-                        Go (Golang) Systems Programming
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-slate-400 text-sm leading-relaxed">
-                        Deep expertise in Go's concurrency using Channels and
-                        Mutexes, building flexible systems through Interfaces
-                        and Generics.
-                      </p>
-                    </CardContent>
-                  </Card>
+                      <CardHeader>
+                        <CardTitle className="text-white text-lg flex items-center gap-2">
+                          Go (Golang) Systems Programming
+                          <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-slate-400 text-sm leading-relaxed">
+                          Deep expertise in Go's concurrency using Channels and
+                          Mutexes, building flexible systems through Interfaces
+                          and Generics.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </a>
                 </CarouselItem>
 
                 {/* Linux */}
                 <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                  <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 h-full overflow-hidden group">
-                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-500 to-gray-700">
-                      <img
-                        src="/learn_linux.png"
-                        alt="Linux"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-black/40"></div>
-                      <div className="absolute bottom-4 left-4">
-                        <Badge className="bg-gray-500/20 text-gray-300 border-gray-500/50">
-                          Operating Systems
-                        </Badge>
+                  <a
+                    href="https://www.boot.dev/certificates/a5d43fd9-3a86-4827-a792-d0643a0f8997"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block h-full"
+                  >
+                    <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 h-full overflow-hidden group cursor-pointer">
+                      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-500 to-gray-700">
+                        <img
+                          src="/learn_linux.png"
+                          alt="Linux"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-black/40"></div>
+                        <div className="absolute bottom-4 left-4">
+                          <Badge className="bg-gray-500/20 text-gray-300 border-gray-500/50">
+                            Operating Systems
+                          </Badge>
+                        </div>
                       </div>
-                    </div>
-                    <CardHeader>
-                      <CardTitle className="text-white text-lg">
-                        Linux Systems & CLI Fundamentals
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-slate-400 text-sm leading-relaxed">
-                        Strong foundation in Unix-like systems, mastering CLI to
-                        streamline workflows, manage permissions, and automate
-                        tasks.
-                      </p>
-                    </CardContent>
-                  </Card>
+                      <CardHeader>
+                        <CardTitle className="text-white text-lg flex items-center gap-2">
+                          Linux Systems & CLI Fundamentals
+                          <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-slate-400 text-sm leading-relaxed">
+                          Strong foundation in Unix-like systems, mastering CLI
+                          to streamline workflows, manage permissions, and
+                          automate tasks.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </a>
                 </CarouselItem>
 
                 {/* Docker */}
                 <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                  <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 h-full overflow-hidden group">
-                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-700">
-                      <img
-                        src="/learn_docker.png"
-                        alt="Docker"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-black/40"></div>
-                      <div className="absolute bottom-4 left-4">
-                        <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/50">
-                          Containerization
-                        </Badge>
+                  <a
+                    href="https://www.boot.dev/certificates/1d7b88a6-600d-4bb8-9c02-57b4f86ecc72"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block h-full"
+                  >
+                    <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 h-full overflow-hidden group cursor-pointer">
+                      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-700">
+                        <img
+                          src="/learn_docker.png"
+                          alt="Docker"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-black/40"></div>
+                        <div className="absolute bottom-4 left-4">
+                          <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/50">
+                            Containerization
+                          </Badge>
+                        </div>
                       </div>
-                    </div>
-                    <CardHeader>
-                      <CardTitle className="text-white text-lg">
-                        Docker & Containerization Mastery
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-slate-400 text-sm leading-relaxed">
-                        Mastered containerization to build, ship, and run
-                        distributed applications with Docker, Volumes, and
-                        Bridge Networks.
-                      </p>
-                    </CardContent>
-                  </Card>
+                      <CardHeader>
+                        <CardTitle className="text-white text-lg flex items-center gap-2">
+                          Docker & Containerization Mastery
+                          <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-slate-400 text-sm leading-relaxed">
+                          Mastered containerization to build, ship, and run
+                          distributed applications with Docker, Volumes, and
+                          Bridge Networks.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </a>
                 </CarouselItem>
               </CarouselContent>
               <CarouselPrevious className="bg-white/10 border-white/20 hover:bg-white/20" />

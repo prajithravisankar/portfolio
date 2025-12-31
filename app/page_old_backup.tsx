@@ -1,0 +1,828 @@
+"use client";
+
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  CarouselIndicators,
+} from "@/components/ui/carousel";
+import {
+  GraduationCap,
+  Mail,
+  MapPin,
+  Github,
+  Linkedin,
+  ExternalLink,
+  BookOpen,
+  Award,
+  Code2,
+  Sparkles,
+  ArrowRight,
+  Calendar,
+  Building,
+} from "lucide-react";
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950">
+      {/* Fixed Navigation */}
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-slate-950/50 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="text-xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              Prajith Ravisankar
+            </div>
+            <div className="hidden md:flex items-center gap-8">
+              <a href="#about" className="text-sm text-slate-300 hover:text-white transition-colors">
+                About
+              </a>
+              <a href="#education" className="text-sm text-slate-300 hover:text-white transition-colors">
+                Education
+              </a>
+              <a href="#certifications" className="text-sm text-slate-300 hover:text-white transition-colors">
+                Certifications
+              </a>
+              <a href="#opensource" className="text-sm text-slate-300 hover:text-white transition-colors">
+                Open Source
+              </a>
+              <a href="#projects" className="text-sm text-slate-300 hover:text-white transition-colors">
+                Projects
+              </a>
+              <Button size="sm" className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600">
+                <a href="#contact">Contact</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <section id="about" className={`${styles.section} py-20 px-4`}>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-linear-to-r from-purple-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            About Me
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* About Me Card */}
+            <Card className="group backdrop-blur-md bg-white/5 border-white/10 shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/30 transition-all duration-300 hover:-translate-y-2">
+              <CardHeader className="text-center">
+                <Avatar className="w-24 h-24 mx-auto mb-4">
+                  <AvatarImage src="/temp_image.jpg" alt="Prajith Ravisankar" />
+                  <AvatarFallback>PR</AvatarFallback>
+                </Avatar>
+                <CardTitle className="flex items-center justify-center gap-2">
+                  <User className="w-5 h-5" />
+                  About Me
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <p className="text-lg font-semibold text-center">
+                    Prajith Ravisankar
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-2">
+                    <Badge variant="secondary">Hackathon Enthusiast</Badge>
+                    <Badge variant="secondary">Open Source Contributor</Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Education Card */}
+            <Card className="group backdrop-blur-md bg-white/5 border-white/10 shadow-2xl hover:shadow-cyan-500/20 hover:border-cyan-500/30 transition-all duration-300 hover:-translate-y-2">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <GraduationCap className="w-5 h-5" />
+                  Education
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  <li>
+                    <strong>University:</strong> Lakehead University
+                  </li>
+                  <li>
+                    <strong>Degree:</strong> Hons. Bsc in Computer Science
+                  </li>
+                  <li>
+                    <strong>Expected Graduation:</strong> May 2027
+                  </li>
+                  <li>
+                    <strong>Current GPA:</strong> 85.7%
+                  </li>
+                </ul>
+
+                {/* Skills tags added from resume (compact, recruiter-friendly) */}
+                <div className="mt-4">
+                  <p className="font-semibold mb-2">Skills</p>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="secondary">Git</Badge>
+                    <Badge variant="secondary">Docker</Badge>
+                    <Badge variant="secondary">Linux</Badge>
+                    <Badge variant="secondary">Go</Badge>
+                    <Badge variant="secondary">Python</Badge>
+                    <Badge variant="secondary">TypeScript</Badge>
+                    <Badge variant="secondary">React</Badge>
+                    <Badge variant="secondary">Cloud</Badge>
+                    <Badge variant="secondary">SQL</Badge>
+                    <Badge variant="secondary">Cryptography</Badge>
+                    <Badge variant="secondary">Big Data</Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Contact Card */}
+            <Card className="group backdrop-blur-md bg-white/5 border-white/10 shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/30 transition-all duration-300 hover:-translate-y-2">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Mail className="w-5 h-5" />
+                  Contact
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4" />
+                    <span>Thunder Bay, ON</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">Links:</p>
+                    <div className="flex gap-2">
+                      <Button variant="outline" size="sm" asChild>
+                        <a
+                          href="https://github.com/prajithravisankar"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Github className="w-4 h-4 mr-1" />
+                          Github
+                          <ExternalLink className="w-3 h-3 ml-1" />
+                        </a>
+                      </Button>
+                      <Button variant="outline" size="sm" asChild>
+                        <a
+                          href="https://www.linkedin.com/in/prajithravisankar/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Linkedin className="w-4 h-4 mr-1" />
+                          LinkedIn
+                          <ExternalLink className="w-3 h-3 ml-1" />
+                        </a>
+                      </Button>
+                    </div>
+                    <div className="mt-2">
+                      <Button variant="outline" size="sm" asChild>
+                        <a
+                          href="https://www.boot.dev/u/prajithravisankar"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Boot.dev
+                          <ExternalLink className="w-3 h-3 ml-1" />
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">Email:</p>
+                    <div className="space-y-1">
+                      <Button
+                        variant="link"
+                        size="sm"
+                        asChild
+                        className="p-0 h-auto"
+                      >
+                        <a href="mailto:pravisa1@lakeheadu.ca?subject=Inquiry from Portfolio">
+                          <Badge>pravisa1@lakeheadu.ca</Badge>
+                        </a>
+                      </Button>
+                      <br />
+                      <Button
+                        variant="link"
+                        size="sm"
+                        asChild
+                        className="p-0 h-auto"
+                      >
+                        <a href="mailto:prajithravisankar@gmail.com?subject=Inquiry from Portfolio">
+                          <Badge>prajithravisankar@gmail.com</Badge>
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+      <section id="courses" className={`${styles.section} py-20 px-4`}>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-linear-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent flex items-center justify-center gap-3">
+            <BookOpen className="w-10 h-10 text-cyan-400" />
+            Courses & Grades
+          </h2>
+
+          {/* Winter 2025 Term */}
+          <Card className="mb-8 backdrop-blur-md bg-white/5 border-white/10 shadow-2xl hover:shadow-purple-500/10 transition-all duration-300">
+            <CardHeader>
+              <CardTitle>Winter 2025 (January 6 - April 4, 2025)</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Course Code</TableHead>
+                    <TableHead>Course Name</TableHead>
+                    <TableHead>Credits</TableHead>
+                    <TableHead>Grade</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-mono">COMP-2430-WA</TableCell>
+                    <TableCell>Mobile Computing Technology</TableCell>
+                    <TableCell>0.50</TableCell>
+                    <TableCell>
+                      <Badge variant={74 >= 80 ? "default" : "secondary"}>
+                        74
+                      </Badge>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-mono">COMP-4311-WDE</TableCell>
+                    <TableCell>Big Data</TableCell>
+                    <TableCell>0.50</TableCell>
+                    <TableCell>
+                      <Badge variant="default">91</Badge>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-mono">COMP-4476-WA</TableCell>
+                    <TableCell>Cryptography Network Security</TableCell>
+                    <TableCell>0.50</TableCell>
+                    <TableCell>
+                      <Badge variant="default">92</Badge>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-mono">SOCI-2755-WDF</TableCell>
+                    <TableCell>Tech Soc Indi People Can</TableCell>
+                    <TableCell>0.50</TableCell>
+                    <TableCell>
+                      <Badge variant="default">85</Badge>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+
+          {/* Fall 2025 Term */}
+          <Card className="backdrop-blur-md bg-white/5 border-white/10 shadow-2xl hover:shadow-purple-500/10 transition-all duration-300">
+            <CardHeader>
+              <CardTitle>Fall 2025 (September 2 - December 2, 2025)</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Course Code</TableHead>
+                    <TableHead>Course Name</TableHead>
+                    <TableHead>Credits</TableHead>
+                    <TableHead>Grade</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-mono">COMP-3415-FDE</TableCell>
+                    <TableCell>Software Engineering</TableCell>
+                    <TableCell>0.50</TableCell>
+                    <TableCell>
+                      <Badge variant="default">82</Badge>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-mono">COMP-3473-FA</TableCell>
+                    <TableCell>Operating Systems</TableCell>
+                    <TableCell>0.50</TableCell>
+                    <TableCell>
+                      <Badge variant="default">80</Badge>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-mono">COMP-4312-FDE</TableCell>
+                    <TableCell>Cloud Computing</TableCell>
+                    <TableCell>0.50</TableCell>
+                    <TableCell>
+                      <Badge variant="default">94</Badge>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-mono">COMP-4411-FA</TableCell>
+                    <TableCell>Programming Languages</TableCell>
+                    <TableCell>0.50</TableCell>
+                    <TableCell>
+                      <Badge variant="default">87</Badge>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+      <section
+        id="certifications"
+        className={`${styles.section} py-20 px-4 relative z-0`}
+      >
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-linear-to-r from-purple-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            Certifications
+          </h2>
+          <Carousel className="w-full" opts={{ loop: true }}>
+            <CarouselContent className="py-3">
+              {/* Git Certification */}
+              <CarouselItem className="basis-full md:basis-1/2 lg:basis-1/3">
+                <Card className="shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full border-0 bg-white">
+                  <div className="aspect-video bg-linear-to-br from-orange-400 to-red-500 flex items-center justify-center relative overflow-hidden">
+                    <img
+                      src="/learn_git.png"
+                      alt="Git Certification"
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-lg">
+                      Git Fundamentals to Internals
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      Completed a comprehensive deep-dive into Git version
+                      control, moving beyond basic commands to understand the
+                      underlying architecture. Mastered professional workflows
+                      including branching, rebasing, and remote collaboration
+                      via GitHub, while gaining a unique understanding of Git's
+                      "plumbing" and internal file system logic to handle
+                      complex versioning scenarios.
+                    </p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+
+              {/* Functional Programming Certification */}
+              <CarouselItem className="basis-full md:basis-1/2 lg:basis-1/3">
+                <Card className="shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full border-0 bg-white">
+                  <div className="aspect-video bg-linear-to-br from-blue-400 to-purple-500 flex items-center justify-center relative overflow-hidden">
+                    <img
+                      src="/learn_functional_programming.png"
+                      alt="Functional Programming Certification"
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-lg">
+                      Functional Programming Mastery
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      Transitioned from imperative to declarative programming
+                      patterns, focusing on writing clean, predictable, and
+                      side-effect-free code. Mastered the use of Pure Functions
+                      and First-Class Functions to build modular software. By
+                      leveraging concepts like Currying, Closures, and Function
+                      Transformations, learned to create highly abstract and
+                      reusable codebases that are significantly easier to test
+                      and debug.
+                    </p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+
+              {/* Go Certification */}
+              <CarouselItem className="basis-full md:basis-1/2 lg:basis-1/3">
+                <Card className="shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full border-0 bg-white">
+                  <div className="aspect-video bg-linear-to-br from-cyan-400 to-blue-500 flex items-center justify-center relative overflow-hidden">
+                    <img
+                      src="/learn_go.png"
+                      alt="Go Certification"
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-lg">
+                      Go (Golang) Systems Programming
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      Mastered the fundamentals and advanced patterns of the Go
+                      programming language, focusing on writing idiomatic,
+                      high-performance code. Gained deep expertise in Go's
+                      unique approach to concurrency using Channels and Mutexes,
+                      and learned to build flexible, decoupled systems through
+                      Interfaces and Generics. This certification covers the
+                      full spectrum of Go development, from memory management
+                      with pointers to modern project organization using Go
+                      Modules.
+                    </p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+
+              {/* Linux Certification */}
+              <CarouselItem className="basis-full md:basis-1/2 lg:basis-1/3">
+                <Card className="shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full border-0 bg-white">
+                  <div className="aspect-video bg-linear-to-br from-gray-400 to-gray-600 flex items-center justify-center relative overflow-hidden">
+                    <img
+                      src="/learn_linux.png"
+                      alt="Linux Certification"
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-lg">
+                      Linux Systems & CLI Fundamentals
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      Developed a strong foundation in Unix-like systems,
+                      mastering the command-line interface to streamline
+                      development workflows. Proficient in navigating complex
+                      filesystems, managing user permissions, and automating
+                      tasks through Input/Output redirection and piping.
+                      Equipped with the skills to configure development
+                      environments, manage system-wide packages, and utilize
+                      powerful CLI utilities to process data and manage software
+                      deployments efficiently.
+                    </p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+
+              {/* Docker Certification */}
+              <CarouselItem className="basis-full md:basis-1/2 lg:basis-1/3">
+                <Card className="shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full border-0 bg-white">
+                  <div className="aspect-video bg-linear-to-br from-blue-500 to-indigo-600 flex items-center justify-center relative overflow-hidden">
+                    <img
+                      src="/learn_docker.png"
+                      alt="Docker Certification"
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-lg">
+                      Docker & Containerization Mastery
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      Mastered the art of containerization to build, ship, and
+                      run distributed applications. Proficient in creating
+                      custom Dockerfiles to package applications and their
+                      dependencies, ensuring consistency across development and
+                      production environments. Gained hands-on experience
+                      managing persistent data with Volumes, configuring
+                      inter-container communication via Bridge Networks, and
+                      optimizing the deployment lifecycle by publishing images
+                      to Docker Hub.
+                    </p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious className="left-10 top-25 cursor-pointer border-dashed border-yellow-500 bg-blue-200" />
+            <CarouselNext className="right-10 top-25 cursor-pointer border-dashed border-yellow-500 bg-blue-200" />
+            <CarouselIndicators className="w-full" />
+          </Carousel>
+        </div>
+      </section>
+      <section id="opensourcecontributions" className={`${styles.section} py-20 px-4`}>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-linear-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent flex items-center justify-center gap-3">
+            <Github className="w-10 h-10 text-cyan-400" />
+            Open Source Contributions
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* PR 1: AlgoVisualizer Queue Hover Fix */}
+            <Card className="backdrop-blur-md bg-white/5 border-white/10 shadow-2xl hover:shadow-cyan-500/20 hover:border-cyan-500/30 transition-all duration-300 hover:-translate-y-2">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-start justify-between">
+                  <span>Fix UI Flicker on Queue Hover</span>
+                  <Badge variant="secondary" className="ml-2">
+                    Merged
+                  </Badge>
+                </CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  mahaveergurjar/AlgoVisualizer
+                </p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm mb-4">
+                  Fixed a UI bug where hovering over algorithm cards on the
+                  Queue page caused blinking/flickering instead of smooth zoom
+                  animation. Switched to CSS-only hover effects for consistent
+                  behavior across all algorithm pages.
+                </p>
+                <Button variant="outline" size="sm" asChild>
+                  <a
+                    href="https://github.com/mahaveergurjar/AlgoVisualizer/pull/130"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    View PR
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* PR 2: CLI Todo App Task Model Unification */}
+            <Card className="shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-start justify-between">
+                  <span>Unify Task Model Across CLIs</span>
+                  <Badge variant="secondary" className="ml-2">
+                    Merged
+                  </Badge>
+                </CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  flyingSaucer87/cli-todo-app
+                </p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm mb-4">
+                  Unified the task data model between Node.js and Python CLI
+                  versions with priority-based display indexing. Added unit
+                  tests, migration logic, and focus mode support for
+                  high-priority tasks.
+                </p>
+                <Button variant="outline" size="sm" asChild>
+                  <a
+                    href="https://github.com/flyingSaucer87/cli-todo-app/pull/58"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    View PR
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* PR 3: AlgoVisualizer Strings Import Fix */}
+            <Card className="shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-start justify-between">
+                  <span>Fix ReferenceError in Strings.jsx</span>
+                  <Badge variant="secondary" className="ml-2">
+                    Merged
+                  </Badge>
+                </CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  mahaveergurjar/AlgoVisualizer
+                </p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm mb-4">
+                  Resolved a runtime ReferenceError by adding the missing
+                  PROBLEM_CATALOG import in Strings.jsx. Ensured all string
+                  algorithm problems load correctly without console errors.
+                </p>
+                <Button variant="outline" size="sm" asChild>
+                  <a
+                    href="https://github.com/mahaveergurjar/AlgoVisualizer/pull/250"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    View PR
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* PR 4: AlgoVisualizer Check Icon Fix */}
+            <Card className="shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-start justify-between">
+                  <span>Fix Undefined Check Icon</span>
+                  <Badge variant="secondary" className="ml-2">
+                    Merged
+                  </Badge>
+                </CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  mahaveergurjar/AlgoVisualizer
+                </p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm mb-4">
+                  Fixed ReferenceError caused by missing Check import in
+                  catalog.js. Replaced with CheckCircle icon and verified the
+                  app compiles and runs without errors.
+                </p>
+                <Button variant="outline" size="sm" asChild>
+                  <a
+                    href="https://github.com/mahaveergurjar/AlgoVisualizer/pull/233"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    View PR
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* PR 5: AlgoVisualizer JSX Warning Fix */}
+            <Card className="shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-start justify-between">
+                  <span>Fix JSX Build Warning</span>
+                  <Badge variant="secondary" className="ml-2">
+                    Merged
+                  </Badge>
+                </CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  mahaveergurjar/AlgoVisualizer
+                </p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm mb-4">
+                  Resolved JSX parsing warning by escaping the '&gt;' character
+                  in CountPrimes.js. Ensures clean builds with no console
+                  warnings while maintaining correct display.
+                </p>
+                <Button variant="outline" size="sm" asChild>
+                  <a
+                    href="https://github.com/mahaveergurjar/AlgoVisualizer/pull/219"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    View PR
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+      <section id="projects" className={`${styles.section} py-20 px-4`}>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
+            Projects
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            {/* CBESS Project */}
+            <Card className="shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/DY3e02OyIUc"
+                  title="CBESS Project Demo"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl">CBESS</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-4">
+                  CBESS (Chess-Based Encryption and Steganography System) is a
+                  secure communication tool that combines cryptography and
+                  steganography using chess games as a key source. It provides a
+                  way to encrypt a message and hide both the encrypted message
+                  and the key within chessboard images, allowing for discreet
+                  and secure information transfer without relying on
+                  traditional, vulnerable key exchange methods.
+                </p>
+                <div className="flex gap-2">
+                  <Button variant="outline" size="sm" asChild>
+                    <a
+                      href="https://github.com/prajithravisankar/CBESS"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4 mr-1" />
+                      GitHub
+                      <ExternalLink className="w-3 h-3 ml-1" />
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* WALLET Project */}
+            <Card className="shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/DRINEXERaqk"
+                  title="WALLET Project Demo"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl">WALLET</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-4">
+                  A digital wallet application with separate backend and
+                  frontend components for secure financial transactions. A
+                  Personal Finance Management System built as a class project
+                  for COMP 4411 - Programming Languages at Lakehead University.
+                  The project demonstrates various programming paradigms
+                  including Object-Oriented, Procedural, and Concurrent
+                  programming using Kotlin and the Ktor framework.
+                </p>
+                <div className="flex gap-2 flex-wrap">
+                  <Button variant="outline" size="sm" asChild>
+                    <a
+                      href="https://github.com/prajithravisankar/wallet-backend"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4 mr-1" />
+                      Backend
+                      <ExternalLink className="w-3 h-3 ml-1" />
+                    </a>
+                  </Button>
+                  <Button variant="outline" size="sm" asChild>
+                    <a
+                      href="https://github.com/srijanravisankar/wallet-frontend"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4 mr-1" />
+                      Frontend
+                      <ExternalLink className="w-3 h-3 ml-1" />
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* OdysseyELP Project */}
+            <Card className="shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/eiIcP8STSYU"
+                  title="OdysseyELP Project Demo"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl">OdysseYELP</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Odysseyelp is an AI-powered collaborative trip planning and
+                  discovery application that helps users create, share, and
+                  explore personalized and real-world location itineraries. It
+                  leverages Yelp Fusion API to fetch real-time business data
+                  (ratings, reviews, opening hours) for accurate travel
+                  recommendations, combined with the Google Gemini AI for
+                  structured response. This app features interactive mapping,
+                  group collaboration, and social discovery features. (yelp ai
+                  api hackathon 2025 submission)
+                </p>
+                <div className="flex gap-2">
+                  <Button variant="outline" size="sm" asChild>
+                    <a
+                      href="https://github.com/srijanravisankar/odysseyelp"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4 mr-1" />
+                      GitHub
+                      <ExternalLink className="w-3 h-3 ml-1" />
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

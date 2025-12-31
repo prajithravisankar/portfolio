@@ -1,45 +1,164 @@
 .main {
-  background-color: #caf0f8;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    135deg,
+    #0f0f23 0%,
+    #1a1a2e 20%,
+    #16213e 40%,
+    #0f3460 60%,
+    #1a1a2e 80%,
+    #0f0f23 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Subtle mesh gradient overlay */
+.main::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      ellipse at 20% 30%,
+      rgba(124, 58, 237, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 70%,
+      rgba(6, 182, 212, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(139, 92, 246, 0.1) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* HEADER, AND NAVIGATION BAR */
-
 .navbar {
   position: sticky;
   top: 20px;
-  z-index: 50;
+  z-index: 100;
+  padding: 0 1rem;
 }
 
 .navBarItems {
-  background-color: #90e0ef;
-  position: sticky;
-  top: 0px;
+  background: rgba(23, 23, 23, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(167, 139, 250, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
   list-style: none;
-  max-width: 75%;
+  max-width: 800px;
   margin: 0 auto;
-  border-radius: 17px;
-  padding: 10px;
-  gap: 5px;
+  border-radius: 16px;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navBarItems:hover {
+  background: rgba(23, 23, 23, 0.7);
+  border-color: rgba(167, 139, 250, 0.3);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(167, 139, 250, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 .navBarItems li {
-  cursor: pointer;
-  color: black;
+  position: relative;
+  list-style: none;
 }
 
-/* ABOUT ME SECTION */
+.navBarItems li a {
+  color: rgba(250, 250, 250, 0.9);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
 
-/* Removed old styles - now using Tailwind and Shadcn components */
+.navBarItems li a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.1),
+    rgba(6, 182, 212, 0.1)
+  );
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+.navBarItems li a:hover {
+  color: #a78bfa;
+  transform: translateY(-2px);
+}
+
+.navBarItems li a:hover::before {
+  opacity: 1;
+}
+
+.navBarItems li a:active {
+  transform: translateY(0);
+}
+
+/* Smooth fade-in for sections */
+.section {
+  animation: fadeInUp 0.6s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Remove old email styles */
 .email {
-  color: darkblue;
-  background-color: lightblue;
-  border: 1px solid blue;
-  border-radius: 15px;
-  padding: 10px 10px;
+  color: inherit;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   width: auto;
 }

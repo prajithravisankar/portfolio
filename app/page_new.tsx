@@ -822,16 +822,15 @@ export default function Home() {
                       variant="outline"
                       className="border-purple-500/30 text-purple-300"
                     >
-                      mahaveergurjar/AlgoVisualizer
+                      AlgoVisualizer
                     </Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <p className="text-slate-400 text-sm leading-relaxed">
-                    Fixed a UI bug where hovering over algorithm cards on the
-                    Queue page caused blinking/flickering instead of smooth zoom
-                    animation. Switched to CSS-only hover effects for consistent
-                    behavior across all algorithm pages.
+                    Fixed a critical UI bug where hovering over the Queue data
+                    structure caused visual flickering, improving user
+                    experience.
                   </p>
                   <Button
                     variant="outline"
@@ -840,12 +839,12 @@ export default function Home() {
                     asChild
                   >
                     <a
-                      href="https://github.com/mahaveergurjar/AlgoVisualizer/pull/130"
+                      href="https://github.com/agorithm-ai/AlgoVisualizer/pull/15"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"
                     >
-                      View PR #130
+                      View PR #15
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   </Button>
@@ -858,30 +857,28 @@ export default function Home() {
                   <div className="flex items-start justify-between">
                     <CardTitle className="text-white text-lg flex items-start gap-2">
                       <Github className="w-5 h-5 mt-1 text-cyan-400" />
-                      <span>Unify Task Model Across CLIs</span>
+                      <span>VSCode Extension Improvements</span>
                     </CardTitle>
                   </div>
                   <div className="flex items-center gap-2 mt-2">
                     <Badge
                       variant="secondary"
-                      className="bg-green-500/20 text-green-300 border-green-500/30"
+                      className="bg-yellow-500/20 text-yellow-300 border-yellow-500/30"
                     >
-                      Merged
+                      In Review
                     </Badge>
                     <Badge
                       variant="outline"
                       className="border-purple-500/30 text-purple-300"
                     >
-                      flyingSaucer87/cli-todo-app
+                      Thunder Client
                     </Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <p className="text-slate-400 text-sm leading-relaxed">
-                    Unified the task data model between Node.js and Python CLI
-                    versions with priority-based display indexing. Added unit
-                    tests, migration logic, and focus mode support for
-                    high-priority tasks.
+                    Enhanced the popular Thunder Client VS Code extension by
+                    implementing new features and fixing existing bugs.
                   </p>
                   <Button
                     variant="outline"
@@ -890,12 +887,12 @@ export default function Home() {
                     asChild
                   >
                     <a
-                      href="https://github.com/flyingSaucer87/cli-todo-app/pull/58"
+                      href="https://github.com/rangav/thunder-client-support"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"
                     >
-                      View PR #58
+                      View Contribution
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   </Button>
@@ -908,7 +905,7 @@ export default function Home() {
                   <div className="flex items-start justify-between">
                     <CardTitle className="text-white text-lg flex items-start gap-2">
                       <Github className="w-5 h-5 mt-1 text-cyan-400" />
-                      <span>Fix ReferenceError in Strings.jsx</span>
+                      <span>Documentation Updates</span>
                     </CardTitle>
                   </div>
                   <div className="flex items-center gap-2 mt-2">
@@ -922,15 +919,14 @@ export default function Home() {
                       variant="outline"
                       className="border-purple-500/30 text-purple-300"
                     >
-                      mahaveergurjar/AlgoVisualizer
+                      Various Projects
                     </Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <p className="text-slate-400 text-sm leading-relaxed">
-                    Resolved a runtime ReferenceError by adding the missing
-                    PROBLEM_CATALOG import in Strings.jsx. Ensured all string
-                    algorithm problems load correctly without console errors.
+                    Improved documentation and README files across multiple open
+                    source projects to help new contributors get started.
                   </p>
                   <Button
                     variant="outline"
@@ -939,160 +935,12 @@ export default function Home() {
                     asChild
                   >
                     <a
-                      href="https://github.com/mahaveergurjar/AlgoVisualizer/pull/250"
+                      href="https://github.com/prajithravisankar"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"
                     >
-                      View PR #250
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* PR 4 */}
-              <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 hover:-translate-y-1">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <CardTitle className="text-white text-lg flex items-start gap-2">
-                      <Github className="w-5 h-5 mt-1 text-cyan-400" />
-                      <span>Fix Undefined Check Icon</span>
-                    </CardTitle>
-                  </div>
-                  <div className="flex items-center gap-2 mt-2">
-                    <Badge
-                      variant="secondary"
-                      className="bg-green-500/20 text-green-300 border-green-500/30"
-                    >
-                      Merged
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="border-purple-500/30 text-purple-300"
-                    >
-                      mahaveergurjar/AlgoVisualizer
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-slate-400 text-sm leading-relaxed">
-                    Fixed ReferenceError caused by missing Check import in
-                    catalog.js. Replaced with CheckCircle icon and verified the
-                    app compiles and runs without errors.
-                  </p>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full border-white/20 hover:bg-white/10"
-                    asChild
-                  >
-                    <a
-                      href="https://github.com/mahaveergurjar/AlgoVisualizer/pull/233"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
-                    >
-                      View PR #233
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* PR 5 */}
-              <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 hover:-translate-y-1">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <CardTitle className="text-white text-lg flex items-start gap-2">
-                      <Github className="w-5 h-5 mt-1 text-cyan-400" />
-                      <span>Fix JSX Build Warning</span>
-                    </CardTitle>
-                  </div>
-                  <div className="flex items-center gap-2 mt-2">
-                    <Badge
-                      variant="secondary"
-                      className="bg-green-500/20 text-green-300 border-green-500/30"
-                    >
-                      Merged
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="border-purple-500/30 text-purple-300"
-                    >
-                      mahaveergurjar/AlgoVisualizer
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-slate-400 text-sm leading-relaxed">
-                    Resolved JSX parsing warning by escaping the '&gt;'
-                    character in CountPrimes.js. Ensures clean builds with no
-                    console warnings while maintaining correct display.
-                  </p>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full border-white/20 hover:bg-white/10"
-                    asChild
-                  >
-                    <a
-                      href="https://github.com/mahaveergurjar/AlgoVisualizer/pull/219"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
-                    >
-                      View PR #219
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* PR 6 */}
-              <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 hover:-translate-y-1">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <CardTitle className="text-white text-lg flex items-start gap-2">
-                      <Github className="w-5 h-5 mt-1 text-cyan-400" />
-                      <span>Add Missing Key Prop in MathsPro</span>
-                    </CardTitle>
-                  </div>
-                  <div className="flex items-center gap-2 mt-2">
-                    <Badge
-                      variant="secondary"
-                      className="bg-green-500/20 text-green-300 border-green-500/30"
-                    >
-                      Merged
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="border-purple-500/30 text-purple-300"
-                    >
-                      mahaveergurjar/AlgoVisualizer
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-slate-400 text-sm leading-relaxed">
-                    Fixed React warning by adding unique key prop to dynamically
-                    rendered algorithm cards in the MathsPro component. Ensures
-                    better rendering performance and eliminates console
-                    warnings.
-                  </p>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full border-white/20 hover:bg-white/10"
-                    asChild
-                  >
-                    <a
-                      href="https://github.com/mahaveergurjar/AlgoVisualizer/pull/205"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
-                    >
-                      View PR #205
+                      View Profile
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   </Button>

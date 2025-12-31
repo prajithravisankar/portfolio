@@ -7,6 +7,14 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -1156,549 +1164,682 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-8">
-              {/* CBESS Project */}
-              <Card className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-red-500/10 border-purple-500/30 backdrop-blur-sm hover:from-purple-500/15 hover:via-pink-500/15 hover:to-red-500/15 transition-all duration-300 overflow-hidden group">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <CardTitle className="text-white text-3xl mb-3 flex items-center gap-3">
-                        CBESS
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* CBESS Project - Compact Card */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Card className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-red-500/10 border-purple-500/30 backdrop-blur-sm hover:from-purple-500/15 hover:via-pink-500/15 hover:to-red-500/15 transition-all duration-300 cursor-pointer group">
+                    <CardHeader>
+                      <div className="flex items-start justify-between mb-3">
                         <Badge className="bg-red-500/20 text-red-300 border-red-500/50">
                           Cryptography
                         </Badge>
+                        <Star className="w-5 h-5 text-yellow-400" />
+                      </div>
+                      <CardTitle className="text-white text-xl mb-2">
+                        CBESS
                       </CardTitle>
-                      <CardDescription className="text-lg text-slate-300">
+                      <CardDescription className="text-slate-400 line-clamp-2">
                         Chess-Based Encryption and Steganographic System
                       </CardDescription>
-                    </div>
-                    <Star className="w-7 h-7 text-yellow-400 flex-shrink-0" />
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  {/* Overview */}
-                  <div>
-                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
-                      <Code2 className="w-4 h-4 text-purple-400" />
-                      Overview
-                    </h4>
-                    <p className="text-slate-300 leading-relaxed">
-                      A secure communication tool that combines cryptography and
-                      steganography using chess games as a key source. Encrypts
-                      messages and hides both the encrypted message and the key
-                      within chessboard images, enabling discreet and secure
-                      information transfer without traditional key exchange
-                      methods.
-                    </p>
-                  </div>
-
-                  {/* Problem Solved */}
-                  <div>
-                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-pink-400" />
-                      Problem Solved
-                    </h4>
-                    <ul className="text-slate-300 leading-relaxed space-y-2">
-                      <li className="flex items-start gap-2">
-                        <span className="text-purple-400 mt-1">•</span>
-                        <span>
-                          <strong>Eliminates Traditional Key Exchange:</strong>{" "}
-                          The key is derived from a shared chess game, so
-                          there's no need to explicitly transmit a key.
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-pink-400 mt-1">•</span>
-                        <span>
-                          <strong>
-                            Combines Encryption and Steganography:
-                          </strong>{" "}
-                          The encrypted message and the key source (chess moves)
-                          are hidden within images, making communication less
-                          conspicuous.
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  {/* Key Achievements */}
-                  <div>
-                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
-                      <Award className="w-4 h-4 text-cyan-400" />
-                      Key Achievements
-                    </h4>
-                    <ul className="text-slate-300 leading-relaxed space-y-2">
-                      <li className="flex items-start gap-2">
-                        <span className="text-purple-400 mt-1">•</span>
-                        <span>
-                          Engineered novel cryptographic system using chess
-                          gameplay as key derivation source, eliminating
-                          vulnerable key transmission by reconstructing AES-256
-                          keys from algebraic move notation.
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-pink-400 mt-1">•</span>
-                        <span>
-                          Developed dual-interface application (GUI/CLI) with
-                          integrated Stockfish chess engine and automated
-                          steganographic embedding of encrypted payloads into
-                          chessboard images using least significant bit
-                          manipulation.
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  {/* Technologies */}
-                  <div>
-                    <h4 className="text-white font-semibold mb-3">
-                      Tech Stack
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      <Badge
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-slate-400 text-sm line-clamp-3 mb-4">
+                        A secure communication tool that combines cryptography
+                        and steganography using chess games as a key source.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <Badge
+                          variant="outline"
+                          className="border-purple-500/40 text-purple-300 bg-purple-500/10 text-xs"
+                        >
+                          Python
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-pink-500/40 text-pink-300 bg-pink-500/10 text-xs"
+                        >
+                          AES-256
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-red-500/40 text-red-300 bg-red-500/10 text-xs"
+                        >
+                          Steganography
+                        </Badge>
+                      </div>
+                      <Button
                         variant="outline"
-                        className="border-purple-500/40 text-purple-300 bg-purple-500/10"
+                        className="w-full border-purple-500/30 text-purple-300 hover:bg-purple-500/10 group-hover:border-purple-500/50"
                       >
-                        Python
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-pink-500/40 text-pink-300 bg-pink-500/10"
-                      >
-                        Tkinter
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-red-500/40 text-red-300 bg-red-500/10"
-                      >
-                        AES-256
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-orange-500/40 text-orange-300 bg-orange-500/10"
-                      >
+                        View Details
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto bg-slate-900 border-purple-500/30">
+                  <DialogHeader>
+                    <DialogTitle className="text-3xl text-white flex items-center gap-3">
+                      CBESS
+                      <Badge className="bg-red-500/20 text-red-300 border-red-500/50">
                         Cryptography
                       </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-purple-500/40 text-purple-300 bg-purple-500/10"
-                      >
-                        LSB Steganography
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-cyan-500/40 text-cyan-300 bg-cyan-500/10"
-                      >
-                        Stockfish AI
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-blue-500/40 text-blue-300 bg-blue-500/10"
-                      >
-                        PIL/Pillow
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-green-500/40 text-green-300 bg-green-500/10"
-                      >
-                        Image Processing
-                      </Badge>
+                    </DialogTitle>
+                    <DialogDescription className="text-lg text-slate-300">
+                      Chess-Based Encryption and Steganographic System
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="space-y-6 mt-4">
+                    <div>
+                      <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                        <Code2 className="w-4 h-4 text-purple-400" />
+                        Overview
+                      </h4>
+                      <p className="text-slate-300 leading-relaxed">
+                        A secure communication tool that combines cryptography
+                        and steganography using chess games as a key source.
+                        Encrypts messages and hides both the encrypted message
+                        and the key within chessboard images, enabling discreet
+                        and secure information transfer without traditional key
+                        exchange methods.
+                      </p>
                     </div>
-                  </div>
 
-                  {/* Embedded Video Demo */}
-                  <div className="space-y-3">
-                    <h4 className="text-white font-semibold flex items-center gap-2">
-                      <ExternalLink className="w-4 h-4 text-red-400" />
-                      Live Demo
-                    </h4>
-                    <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-purple-500/30">
-                      <iframe
-                        className="absolute inset-0 w-full h-full"
-                        src="https://www.youtube.com/embed/DY3e02OyIUc"
-                        title="CBESS Demo - Chess-Based Encryption System"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      ></iframe>
+                    <div>
+                      <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-pink-400" />
+                        Problem Solved
+                      </h4>
+                      <ul className="text-slate-300 leading-relaxed space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="text-purple-400 mt-1">•</span>
+                          <span>
+                            <strong>
+                              Eliminates Traditional Key Exchange:
+                            </strong>{" "}
+                            The key is derived from a shared chess game, so
+                            there's no need to explicitly transmit a key.
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-pink-400 mt-1">•</span>
+                          <span>
+                            <strong>
+                              Combines Encryption and Steganography:
+                            </strong>{" "}
+                            The encrypted message and the key source (chess
+                            moves) are hidden within images, making
+                            communication less conspicuous.
+                          </span>
+                        </li>
+                      </ul>
                     </div>
-                  </div>
 
-                  {/* GitHub Link */}
-                  <Button
-                    className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 border-0 text-white font-semibold"
-                    asChild
-                  >
-                    <a
-                      href="https://github.com/prajithravisankar/CBESS-public"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
+                    <div>
+                      <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                        <Award className="w-4 h-4 text-cyan-400" />
+                        Key Achievements
+                      </h4>
+                      <ul className="text-slate-300 leading-relaxed space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="text-purple-400 mt-1">•</span>
+                          <span>
+                            Engineered novel cryptographic system using chess
+                            gameplay as key derivation source, eliminating
+                            vulnerable key transmission by reconstructing
+                            AES-256 keys from algebraic move notation.
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-pink-400 mt-1">•</span>
+                          <span>
+                            Developed dual-interface application (GUI/CLI) with
+                            integrated Stockfish chess engine and automated
+                            steganographic embedding of encrypted payloads into
+                            chessboard images using least significant bit
+                            manipulation.
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-white font-semibold mb-3">
+                        Tech Stack
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge
+                          variant="outline"
+                          className="border-purple-500/40 text-purple-300 bg-purple-500/10"
+                        >
+                          Python
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-pink-500/40 text-pink-300 bg-pink-500/10"
+                        >
+                          Tkinter
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-red-500/40 text-red-300 bg-red-500/10"
+                        >
+                          AES-256
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-orange-500/40 text-orange-300 bg-orange-500/10"
+                        >
+                          Cryptography
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-purple-500/40 text-purple-300 bg-purple-500/10"
+                        >
+                          LSB Steganography
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-cyan-500/40 text-cyan-300 bg-cyan-500/10"
+                        >
+                          Stockfish AI
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-blue-500/40 text-blue-300 bg-blue-500/10"
+                        >
+                          PIL/Pillow
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-green-500/40 text-green-300 bg-green-500/10"
+                        >
+                          Image Processing
+                        </Badge>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <h4 className="text-white font-semibold flex items-center gap-2">
+                        <ExternalLink className="w-4 h-4 text-red-400" />
+                        Live Demo
+                      </h4>
+                      <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-purple-500/30">
+                        <iframe
+                          className="absolute inset-0 w-full h-full"
+                          src="https://www.youtube.com/embed/DY3e02OyIUc"
+                          title="CBESS Demo - Chess-Based Encryption System"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                    </div>
+
+                    <Button
+                      className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 border-0 text-white font-semibold"
+                      asChild
                     >
-                      <Github className="w-5 h-5" />
-                      View on GitHub
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
+                      <a
+                        href="https://github.com/prajithravisankar/CBESS-public"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <Github className="w-5 h-5" />
+                        View on GitHub
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
 
-              {/* Odysseyelp Project */}
-              <Card className="bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-indigo-500/10 border-cyan-500/30 backdrop-blur-sm hover:from-cyan-500/15 hover:via-blue-500/15 hover:to-indigo-500/15 transition-all duration-300 overflow-hidden group">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <CardTitle className="text-white text-3xl mb-3 flex items-center gap-3">
-                        Odysseyelp
+              {/* Odysseyelp Project - Compact Card */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Card className="bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-indigo-500/10 border-cyan-500/30 backdrop-blur-sm hover:from-cyan-500/15 hover:via-blue-500/15 hover:to-indigo-500/15 transition-all duration-300 cursor-pointer group">
+                    <CardHeader>
+                      <div className="flex items-start justify-between mb-3">
                         <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/50">
                           AI-Powered
                         </Badge>
+                        <Star className="w-5 h-5 text-yellow-400" />
+                      </div>
+                      <CardTitle className="text-white text-xl mb-2">
+                        Odysseyelp
                       </CardTitle>
-                      <CardDescription className="text-lg text-slate-300">
+                      <CardDescription className="text-slate-400 line-clamp-2">
                         Collaborative Trip Planning & Discovery Application
                       </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-slate-400 text-sm line-clamp-3 mb-4">
+                        An AI-powered collaborative trip planning and discovery
+                        application with real-time business data and interactive
+                        mapping.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <Badge
+                          variant="outline"
+                          className="border-cyan-500/40 text-cyan-300 bg-cyan-500/10 text-xs"
+                        >
+                          Next.js
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-blue-500/40 text-blue-300 bg-blue-500/10 text-xs"
+                        >
+                          Gemini AI
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-indigo-500/40 text-indigo-300 bg-indigo-500/10 text-xs"
+                        >
+                          Mapbox
+                        </Badge>
+                      </div>
+                      <Button
+                        variant="outline"
+                        className="w-full border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/10 group-hover:border-cyan-500/50"
+                      >
+                        View Details
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto bg-slate-900 border-cyan-500/30">
+                  <DialogHeader>
+                    <DialogTitle className="text-3xl text-white flex items-center gap-3">
+                      Odysseyelp
+                      <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/50">
+                        AI-Powered
+                      </Badge>
+                    </DialogTitle>
+                    <DialogDescription className="text-lg text-slate-300">
+                      Collaborative Trip Planning & Discovery Application
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="space-y-6 mt-4">
+                    <div>
+                      <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                        <Code2 className="w-4 h-4 text-cyan-400" />
+                        Overview
+                      </h4>
+                      <p className="text-slate-300 leading-relaxed">
+                        An AI-powered collaborative trip planning and discovery
+                        application that helps users create, share, and explore
+                        personalized and real-world location itineraries.
+                        Leverages Yelp Fusion API for real-time business data
+                        (ratings, reviews, opening hours) combined with Google
+                        Gemini AI for structured responses. Features interactive
+                        mapping, group collaboration, and social discovery.
+                      </p>
                     </div>
-                    <Star className="w-7 h-7 text-yellow-400 flex-shrink-0" />
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  {/* Overview */}
-                  <div>
-                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
-                      <Code2 className="w-4 h-4 text-cyan-400" />
-                      Overview
-                    </h4>
-                    <p className="text-slate-300 leading-relaxed">
-                      An AI-powered collaborative trip planning and discovery
-                      application that helps users create, share, and explore
-                      personalized and real-world location itineraries.
-                      Leverages Yelp Fusion API for real-time business data
-                      (ratings, reviews, opening hours) combined with Google
-                      Gemini AI for structured responses. Features interactive
-                      mapping, group collaboration, and social discovery.
-                    </p>
-                  </div>
 
-                  {/* Key Achievements */}
-                  <div>
-                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
-                      <Award className="w-4 h-4 text-blue-400" />
-                      Key Achievements
-                    </h4>
-                    <ul className="text-slate-300 leading-relaxed space-y-2">
-                      <li className="flex items-start gap-2">
-                        <span className="text-cyan-400 mt-1">•</span>
-                        <span>
-                          Built a multi-stage AI workflow to generate real
-                          itineraries: preferences + user prompt → Gemini prompt
-                          shaping → Yelp JSON results → Gemini field extraction
-                          for UI rendering.
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-400 mt-1">•</span>
-                        <span>
-                          Implemented chat-page pipeline with a multi-step
-                          preference form that collects constraints and produces
-                          an "ultimate prompt" for higher-quality itinerary
-                          generation.
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-indigo-400 mt-1">•</span>
-                        <span>
-                          Developed itinerary plan cards styled like YouTube
-                          video cards with live Mapbox map-tile thumbnails, plus
-                          a detailed itinerary viewer for user-created trips.
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-cyan-400 mt-1">•</span>
-                        <span>
-                          Shipped Explore (social discovery) features enabling
-                          like/dislike (mutually exclusive) and comments on
-                          published itineraries; also built the landing page.
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  {/* Technologies */}
-                  <div>
-                    <h4 className="text-white font-semibold mb-3">
-                      Tech Stack
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      <Badge
-                        variant="outline"
-                        className="border-cyan-500/40 text-cyan-300 bg-cyan-500/10"
-                      >
-                        Next.js
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-blue-500/40 text-blue-300 bg-blue-500/10"
-                      >
-                        React
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-indigo-500/40 text-indigo-300 bg-indigo-500/10"
-                      >
-                        TypeScript
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-cyan-500/40 text-cyan-300 bg-cyan-500/10"
-                      >
-                        Mapbox GL
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-red-500/40 text-red-300 bg-red-500/10"
-                      >
-                        Yelp Fusion API
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-purple-500/40 text-purple-300 bg-purple-500/10"
-                      >
-                        Google Gemini AI
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-green-500/40 text-green-300 bg-green-500/10"
-                      >
-                        AI Workflow
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-blue-500/40 text-blue-300 bg-blue-500/10"
-                      >
-                        Interactive Maps
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-pink-500/40 text-pink-300 bg-pink-500/10"
-                      >
-                        Social Features
-                      </Badge>
+                    <div>
+                      <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                        <Award className="w-4 h-4 text-blue-400" />
+                        Key Achievements
+                      </h4>
+                      <ul className="text-slate-300 leading-relaxed space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="text-cyan-400 mt-1">•</span>
+                          <span>
+                            Built a multi-stage AI workflow to generate real
+                            itineraries: preferences + user prompt → Gemini
+                            prompt shaping → Yelp JSON results → Gemini field
+                            extraction for UI rendering.
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-blue-400 mt-1">•</span>
+                          <span>
+                            Implemented chat-page pipeline with a multi-step
+                            preference form that collects constraints and
+                            produces an "ultimate prompt" for higher-quality
+                            itinerary generation.
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-indigo-400 mt-1">•</span>
+                          <span>
+                            Developed itinerary plan cards styled like YouTube
+                            video cards with live Mapbox map-tile thumbnails,
+                            plus a detailed itinerary viewer for user-created
+                            trips.
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-cyan-400 mt-1">•</span>
+                          <span>
+                            Shipped Explore (social discovery) features enabling
+                            like/dislike (mutually exclusive) and comments on
+                            published itineraries; also built the landing page.
+                          </span>
+                        </li>
+                      </ul>
                     </div>
-                  </div>
 
-                  {/* Embedded Video Demo */}
-                  <div className="space-y-3">
-                    <h4 className="text-white font-semibold flex items-center gap-2">
-                      <ExternalLink className="w-4 h-4 text-cyan-400" />
-                      Live Demo
-                    </h4>
-                    <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-cyan-500/30">
-                      <iframe
-                        className="absolute inset-0 w-full h-full"
-                        src="https://www.youtube.com/embed/eiIcP8STSYU"
-                        title="Odysseyelp Demo - AI-Powered Trip Planning"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      ></iframe>
+                    <div>
+                      <h4 className="text-white font-semibold mb-3">
+                        Tech Stack
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge
+                          variant="outline"
+                          className="border-cyan-500/40 text-cyan-300 bg-cyan-500/10"
+                        >
+                          Next.js
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-blue-500/40 text-blue-300 bg-blue-500/10"
+                        >
+                          React
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-indigo-500/40 text-indigo-300 bg-indigo-500/10"
+                        >
+                          TypeScript
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-cyan-500/40 text-cyan-300 bg-cyan-500/10"
+                        >
+                          Mapbox GL
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-red-500/40 text-red-300 bg-red-500/10"
+                        >
+                          Yelp Fusion API
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-purple-500/40 text-purple-300 bg-purple-500/10"
+                        >
+                          Google Gemini AI
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-green-500/40 text-green-300 bg-green-500/10"
+                        >
+                          AI Workflow
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-blue-500/40 text-blue-300 bg-blue-500/10"
+                        >
+                          Interactive Maps
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-pink-500/40 text-pink-300 bg-pink-500/10"
+                        >
+                          Social Features
+                        </Badge>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* GitHub Link */}
-                  <Button
-                    className="w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 hover:from-cyan-600 hover:via-blue-600 hover:to-indigo-600 border-0 text-white font-semibold"
-                    asChild
-                  >
-                    <a
-                      href="https://github.com/srijanravisankar/odysseyelp"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
+                    <div className="space-y-3">
+                      <h4 className="text-white font-semibold flex items-center gap-2">
+                        <ExternalLink className="w-4 h-4 text-cyan-400" />
+                        Live Demo
+                      </h4>
+                      <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-cyan-500/30">
+                        <iframe
+                          className="absolute inset-0 w-full h-full"
+                          src="https://www.youtube.com/embed/eiIcP8STSYU"
+                          title="Odysseyelp Demo - AI-Powered Trip Planning"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                    </div>
+
+                    <Button
+                      className="w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 hover:from-cyan-600 hover:via-blue-600 hover:to-indigo-600 border-0 text-white font-semibold"
+                      asChild
                     >
-                      <Github className="w-5 h-5" />
-                      View on GitHub
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
+                      <a
+                        href="https://github.com/srijanravisankar/odysseyelp"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <Github className="w-5 h-5" />
+                        View on GitHub
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
 
-              {/* Wallet Backend Project */}
-              <Card className="bg-gradient-to-br from-green-500/10 via-emerald-500/10 to-teal-500/10 border-green-500/30 backdrop-blur-sm hover:from-green-500/15 hover:via-emerald-500/15 hover:to-teal-500/15 transition-all duration-300 overflow-hidden group">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <CardTitle className="text-white text-3xl mb-3 flex items-center gap-3">
-                        Wallet Backend
+              {/* Wallet Backend Project - Compact Card */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Card className="bg-gradient-to-br from-green-500/10 via-emerald-500/10 to-teal-500/10 border-green-500/30 backdrop-blur-sm hover:from-green-500/15 hover:via-emerald-500/15 hover:to-teal-500/15 transition-all duration-300 cursor-pointer group">
+                    <CardHeader>
+                      <div className="flex items-start justify-between mb-3">
                         <Badge className="bg-green-500/20 text-green-300 border-green-500/50">
                           REST API
                         </Badge>
+                        <Star className="w-5 h-5 text-yellow-400" />
+                      </div>
+                      <CardTitle className="text-white text-xl mb-2">
+                        Wallet Backend
                       </CardTitle>
-                      <CardDescription className="text-lg text-slate-300">
+                      <CardDescription className="text-slate-400 line-clamp-2">
                         Personal Finance Management System (Class Project)
                       </CardDescription>
-                    </div>
-                    <Star className="w-7 h-7 text-yellow-400 flex-shrink-0" />
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  {/* Overview */}
-                  <div>
-                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
-                      <Code2 className="w-4 h-4 text-green-400" />
-                      Overview
-                    </h4>
-                    <p className="text-slate-300 leading-relaxed">
-                      A Personal Finance Management System built as a class
-                      project for COMP 4411 - Programming Languages at Lakehead
-                      University. Demonstrates various programming paradigms
-                      including Object-Oriented, Procedural, and Concurrent
-                      programming using Kotlin and the Ktor framework. Features
-                      complete CRUD operations for transactions and budgets with
-                      automated database management.
-                    </p>
-                  </div>
-
-                  {/* Key Achievements */}
-                  <div>
-                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
-                      <Award className="w-4 h-4 text-emerald-400" />
-                      Key Achievements
-                    </h4>
-                    <ul className="text-slate-300 leading-relaxed space-y-2">
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-400 mt-1">•</span>
-                        <span>
-                          Built REST endpoints (CRUD) for Transactions and
-                          Budgets with JSON serialization and clean route
-                          grouping (e.g., /transactions, /budgets).
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-emerald-400 mt-1">•</span>
-                        <span>
-                          Automated database initialization on server startup:
-                          created tables if missing and defined custom
-                          PostgreSQL ENUMs (e.g., transaction type, period type)
-                          for data integrity.
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-teal-400 mt-1">•</span>
-                        <span>
-                          Prevented SQL injection using prepared statements with
-                          placeholders across inserts/updates; dockerized
-                          PostgreSQL for consistent local dev environments.
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-green-400 mt-1">•</span>
-                        <span>
-                          Benchmarked POST /transactions: 10 requests with
-                          response times 17–142ms (~40ms average) during MVP
-                          validation.
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  {/* Technologies */}
-                  <div>
-                    <h4 className="text-white font-semibold mb-3">
-                      Tech Stack
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      <Badge
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-slate-400 text-sm line-clamp-3 mb-4">
+                        A Personal Finance Management System built with Kotlin
+                        and Ktor, demonstrating various programming paradigms.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <Badge
+                          variant="outline"
+                          className="border-green-500/40 text-green-300 bg-green-500/10 text-xs"
+                        >
+                          Kotlin
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-emerald-500/40 text-emerald-300 bg-emerald-500/10 text-xs"
+                        >
+                          Ktor
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-teal-500/40 text-teal-300 bg-teal-500/10 text-xs"
+                        >
+                          PostgreSQL
+                        </Badge>
+                      </div>
+                      <Button
                         variant="outline"
-                        className="border-green-500/40 text-green-300 bg-green-500/10"
+                        className="w-full border-green-500/30 text-green-300 hover:bg-green-500/10 group-hover:border-green-500/50"
                       >
-                        Kotlin
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-emerald-500/40 text-emerald-300 bg-emerald-500/10"
-                      >
-                        Ktor
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-teal-500/40 text-teal-300 bg-teal-500/10"
-                      >
-                        PostgreSQL
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-blue-500/40 text-blue-300 bg-blue-500/10"
-                      >
-                        Docker
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-orange-500/40 text-orange-300 bg-orange-500/10"
-                      >
-                        Postman
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-green-500/40 text-green-300 bg-green-500/10"
-                      >
-                        JDBC
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-emerald-500/40 text-emerald-300 bg-emerald-500/10"
-                      >
-                        kotlinx-serialization
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-purple-500/40 text-purple-300 bg-purple-500/10"
-                      >
+                        View Details
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto bg-slate-900 border-green-500/30">
+                  <DialogHeader>
+                    <DialogTitle className="text-3xl text-white flex items-center gap-3">
+                      Wallet Backend
+                      <Badge className="bg-green-500/20 text-green-300 border-green-500/50">
                         REST API
                       </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-red-500/40 text-red-300 bg-red-500/10"
-                      >
-                        SQL Security
-                      </Badge>
+                    </DialogTitle>
+                    <DialogDescription className="text-lg text-slate-300">
+                      Personal Finance Management System (Class Project)
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="space-y-6 mt-4">
+                    <div>
+                      <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                        <Code2 className="w-4 h-4 text-green-400" />
+                        Overview
+                      </h4>
+                      <p className="text-slate-300 leading-relaxed">
+                        A Personal Finance Management System built as a class
+                        project for COMP 4411 - Programming Languages at
+                        Lakehead University. Demonstrates various programming
+                        paradigms including Object-Oriented, Procedural, and
+                        Concurrent programming using Kotlin and the Ktor
+                        framework. Features complete CRUD operations for
+                        transactions and budgets with automated database
+                        management.
+                      </p>
                     </div>
-                  </div>
 
-                  {/* Embedded Video Demo */}
-                  <div className="space-y-3">
-                    <h4 className="text-white font-semibold flex items-center gap-2">
-                      <ExternalLink className="w-4 h-4 text-green-400" />
-                      Live Demo
-                    </h4>
-                    <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-green-500/30">
-                      <iframe
-                        className="absolute inset-0 w-full h-full"
-                        src="https://www.youtube.com/embed/DRINEXERaqk"
-                        title="Wallet Backend Demo - Personal Finance API"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      ></iframe>
+                    <div>
+                      <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                        <Award className="w-4 h-4 text-emerald-400" />
+                        Key Achievements
+                      </h4>
+                      <ul className="text-slate-300 leading-relaxed space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="text-green-400 mt-1">•</span>
+                          <span>
+                            Built REST endpoints (CRUD) for Transactions and
+                            Budgets with JSON serialization and clean route
+                            grouping (e.g., /transactions, /budgets).
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-emerald-400 mt-1">•</span>
+                          <span>
+                            Automated database initialization on server startup:
+                            created tables if missing and defined custom
+                            PostgreSQL ENUMs (e.g., transaction type, period
+                            type) for data integrity.
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-teal-400 mt-1">•</span>
+                          <span>
+                            Prevented SQL injection using prepared statements
+                            with placeholders across inserts/updates; dockerized
+                            PostgreSQL for consistent local dev environments.
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-green-400 mt-1">•</span>
+                          <span>
+                            Benchmarked POST /transactions: 10 requests with
+                            response times 17–142ms (~40ms average) during MVP
+                            validation.
+                          </span>
+                        </li>
+                      </ul>
                     </div>
-                  </div>
 
-                  {/* GitHub Link */}
-                  <Button
-                    className="w-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 hover:from-green-600 hover:via-emerald-600 hover:to-teal-600 border-0 text-white font-semibold"
-                    asChild
-                  >
-                    <a
-                      href="https://github.com/prajithravisankar/wallet-backend"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
+                    <div>
+                      <h4 className="text-white font-semibold mb-3">
+                        Tech Stack
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge
+                          variant="outline"
+                          className="border-green-500/40 text-green-300 bg-green-500/10"
+                        >
+                          Kotlin
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-emerald-500/40 text-emerald-300 bg-emerald-500/10"
+                        >
+                          Ktor
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-teal-500/40 text-teal-300 bg-teal-500/10"
+                        >
+                          PostgreSQL
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-blue-500/40 text-blue-300 bg-blue-500/10"
+                        >
+                          Docker
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-orange-500/40 text-orange-300 bg-orange-500/10"
+                        >
+                          Postman
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-green-500/40 text-green-300 bg-green-500/10"
+                        >
+                          JDBC
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-emerald-500/40 text-emerald-300 bg-emerald-500/10"
+                        >
+                          kotlinx-serialization
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-purple-500/40 text-purple-300 bg-purple-500/10"
+                        >
+                          REST API
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-red-500/40 text-red-300 bg-red-500/10"
+                        >
+                          SQL Security
+                        </Badge>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <h4 className="text-white font-semibold flex items-center gap-2">
+                        <ExternalLink className="w-4 h-4 text-green-400" />
+                        Live Demo
+                      </h4>
+                      <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-green-500/30">
+                        <iframe
+                          className="absolute inset-0 w-full h-full"
+                          src="https://www.youtube.com/embed/DRINEXERaqk"
+                          title="Wallet Backend Demo - Personal Finance API"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                    </div>
+
+                    <Button
+                      className="w-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 hover:from-green-600 hover:via-emerald-600 hover:to-teal-600 border-0 text-white font-semibold"
+                      asChild
                     >
-                      <Github className="w-5 h-5" />
-                      View on GitHub
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
+                      <a
+                        href="https://github.com/prajithravisankar/wallet-backend"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <Github className="w-5 h-5" />
+                        View on GitHub
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </section>

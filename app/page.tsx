@@ -108,6 +108,24 @@ export default function Home() {
                     <strong>Current GPA:</strong> 85.7%
                   </li>
                 </ul>
+
+                {/* Skills tags added from resume (compact, recruiter-friendly) */}
+                <div className="mt-4">
+                  <p className="font-semibold mb-2">Skills</p>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="secondary">Git</Badge>
+                    <Badge variant="secondary">Docker</Badge>
+                    <Badge variant="secondary">Linux</Badge>
+                    <Badge variant="secondary">Go</Badge>
+                    <Badge variant="secondary">Python</Badge>
+                    <Badge variant="secondary">TypeScript</Badge>
+                    <Badge variant="secondary">React</Badge>
+                    <Badge variant="secondary">Cloud</Badge>
+                    <Badge variant="secondary">SQL</Badge>
+                    <Badge variant="secondary">Cryptography</Badge>
+                    <Badge variant="secondary">Big Data</Badge>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 

@@ -19,6 +19,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  CarouselIndicators,
   type CarouselApi,
 } from "@/components/ui/carousel";
 import {
@@ -499,6 +500,7 @@ export default function Home() {
             </CarouselContent>
             <CarouselPrevious className="left-10 top-25 cursor-pointer border-dashed border-yellow-500 bg-blue-200" />
             <CarouselNext className="right-10 top-25 cursor-pointer border-dashed border-yellow-500 bg-blue-200" />
+            <CarouselIndicators className="w-full" />
           </Carousel>
         </div>
       </section>

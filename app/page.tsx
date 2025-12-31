@@ -42,6 +42,14 @@ import {
   Calendar,
   Building,
   Star,
+  Server,
+  Layout,
+  Database,
+  Container,
+  Cloud,
+  GitBranch,
+  CheckCircle2,
+  Brain,
 } from "lucide-react";
 
 export default function Home() {
@@ -105,59 +113,8 @@ export default function Home() {
           </div>
         </nav>
 
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
-                <Sparkles className="w-4 h-4 text-yellow-400" />
-                <span className="text-sm text-slate-300">
-                  Computer Science Student & Open Source Contributor
-                </span>
-              </div>
-
-              <h1 className="text-6xl md:text-8xl font-bold">
-                <span className="bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent">
-                  Building the
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-                  Future of Tech
-                </span>
-              </h1>
-
-              <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-                Computer Science student at Lakehead University passionate about
-                cloud computing, cryptography, and building impactful
-                open-source solutions.
-              </p>
-
-              <div className="flex items-center justify-center gap-4 pt-4">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 border-0"
-                >
-                  <a href="#contact" className="flex items-center gap-2">
-                    Get in Touch
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white/10 hover:bg-white/5"
-                >
-                  <a href="#projects" className="flex items-center gap-2">
-                    View Projects
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* About Section - Bento Grid */}
-        <section id="about" className="py-20 px-6">
+        <section id="about" className="pt-32 pb-20 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -165,9 +122,6 @@ export default function Home() {
                   About Me
                 </span>
               </h2>
-              <p className="text-slate-400 text-lg">
-                Getting to know me better
-              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -184,126 +138,100 @@ export default function Home() {
                         PR
                       </AvatarFallback>
                     </Avatar>
-                    <div className="flex-1">
-                      <CardTitle className="text-2xl mb-2 text-white">
+                    <div className="flex-1 mt-7">
+                      <CardTitle className="text-4xl mb-2 text-white align-middle">
                         Prajith Ravisankar
                       </CardTitle>
-                      <CardDescription className="text-slate-400 text-base mb-4">
-                        Hackathon Enthusiast • Open Source Contributor
-                      </CardDescription>
-                      <div className="flex flex-wrap gap-2">
-                        <Badge
-                          variant="secondary"
-                          className="bg-purple-500/20 text-purple-300 border-purple-500/30"
-                        >
-                          <Code2 className="w-3 h-3 mr-1" />
-                          Full Stack Dev
-                        </Badge>
-                        <Badge
-                          variant="secondary"
-                          className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30"
-                        >
-                          <Award className="w-3 h-3 mr-1" />
-                          Cloud Enthusiast
-                        </Badge>
-                      </div>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-slate-300 leading-relaxed">
-                    I'm a passionate computer science student specializing in
-                    cloud computing, big data, and cryptography. I love
-                    contributing to open source projects and building solutions
-                    that make a difference. Currently maintaining an 85.7% GPA
-                    while actively participating in hackathons and community
-                    projects.
-                  </p>
-                </CardContent>
-              </Card>
-
-              {/* Skills Card */}
-              <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-yellow-400" />
-                    Skills
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
                   <div className="flex flex-wrap gap-2">
                     <Badge
-                      variant="outline"
-                      className="border-white/20 text-slate-300"
+                      variant="secondary"
+                      className="bg-purple-500/20 text-purple-300 border-purple-500/30"
                     >
-                      Git
+                      <Code2 className="w-3 h-3 mr-1" />
+                      Full-Stack Developer
                     </Badge>
+
                     <Badge
-                      variant="outline"
-                      className="border-white/20 text-slate-300"
+                      variant="secondary"
+                      className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30"
                     >
-                      Docker
+                      <Server className="w-3 h-3 mr-1" />
+                      Django/DRF APIs
                     </Badge>
+
                     <Badge
-                      variant="outline"
-                      className="border-white/20 text-slate-300"
+                      variant="secondary"
+                      className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30"
                     >
-                      Linux
+                      <Layout className="w-3 h-3 mr-1" />
+                      Next.js / React
                     </Badge>
+
                     <Badge
-                      variant="outline"
-                      className="border-white/20 text-slate-300"
+                      variant="secondary"
+                      className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30"
                     >
-                      Go
+                      <Database className="w-3 h-3 mr-1" />
+                      PostgreSQL / SQL
                     </Badge>
+
                     <Badge
-                      variant="outline"
-                      className="border-white/20 text-slate-300"
+                      variant="secondary"
+                      className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30"
                     >
-                      Python
+                      <Container className="w-3 h-3 mr-1" />
+                      Docker / DevOps
                     </Badge>
+
                     <Badge
-                      variant="outline"
-                      className="border-white/20 text-slate-300"
+                      variant="secondary"
+                      className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30"
                     >
-                      TypeScript
+                      <Cloud className="w-3 h-3 mr-1" />
+                      AWS (S3 / CloudFront)
                     </Badge>
+
                     <Badge
-                      variant="outline"
-                      className="border-white/20 text-slate-300"
+                      variant="secondary"
+                      className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30"
                     >
-                      React
+                      <GitBranch className="w-3 h-3 mr-1" />
+                      CI/CD (GitHub Actions)
                     </Badge>
+
                     <Badge
-                      variant="outline"
-                      className="border-white/20 text-slate-300"
+                      variant="secondary"
+                      className="bg-amber-500/20 text-amber-300 border-amber-500/30"
                     >
-                      Cloud
+                      <CheckCircle2 className="w-3 h-3 mr-1" />
+                      Testing / TDD
                     </Badge>
+
                     <Badge
-                      variant="outline"
-                      className="border-white/20 text-slate-300"
+                      variant="secondary"
+                      className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30"
                     >
-                      SQL
+                      <Brain className="w-3 h-3 mr-1" />
+                      Maps + AI Integrations
                     </Badge>
+
                     <Badge
-                      variant="outline"
-                      className="border-white/20 text-slate-300"
+                      variant="secondary"
+                      className="bg-purple-500/20 text-purple-300 border-purple-500/30"
                     >
-                      Cryptography
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="border-white/20 text-slate-300"
-                    >
-                      Big Data
+                      <Award className="w-3 h-3 mr-1" />
+                      Open Source Contributor
                     </Badge>
                   </div>
                 </CardContent>
               </Card>
 
               {/* Education Card */}
-              <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300">
+              <Card className="lg:col-span-1 bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-2">
                     <GraduationCap className="w-5 h-5 text-purple-400" />
@@ -335,10 +263,10 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              {/* Contact Card */}
+              {/* Contact Card - Full Width */}
               <Card
                 id="contact"
-                className="lg:col-span-2 bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border-purple-500/30 backdrop-blur-sm hover:from-purple-500/15 hover:to-cyan-500/15 transition-all duration-300"
+                className="lg:col-span-3 bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border-purple-500/30 backdrop-blur-sm hover:from-purple-500/15 hover:to-cyan-500/15 transition-all duration-300"
               >
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-2">
@@ -411,13 +339,18 @@ export default function Home() {
                     <p className="text-sm text-slate-400">Email</p>
                     <div className="flex flex-col gap-2">
                       <a
-                        href="mailto:pravisa1@lakeheadu.ca?subject=Inquiry from Portfolio"
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=pravisa1@lakeheadu.ca&su=Inquiry%20from%20Portfolio"
+                        target="_blank"
+                        rel="noreferrer"
                         className="text-cyan-400 hover:text-cyan-300 transition-colors text-sm"
                       >
-                        pravisa1@lakeheadu.ca
+                        <div>pravisa1@lakeheadu.ca</div>
                       </a>
+
                       <a
-                        href="mailto:prajithravisankar@gmail.com?subject=Inquiry from Portfolio"
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=prajithravisankar@gmail.com&su=Inquiry%20from%20Portfolio"
+                        target="_blank"
+                        rel="noreferrer"
                         className="text-cyan-400 hover:text-cyan-300 transition-colors text-sm"
                       >
                         prajithravisankar@gmail.com

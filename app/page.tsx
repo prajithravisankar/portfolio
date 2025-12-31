@@ -1521,6 +1521,184 @@ export default function Home() {
                   </Button>
                 </CardContent>
               </Card>
+
+              {/* Wallet Backend Project */}
+              <Card className="bg-gradient-to-br from-green-500/10 via-emerald-500/10 to-teal-500/10 border-green-500/30 backdrop-blur-sm hover:from-green-500/15 hover:via-emerald-500/15 hover:to-teal-500/15 transition-all duration-300 overflow-hidden group">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <CardTitle className="text-white text-3xl mb-3 flex items-center gap-3">
+                        Wallet Backend
+                        <Badge className="bg-green-500/20 text-green-300 border-green-500/50">
+                          REST API
+                        </Badge>
+                      </CardTitle>
+                      <CardDescription className="text-lg text-slate-300">
+                        Personal Finance Management System (Class Project)
+                      </CardDescription>
+                    </div>
+                    <Star className="w-7 h-7 text-yellow-400 flex-shrink-0" />
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {/* Overview */}
+                  <div>
+                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                      <Code2 className="w-4 h-4 text-green-400" />
+                      Overview
+                    </h4>
+                    <p className="text-slate-300 leading-relaxed">
+                      A Personal Finance Management System built as a class
+                      project for COMP 4411 - Programming Languages at Lakehead
+                      University. Demonstrates various programming paradigms
+                      including Object-Oriented, Procedural, and Concurrent
+                      programming using Kotlin and the Ktor framework. Features
+                      complete CRUD operations for transactions and budgets with
+                      automated database management.
+                    </p>
+                  </div>
+
+                  {/* Key Achievements */}
+                  <div>
+                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                      <Award className="w-4 h-4 text-emerald-400" />
+                      Key Achievements
+                    </h4>
+                    <ul className="text-slate-300 leading-relaxed space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-400 mt-1">•</span>
+                        <span>
+                          Built REST endpoints (CRUD) for Transactions and
+                          Budgets with JSON serialization and clean route
+                          grouping (e.g., /transactions, /budgets).
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-emerald-400 mt-1">•</span>
+                        <span>
+                          Automated database initialization on server startup:
+                          created tables if missing and defined custom
+                          PostgreSQL ENUMs (e.g., transaction type, period type)
+                          for data integrity.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-teal-400 mt-1">•</span>
+                        <span>
+                          Prevented SQL injection using prepared statements with
+                          placeholders across inserts/updates; dockerized
+                          PostgreSQL for consistent local dev environments.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-400 mt-1">•</span>
+                        <span>
+                          Benchmarked POST /transactions: 10 requests with
+                          response times 17–142ms (~40ms average) during MVP
+                          validation.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Technologies */}
+                  <div>
+                    <h4 className="text-white font-semibold mb-3">
+                      Tech Stack
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge
+                        variant="outline"
+                        className="border-green-500/40 text-green-300 bg-green-500/10"
+                      >
+                        Kotlin
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-emerald-500/40 text-emerald-300 bg-emerald-500/10"
+                      >
+                        Ktor
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-teal-500/40 text-teal-300 bg-teal-500/10"
+                      >
+                        PostgreSQL
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-blue-500/40 text-blue-300 bg-blue-500/10"
+                      >
+                        Docker
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-orange-500/40 text-orange-300 bg-orange-500/10"
+                      >
+                        Postman
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-green-500/40 text-green-300 bg-green-500/10"
+                      >
+                        JDBC
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-emerald-500/40 text-emerald-300 bg-emerald-500/10"
+                      >
+                        kotlinx-serialization
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-purple-500/40 text-purple-300 bg-purple-500/10"
+                      >
+                        REST API
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-red-500/40 text-red-300 bg-red-500/10"
+                      >
+                        SQL Security
+                      </Badge>
+                    </div>
+                  </div>
+
+                  {/* Embedded Video Demo */}
+                  <div className="space-y-3">
+                    <h4 className="text-white font-semibold flex items-center gap-2">
+                      <ExternalLink className="w-4 h-4 text-green-400" />
+                      Live Demo
+                    </h4>
+                    <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-green-500/30">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/DRINEXERaqk"
+                        title="Wallet Backend Demo - Personal Finance API"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </div>
+
+                  {/* GitHub Link */}
+                  <Button
+                    className="w-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 hover:from-green-600 hover:via-emerald-600 hover:to-teal-600 border-0 text-white font-semibold"
+                    asChild
+                  >
+                    <a
+                      href="https://github.com/prajithravisankar/wallet-backend"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <Github className="w-5 h-5" />
+                      View on GitHub
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>

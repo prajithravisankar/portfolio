@@ -1156,95 +1156,368 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-500/30 backdrop-blur-sm hover:from-purple-500/15 hover:to-pink-500/15 transition-all duration-300">
+            <div className="grid grid-cols-1 gap-8">
+              {/* CBESS Project */}
+              <Card className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-red-500/10 border-purple-500/30 backdrop-blur-sm hover:from-purple-500/15 hover:via-pink-500/15 hover:to-red-500/15 transition-all duration-300 overflow-hidden group">
                 <CardHeader>
                   <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle className="text-white text-2xl mb-2">
-                        Personal Portfolio
+                    <div className="flex-1">
+                      <CardTitle className="text-white text-3xl mb-3 flex items-center gap-3">
+                        CBESS
+                        <Badge className="bg-red-500/20 text-red-300 border-red-500/50">
+                          Cryptography
+                        </Badge>
                       </CardTitle>
-                      <CardDescription>
-                        Modern web portfolio built with Next.js
+                      <CardDescription className="text-lg text-slate-300">
+                        Chess-Based Encryption and Steganographic System
                       </CardDescription>
                     </div>
-                    <Star className="w-6 h-6 text-yellow-400" />
+                    <Star className="w-7 h-7 text-yellow-400 flex-shrink-0" />
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-slate-300 leading-relaxed">
-                    A modern, responsive portfolio website showcasing my
-                    projects, skills, and achievements. Built with Next.js,
-                    TypeScript, and Tailwind CSS.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge
-                      variant="outline"
-                      className="border-purple-500/30 text-purple-300"
-                    >
-                      Next.js
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="border-purple-500/30 text-purple-300"
-                    >
-                      TypeScript
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="border-purple-500/30 text-purple-300"
-                    >
-                      Tailwind CSS
-                    </Badge>
+                <CardContent className="space-y-6">
+                  {/* Overview */}
+                  <div>
+                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                      <Code2 className="w-4 h-4 text-purple-400" />
+                      Overview
+                    </h4>
+                    <p className="text-slate-300 leading-relaxed">
+                      A secure communication tool that combines cryptography and
+                      steganography using chess games as a key source. Encrypts
+                      messages and hides both the encrypted message and the key
+                      within chessboard images, enabling discreet and secure
+                      information transfer without traditional key exchange
+                      methods.
+                    </p>
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 border-0">
-                    View Project
+
+                  {/* Problem Solved */}
+                  <div>
+                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-pink-400" />
+                      Problem Solved
+                    </h4>
+                    <ul className="text-slate-300 leading-relaxed space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span className="text-purple-400 mt-1">•</span>
+                        <span>
+                          <strong>Eliminates Traditional Key Exchange:</strong>{" "}
+                          The key is derived from a shared chess game, so
+                          there's no need to explicitly transmit a key.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-pink-400 mt-1">•</span>
+                        <span>
+                          <strong>
+                            Combines Encryption and Steganography:
+                          </strong>{" "}
+                          The encrypted message and the key source (chess moves)
+                          are hidden within images, making communication less
+                          conspicuous.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Key Achievements */}
+                  <div>
+                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                      <Award className="w-4 h-4 text-cyan-400" />
+                      Key Achievements
+                    </h4>
+                    <ul className="text-slate-300 leading-relaxed space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span className="text-purple-400 mt-1">•</span>
+                        <span>
+                          Engineered novel cryptographic system using chess
+                          gameplay as key derivation source, eliminating
+                          vulnerable key transmission by reconstructing AES-256
+                          keys from algebraic move notation.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-pink-400 mt-1">•</span>
+                        <span>
+                          Developed dual-interface application (GUI/CLI) with
+                          integrated Stockfish chess engine and automated
+                          steganographic embedding of encrypted payloads into
+                          chessboard images using least significant bit
+                          manipulation.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Technologies */}
+                  <div>
+                    <h4 className="text-white font-semibold mb-3">
+                      Tech Stack
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge
+                        variant="outline"
+                        className="border-purple-500/40 text-purple-300 bg-purple-500/10"
+                      >
+                        Python
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-pink-500/40 text-pink-300 bg-pink-500/10"
+                      >
+                        Tkinter
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-red-500/40 text-red-300 bg-red-500/10"
+                      >
+                        AES-256
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-orange-500/40 text-orange-300 bg-orange-500/10"
+                      >
+                        Cryptography
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-purple-500/40 text-purple-300 bg-purple-500/10"
+                      >
+                        LSB Steganography
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-cyan-500/40 text-cyan-300 bg-cyan-500/10"
+                      >
+                        Stockfish AI
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-blue-500/40 text-blue-300 bg-blue-500/10"
+                      >
+                        PIL/Pillow
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-green-500/40 text-green-300 bg-green-500/10"
+                      >
+                        Image Processing
+                      </Badge>
+                    </div>
+                  </div>
+
+                  {/* Embedded Video Demo */}
+                  <div className="space-y-3">
+                    <h4 className="text-white font-semibold flex items-center gap-2">
+                      <ExternalLink className="w-4 h-4 text-red-400" />
+                      Live Demo
+                    </h4>
+                    <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-purple-500/30">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/DY3e02OyIUc"
+                        title="CBESS Demo - Chess-Based Encryption System"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </div>
+
+                  {/* GitHub Link */}
+                  <Button
+                    className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 border-0 text-white font-semibold"
+                    asChild
+                  >
+                    <a
+                      href="https://github.com/prajithravisankar/CBESS-public"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <Github className="w-5 h-5" />
+                      View on GitHub
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
                   </Button>
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/30 backdrop-blur-sm hover:from-cyan-500/15 hover:to-blue-500/15 transition-all duration-300">
+              {/* Odysseyelp Project */}
+              <Card className="bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-indigo-500/10 border-cyan-500/30 backdrop-blur-sm hover:from-cyan-500/15 hover:via-blue-500/15 hover:to-indigo-500/15 transition-all duration-300 overflow-hidden group">
                 <CardHeader>
                   <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle className="text-white text-2xl mb-2">
-                        Cloud Infrastructure
+                    <div className="flex-1">
+                      <CardTitle className="text-white text-3xl mb-3 flex items-center gap-3">
+                        Odysseyelp
+                        <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/50">
+                          AI-Powered
+                        </Badge>
                       </CardTitle>
-                      <CardDescription>
-                        Scalable cloud solutions with Docker & K8s
+                      <CardDescription className="text-lg text-slate-300">
+                        Collaborative Trip Planning & Discovery Application
                       </CardDescription>
                     </div>
-                    <Star className="w-6 h-6 text-yellow-400" />
+                    <Star className="w-7 h-7 text-yellow-400 flex-shrink-0" />
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-slate-300 leading-relaxed">
-                    Designed and implemented containerized microservices
-                    architecture using Docker and Kubernetes for high
-                    availability and scalability.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge
-                      variant="outline"
-                      className="border-cyan-500/30 text-cyan-300"
-                    >
-                      Docker
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="border-cyan-500/30 text-cyan-300"
-                    >
-                      Kubernetes
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="border-cyan-500/30 text-cyan-300"
-                    >
-                      Cloud
-                    </Badge>
+                <CardContent className="space-y-6">
+                  {/* Overview */}
+                  <div>
+                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                      <Code2 className="w-4 h-4 text-cyan-400" />
+                      Overview
+                    </h4>
+                    <p className="text-slate-300 leading-relaxed">
+                      An AI-powered collaborative trip planning and discovery
+                      application that helps users create, share, and explore
+                      personalized and real-world location itineraries.
+                      Leverages Yelp Fusion API for real-time business data
+                      (ratings, reviews, opening hours) combined with Google
+                      Gemini AI for structured responses. Features interactive
+                      mapping, group collaboration, and social discovery.
+                    </p>
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 border-0">
-                    View Project
+
+                  {/* Key Achievements */}
+                  <div>
+                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                      <Award className="w-4 h-4 text-blue-400" />
+                      Key Achievements
+                    </h4>
+                    <ul className="text-slate-300 leading-relaxed space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span className="text-cyan-400 mt-1">•</span>
+                        <span>
+                          Built a multi-stage AI workflow to generate real
+                          itineraries: preferences + user prompt → Gemini prompt
+                          shaping → Yelp JSON results → Gemini field extraction
+                          for UI rendering.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-400 mt-1">•</span>
+                        <span>
+                          Implemented chat-page pipeline with a multi-step
+                          preference form that collects constraints and produces
+                          an "ultimate prompt" for higher-quality itinerary
+                          generation.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-400 mt-1">•</span>
+                        <span>
+                          Developed itinerary plan cards styled like YouTube
+                          video cards with live Mapbox map-tile thumbnails, plus
+                          a detailed itinerary viewer for user-created trips.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-cyan-400 mt-1">•</span>
+                        <span>
+                          Shipped Explore (social discovery) features enabling
+                          like/dislike (mutually exclusive) and comments on
+                          published itineraries; also built the landing page.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Technologies */}
+                  <div>
+                    <h4 className="text-white font-semibold mb-3">
+                      Tech Stack
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge
+                        variant="outline"
+                        className="border-cyan-500/40 text-cyan-300 bg-cyan-500/10"
+                      >
+                        Next.js
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-blue-500/40 text-blue-300 bg-blue-500/10"
+                      >
+                        React
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-indigo-500/40 text-indigo-300 bg-indigo-500/10"
+                      >
+                        TypeScript
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-cyan-500/40 text-cyan-300 bg-cyan-500/10"
+                      >
+                        Mapbox GL
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-red-500/40 text-red-300 bg-red-500/10"
+                      >
+                        Yelp Fusion API
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-purple-500/40 text-purple-300 bg-purple-500/10"
+                      >
+                        Google Gemini AI
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-green-500/40 text-green-300 bg-green-500/10"
+                      >
+                        AI Workflow
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-blue-500/40 text-blue-300 bg-blue-500/10"
+                      >
+                        Interactive Maps
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-pink-500/40 text-pink-300 bg-pink-500/10"
+                      >
+                        Social Features
+                      </Badge>
+                    </div>
+                  </div>
+
+                  {/* Embedded Video Demo */}
+                  <div className="space-y-3">
+                    <h4 className="text-white font-semibold flex items-center gap-2">
+                      <ExternalLink className="w-4 h-4 text-cyan-400" />
+                      Live Demo
+                    </h4>
+                    <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-cyan-500/30">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/eiIcP8STSYU"
+                        title="Odysseyelp Demo - AI-Powered Trip Planning"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </div>
+
+                  {/* GitHub Link */}
+                  <Button
+                    className="w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 hover:from-cyan-600 hover:via-blue-600 hover:to-indigo-600 border-0 text-white font-semibold"
+                    asChild
+                  >
+                    <a
+                      href="https://github.com/srijanravisankar/odysseyelp"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <Github className="w-5 h-5" />
+                      View on GitHub
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
                   </Button>
                 </CardContent>
               </Card>

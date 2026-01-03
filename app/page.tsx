@@ -1030,7 +1030,7 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              {/* PR 6 */}
+              {/* PR 6
               <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 hover:-translate-y-1">
                 <CardHeader>
                   <div className="flex items-start justify-between">
@@ -1078,7 +1078,7 @@ export default function Home() {
                     </a>
                   </Button>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
           </div>
         </section>

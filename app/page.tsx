@@ -1912,7 +1912,7 @@ export default function Home() {
                     <CardHeader>
                       <div className="flex items-start justify-between mb-3">
                         <Badge className="bg-white/5 text-white/80 border-white/10">
-                          Hackathon Winner
+                          Hackathon Submission
                         </Badge>
                         <Star className="w-5 h-5 text-white/80" />
                       </div>

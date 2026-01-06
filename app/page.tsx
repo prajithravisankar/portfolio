@@ -1097,7 +1097,7 @@ export default function Home() {
                   <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.06] transition-all duration-300 cursor-pointer group min-h-[520px] flex flex-col">
                     <CardHeader>
                       <div className="flex items-start justify-between mb-3">
-                        <Badge className="bg-white/20 text-white/80 border-white/50">
+                        <Badge className="bg-white/5 text-white/80 border-white/10">
                           Cryptography
                         </Badge>
                         <Star className="w-5 h-5 text-white/80" />

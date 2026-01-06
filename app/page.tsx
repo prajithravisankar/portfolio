@@ -1912,7 +1912,7 @@ export default function Home() {
                     <CardHeader>
                       <div className="flex items-start justify-between mb-3">
                         <Badge className="bg-white/5 text-white/80 border-white/10">
-                          Hackathon Submission
+                          MLH Hackathon Submission
                         </Badge>
                         <Star className="w-5 h-5 text-white/80" />
                       </div>
@@ -2022,7 +2022,7 @@ export default function Home() {
                     <DialogTitle className="text-3xl text-white flex items-center gap-3">
                       Hacker Introspector
                       <Badge className="bg-white/5 text-white/80 border-white/10">
-                        Hackathon Winner
+                        MLH Hackathon Submission
                       </Badge>
                     </DialogTitle>
                     <DialogDescription className="text-lg text-slate-300">

@@ -1904,6 +1904,416 @@ export default function Home() {
                   </div>
                 </DialogContent>
               </Dialog>
+
+              {/* Hacker Introspector Project - Compact Card */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 cursor-pointer group min-h-[520px] flex flex-col">
+                    <CardHeader>
+                      <div className="flex items-start justify-between mb-3">
+                        <Badge className="bg-white/5 text-white/80 border-white/10">
+                          Hackathon Winner
+                        </Badge>
+                        <Star className="w-5 h-5 text-white/80" />
+                      </div>
+                      <CardTitle className="text-white text-xl mb-2">
+                        Hacker Introspector
+                      </CardTitle>
+                      <CardDescription className="text-slate-400 line-clamp-2">
+                        AI-Powered GitHub Repository Analytics & Voice
+                        Conversation Platform
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="flex-1 flex flex-col justify-between">
+                      <div>
+                        {/* Embedded Video */}
+                        <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-white/10 mb-4 bg-black">
+                          <iframe
+                            className="absolute inset-0 w-full h-full"
+                            src="https://www.youtube.com/embed/rhbpku8DxKQ"
+                            title="Hacker Introspector Demo"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          ></iframe>
+                        </div>
+                        <p className="text-slate-400 text-sm line-clamp-2 mb-4">
+                          Built for MLH Hack for Hackers 2026. Analyze GitHub
+                          repositories with AI, chat about code, and have voice
+                          conversations powered by Gemini AI and ElevenLabs.
+                        </p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            Go
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            Next.js 16
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            React 19
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            TypeScript
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            Gemini AI
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            ElevenLabs TTS
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            GitHub API
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            SQLite
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            Docker
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            Vercel
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            Vultr VPS
+                          </Badge>
+                        </div>
+                      </div>
+                      <Button className="w-full bg-transparent border border-white/10 text-white">
+                        View Details
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent className="max-w-7xl sm:max-w-7xl w-full max-h-[90vh] overflow-y-auto bg-black border-white/10">
+                  <DialogHeader>
+                    <DialogTitle className="text-3xl text-white flex items-center gap-3">
+                      Hacker Introspector
+                      <Badge className="bg-white/5 text-white/80 border-white/10">
+                        Hackathon Winner
+                      </Badge>
+                    </DialogTitle>
+                    <DialogDescription className="text-lg text-slate-300">
+                      AI-Powered GitHub Repository Analytics & Voice
+                      Conversation Platform
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="space-y-6">
+                    {/* Demo Video */}
+                    <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-white/10">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/rhbpku8DxKQ"
+                        title="Hacker Introspector Demo"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+
+                    {/* Technology Stack */}
+                    <div>
+                      <h4 className="text-white font-semibold mb-3">
+                        Technology Stack
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Go 1.25
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Next.js 16
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          React 19
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          TypeScript
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Gin Framework
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Gemini AI 2.5 Flash
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          ElevenLabs TTS
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          GitHub API
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          GORM + SQLite
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Docker
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Vercel
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Vultr VPS
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Tailwind CSS
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Framer Motion
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Recharts
+                        </Badge>
+                      </div>
+                    </div>
+
+                    <Separator className="bg-white/10" />
+
+                    {/* Project Description */}
+                    <div>
+                      <p className="text-slate-300 leading-relaxed">
+                        Built for <strong>MLH Hack for Hackers 2026</strong>,
+                        Hacker Introspector is an AI-powered platform that
+                        provides deep GitHub repository analytics and enables
+                        natural conversations about code through both text and
+                        voice interfaces.
+                      </p>
+                    </div>
+
+                    {/* Key Features */}
+                    <div>
+                      <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                        <Code2 className="w-4 h-4 text-white" />
+                        Key Features
+                      </h4>
+                      <ul className="text-slate-300 leading-relaxed space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Repository Analytics:</strong> Deep GitHub
+                            analysis with commit heatmaps, language breakdown,
+                            contributor insights, and AI-powered code quality
+                            scoring
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>AI Smart Summary:</strong> Automatic project
+                            archetype detection, one-liner descriptions, key
+                            technology extraction, and complexity analysis
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Chat Mode:</strong> Select up to 10 files
+                            and have natural conversations about the code with
+                            maintained conversation history
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Voice Conversation:</strong> Real-time voice
+                            calls with AI using Web Speech API for recognition
+                            and ElevenLabs for natural TTS responses
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Interactive Visualizations:</strong> Data
+                            visualization with Recharts for commit patterns,
+                            language distribution, and contributor statistics
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Architecture */}
+                    <div>
+                      <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-white" />
+                        Architecture
+                      </h4>
+                      <ul className="text-slate-300 leading-relaxed space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Frontend:</strong> Next.js 16 + React 19 +
+                            TypeScript deployed on Vercel with Tailwind CSS,
+                            Framer Motion for animations, and Recharts for data
+                            visualization
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Backend:</strong> Go + Gin framework
+                            deployed on Vultr VPS with SQLite caching, GitHub
+                            API integration, Gemini AI for analysis, and
+                            ElevenLabs TTS
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>API Design:</strong> RESTful API with
+                            endpoints for repository analysis, smart summaries,
+                            file tree retrieval, text chat, and voice chat with
+                            TTS
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Deployment:</strong> Dockerized backend on
+                            Vultr VPS, frontend on Vercel with CORS-enabled
+                            communication and environment-based configuration
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Key Achievements */}
+                    <div>
+                      <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                        <Award className="w-4 h-4 text-white" />
+                        Key Achievements
+                      </h4>
+                      <ul className="text-slate-300 leading-relaxed space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            Developed full-stack application combining Go
+                            backend with Next.js frontend, integrating multiple
+                            AI services (Gemini, ElevenLabs) for advanced code
+                            analysis and voice interaction
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            Implemented real-time voice conversation feature
+                            with Web Speech API for speech recognition and
+                            ElevenLabs TTS for natural voice responses, enabling
+                            interactive code discussions
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            Built comprehensive GitHub analytics system with
+                            commit heatmaps, language breakdown visualizations,
+                            and AI-powered code quality assessment using Gemini
+                            2.5 Flash
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            Deployed production-ready application with Docker
+                            containerization on Vultr VPS for backend and Vercel
+                            for frontend, implementing SQLite caching for
+                            optimal performance
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <Button
+                      className="w-full bg-transparent border border-white/10 text-white font-semibold"
+                      asChild
+                    >
+                      <a
+                        href="https://github.com/prajithravisankar/mlh_hack_for_hackers_hacker_introspector"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <Github className="w-5 h-5" />
+                        View on GitHub
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </section>

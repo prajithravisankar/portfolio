@@ -2314,6 +2314,431 @@ export default function Home() {
                   </div>
                 </DialogContent>
               </Dialog>
+
+              {/* CleverCourse Project - Compact Card */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 cursor-pointer group min-h-[520px] flex flex-col">
+                    <CardHeader>
+                      <div className="flex items-start justify-between mb-3">
+                        <Badge className="bg-white/5 text-white/80 border-white/10">
+                          🏆 United Hacks V6 Honorable Mentions II
+                        </Badge>
+                        <Star className="w-5 h-5 text-white/80" />
+                      </div>
+                      <CardTitle className="text-white text-xl mb-2">
+                        CleverCourse
+                      </CardTitle>
+                      <CardDescription className="text-slate-400 line-clamp-2">
+                        AI-Powered Gamified Micro-Courses for ADHD Learners
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="flex-1 flex flex-col justify-between">
+                      <div>
+                        {/* Embedded Video */}
+                        <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-white/10 mb-4 bg-black">
+                          <iframe
+                            className="absolute inset-0 w-full h-full"
+                            src="https://www.youtube.com/embed/Aa0wN1PN2Ng"
+                            title="CleverCourse Demo"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          ></iframe>
+                        </div>
+                        <p className="text-slate-400 text-sm line-clamp-2 mb-4">
+                          Built for United Hacks V6. AI-powered educational
+                          platform generating personalized, gamified
+                          micro-courses designed for ADHD learners.
+                        </p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            Next.js 15
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            React 19
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            TypeScript
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            Gemini 2.0 Flash
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            Drizzle ORM
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            Turso
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            React Flow
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            Zustand
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className="border-white/10 text-white/80 bg-transparent text-xs"
+                          >
+                            Vercel
+                          </Badge>
+                        </div>
+                      </div>
+                      <Button className="w-full bg-transparent border border-white/10 text-white">
+                        View Details
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent className="max-w-7xl sm:max-w-7xl w-full max-h-[90vh] overflow-y-auto bg-black border-white/10">
+                  <DialogHeader>
+                    <DialogTitle className="text-3xl text-white flex items-center gap-3">
+                      CleverCourse
+                      <Badge className="bg-white/5 text-white/80 border-white/10">
+                        🏆 United Hacks V6 Honorable Mentions II
+                      </Badge>
+                    </DialogTitle>
+                    <DialogDescription className="text-lg text-slate-300">
+                      AI-Powered Gamified Micro-Courses for ADHD Learners
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="space-y-6">
+                    {/* Demo Video */}
+                    <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-white/10">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/Aa0wN1PN2Ng"
+                        title="CleverCourse Demo"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+
+                    {/* Award Banner */}
+                    <div className="p-4 rounded-lg bg-white/5 border border-white/10">
+                      <div className="flex items-center gap-3">
+                        <Award className="w-6 h-6 text-white" />
+                        <div>
+                          <p className="text-white font-semibold">
+                            Moonshot Prize Honorable Mentions II
+                          </p>
+                          <p className="text-slate-400 text-sm">
+                            United Hacks V6
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Technology Stack */}
+                    <div>
+                      <h4 className="text-white font-semibold mb-3">
+                        Technology Stack
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Next.js 15
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          React 19
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          TypeScript
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Google Gemini 2.0 Flash
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Drizzle ORM
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Turso (libSQL)
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Zustand
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Tailwind CSS
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Radix UI / shadcn/ui
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Framer Motion
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          React Flow
+                        </Badge>
+                        <Badge
+                          variant="outline"
+                          className="border-white/10 text-white/80 bg-transparent"
+                        >
+                          Vercel
+                        </Badge>
+                      </div>
+                    </div>
+
+                    <Separator className="bg-white/10" />
+
+                    {/* Project Description */}
+                    <div>
+                      <p className="text-slate-300 leading-relaxed">
+                        Built for <strong>United Hacks V6</strong>, CleverCourse
+                        is an AI-powered educational platform that generates
+                        personalized, gamified micro-courses designed
+                        specifically for learners with ADHD. Won{" "}
+                        <strong>Moonshot Prize Honorable Mentions II</strong>.
+                      </p>
+                    </div>
+
+                    {/* Key Features */}
+                    <div>
+                      <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                        <Code2 className="w-4 h-4 text-white" />
+                        Key Features
+                      </h4>
+                      <ul className="text-slate-300 leading-relaxed space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>AI Course Generation:</strong> Input any
+                            topic, learning goal, skill level, and preferred
+                            tone to generate complete structured courses with
+                            articles, study materials, and quizzes using Google
+                            Gemini 2.0 Flash
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>ADHD-Friendly Design:</strong> Bite-sized
+                            article pages, variable XP rewards, streak systems,
+                            and achievement unlocks designed around ADHD
+                            dopamine research
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Interactive Study Materials:</strong>{" "}
+                            Auto-generated flashcards for active recall and
+                            visual mind maps for concept connection, rendered
+                            with React Flow
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Context-Aware AI Chat:</strong> Floating
+                            chat panel with text selection integration—highlight
+                            any content and ask questions with full course
+                            context
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Gamification Engine:</strong> XP system with
+                            bonus chance multipliers, leveling progression,
+                            daily streaks with freeze protection, sparks
+                            currency, and unlockable achievements
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Course Visualization:</strong> Interactive
+                            node-based graph view showing entire course
+                            structure with clickable navigation
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Architecture */}
+                    <div>
+                      <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-white" />
+                        Architecture
+                      </h4>
+                      <ul className="text-slate-300 leading-relaxed space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Frontend:</strong> Next.js 15 with React 19
+                            and TypeScript, using App Router and Server
+                            Components, deployed on Vercel with Tailwind CSS,
+                            Radix UI primitives, and Framer Motion for
+                            animations
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Database:</strong> Drizzle ORM with Turso
+                            (libSQL) for serverless SQLite, featuring 15+ tables
+                            for users, courses, sections, content, progress
+                            tracking, and gamification state
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>AI Integration:</strong> Google Gemini 2.0
+                            Flash for iterative course generation, producing
+                            structured JSON outputs for articles, flashcards,
+                            mind maps, and quiz questions
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>State Management:</strong> Zustand stores
+                            for course navigation, gamification state, chat
+                            context, and authentication with cookie-based
+                            sessions
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            <strong>Deployment:</strong> Serverless deployment
+                            on Vercel with Turso cloud database for persistence
+                            across serverless function invocations
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Key Achievements */}
+                    <div>
+                      <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                        <Award className="w-4 h-4 text-white" />
+                        Key Achievements
+                      </h4>
+                      <ul className="text-slate-300 leading-relaxed space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            Developed AI-powered course generation system that
+                            iteratively builds complete learning experiences
+                            with articles, study materials, and assessments from
+                            a single topic input
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            Implemented research-backed gamification engine with
+                            variable reward schedules, streak mechanics, and
+                            achievement systems specifically designed to engage
+                            ADHD learners
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            Built context-aware AI chat assistant that
+                            understands current course content, enabling natural
+                            conversations about learning material through text
+                            selection or keyboard shortcuts
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            Created interactive course visualization using React
+                            Flow, providing eagle-view navigation of course
+                            structure with clickable nodes for direct content
+                            access
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-white mt-1">•</span>
+                          <span>
+                            Deployed production-ready serverless application
+                            with Turso cloud database, bcrypt authentication,
+                            and comprehensive progress tracking across 15+
+                            database tables
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <Button
+                      className="w-full bg-transparent border border-white/10 text-white font-semibold"
+                      asChild
+                    >
+                      <a
+                        href="https://github.com/srijanravisankar/CleverCourse"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <Github className="w-5 h-5" />
+                        View on GitHub
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </section>

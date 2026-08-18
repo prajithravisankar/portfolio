@@ -38,7 +38,7 @@ export const PAGE_BACKDROP = "fixed inset-0 overflow-hidden pointer-events-none"
 /** Inner (currently empty) gradient plate inside the backdrop. (1x) */
 export const PAGE_BACKDROP_INNER = "absolute inset-0 pointer-events-none";
 /** Content layer stacked above the backdrop. (1x) */
-export const PAGE_CONTENT = "relative z-10";
+export const PAGE_CONTENT = "relative z-10 pt-12";
 
 /* ---------------------------------------------------------------------------
  * NAVIGATION BAR
@@ -54,7 +54,7 @@ export const NAV_ROW = "flex items-center justify-between";
 /** Wordmark. (1x) */
 export const NAV_BRAND = "text-xl font-bold text-white";
 /** Desktop-only anchor list. (1x) */
-export const NAV_LINK_ROW = "hidden md:flex items-center gap-8";
+export const NAV_LINK_ROW = "hidden lg:flex items-center gap-8";
 /** A single nav anchor. (5x) */
 export const NAV_LINK = "text-sm text-white/80 hover:text-white transition-colors";
 /** The "Contact" Button in the nav. (1x) */
@@ -419,6 +419,20 @@ export const EXPERIENCE_HEADER_ROW =
 export const EXPERIENCE_ROLE_TITLE = "text-white text-lg";
 /** Employer + program badges directly under the role title. (new) */
 export const EXPERIENCE_META_ROW = "flex flex-wrap items-center gap-2 mt-1";
+
+/* ---------------------------------------------------------------------------
+ * MOBILE NAV
+ * ------------------------------------------------------------------------- */
+
+/** Hamburger / close button, shown only below the desktop breakpoint. (new) */
+export const NAV_MOBILE_TOGGLE =
+  "lg:hidden -mr-2 p-2 text-white/80 hover:text-white transition-colors";
+/** Expanded mobile panel holding the stacked links. (new) */
+export const NAV_MOBILE_PANEL =
+  "lg:hidden flex flex-col gap-1 border-t border-white/10 pt-3 pb-2";
+/** One stacked link inside the mobile panel. (new) */
+export const NAV_MOBILE_LINK =
+  "py-2 text-sm text-white/80 hover:text-white transition-colors";
 
 /* ---------------------------------------------------------------------------
  * SECTION CTA

@@ -52,5 +52,20 @@ export const youtubeSection: YouTubeSectionCopy = {
   id: "youtube",
   heading: "Latest Videos",
   subheading: "Building in public on YouTube",
-  ctaLabel: "Visit the channel",
+  ctaLabel: "See all videos",
 };
+
+/** Copy for the dedicated /videos archive page. */
+export const youtubeArchive = {
+  route: "/videos",
+  title: "All Videos",
+  subtitle: "Every episode of building in public",
+  backLabel: "Back to portfolio",
+  channelCtaLabel: "Watch on YouTube",
+  /**
+   * Shown under the grid. The Atom feed caps at 15 entries with no paging, so
+   * anything older than that is only reachable on YouTube itself.
+   */
+  olderNote:
+    "YouTube's public feed serves the 15 most recent uploads. Earlier episodes live on the channel.",
+} as const;

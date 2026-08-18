@@ -130,9 +130,23 @@ export async function getRecentVideos(
       return [];
     }
 
-    return parseFeed(await response.text()).slice(0, limit);
+    const videos = parseFeed(await response.text());
+    return Number.isFinite(limit) ? videos.slice(0, limit) : videos;
   } catch (error) {
     console.error("[youtube] failed to load feed:", error);
     return [];
   }
+}
+
+/**
+ * Every video the feed exposes, newest first.
+ *
+ * NOTE: YouTube's Atom feed returns at most 15 entries and offers no paging
+ * parameter, so this is "everything publicly reachable without an API key",
+ * not necessarily the channel's entire back catalogue. Older uploads require
+ * the YouTube Data API v3 (API key + quota) via the channel's uploads
+ * playlist, whose id is the channel id with the "UC" prefix swapped for "UU".
+ */
+export async function getAllVideos(): Promise<YouTubeVideo[]> {
+  return getRecentVideos(Number.POSITIVE_INFINITY);
 }

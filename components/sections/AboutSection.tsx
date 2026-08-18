@@ -34,7 +34,7 @@ import {
   ROW_BUTTONS,
   ROW_PROFILE_HEADER,
   SECTION_CONTAINER,
-  SECTION_SHELL_FIRST,
+  SECTION_SHELL,
   SEPARATOR,
   STACK_MD,
   STACK_SM,
@@ -75,15 +75,16 @@ export interface AboutSectionProps {
   /** Content override. Defaults to the real About content. */
   content?: AboutContent;
   /**
-   * <section> classes. Defaults to SECTION_SHELL_FIRST ("pt-32 pb-20 px-6"),
-   * which is what the original About section uses.
+   * <section> classes. Defaults to the shared SECTION_SHELL ("py-20 px-6").
+   * The nav-clearing offset lives on PAGE_CONTENT rather than here, so
+   * whichever section renders first is spaced correctly.
    */
   className?: string;
 }
 
 export function AboutSection({
   content = aboutContent,
-  className = SECTION_SHELL_FIRST,
+  className = SECTION_SHELL,
 }: AboutSectionProps = {}) {
   const { heading, profile, education, contact } = content;
   const EducationIcon = education.icon;

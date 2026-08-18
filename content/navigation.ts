@@ -58,6 +58,7 @@ export interface NavContent {
 export const navContent: NavContent = {
   brand: "Prajith Ravisankar",
   links: [
+    { href: "#youtube", label: "Videos" },
     { href: "#about", label: "About" },
     { href: "#experience", label: "Experience" },
     { href: "#education", label: "Education" },

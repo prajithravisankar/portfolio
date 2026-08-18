@@ -1,4 +1,5 @@
-import { ExternalLink, Youtube } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/portfolio/SectionHeader";
@@ -8,12 +9,11 @@ import {
   GRID_CARDS_3,
   ICON_XS,
   LINK_ROW_CENTERED,
-  REL_EXTERNAL,
   SECTION_CONTAINER,
   SECTION_CTA_ROW,
   SECTION_SHELL,
 } from "@/components/portfolio/tokens";
-import { youtubeChannel, youtubeSection } from "@/content/youtube";
+import { youtubeArchive, youtubeSection } from "@/content/youtube";
 import { getRecentVideos } from "@/lib/youtube";
 
 /**
@@ -50,16 +50,10 @@ export async function YouTubeSection() {
 
         <div className={SECTION_CTA_ROW}>
           <Button variant="outline" className={BUTTON_OUTLINE} asChild>
-            <a
-              href={youtubeChannel.url}
-              target="_blank"
-              rel={REL_EXTERNAL}
-              className={LINK_ROW_CENTERED}
-            >
-              <Youtube className={ICON_XS} />
+            <Link href={youtubeArchive.route} className={LINK_ROW_CENTERED}>
               {youtubeSection.ctaLabel}
-              <ExternalLink className={ICON_XS} />
-            </a>
+              <ArrowRight className={ICON_XS} />
+            </Link>
           </Button>
         </div>
       </div>

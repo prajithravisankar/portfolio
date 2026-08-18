@@ -39,13 +39,13 @@ export default function Home() {
       {/* Content */}
       <div className={PAGE_CONTENT}>
         <SiteNav />
+        <YouTubeSection />
         <AboutSection />
         <ExperienceSection />
         <EducationSection />
         <CertificationsSection />
         <OpenSourceSection />
         <ProjectsSection />
-        <YouTubeSection />
 
         {/* Footer */}
         <footer className={FOOTER}>

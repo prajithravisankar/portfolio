@@ -421,6 +421,13 @@ export const EXPERIENCE_ROLE_TITLE = "text-white text-lg";
 export const EXPERIENCE_META_ROW = "flex flex-wrap items-center gap-2 mt-1";
 
 /* ---------------------------------------------------------------------------
+ * SECTION CTA
+ * ------------------------------------------------------------------------- */
+
+/** Centred call-to-action row below a section's grid. (new) */
+export const SECTION_CTA_ROW = "flex justify-center mt-12";
+
+/* ---------------------------------------------------------------------------
  * NON-CLASS CONSTANTS
  * ------------------------------------------------------------------------- */
 

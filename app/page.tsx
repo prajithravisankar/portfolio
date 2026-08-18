@@ -26,6 +26,7 @@ import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { OpenSourceSection } from "@/components/sections/OpenSourceSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SiteNav } from "@/components/sections/SiteNav";
+import { YouTubeSection } from "@/components/sections/YouTubeSection";
 
 export default function Home() {
   return (
@@ -44,6 +45,7 @@ export default function Home() {
         <CertificationsSection />
         <OpenSourceSection />
         <ProjectsSection />
+        <YouTubeSection />
 
         {/* Footer */}
         <footer className={FOOTER}>

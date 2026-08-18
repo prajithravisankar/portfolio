@@ -405,6 +405,22 @@ export const FOOTER_SOCIAL_ROW = "flex items-center gap-4";
 export const FOOTER_LEGAL = "text-center text-slate-500 text-sm";
 
 /* ---------------------------------------------------------------------------
+ * EXPERIENCE
+ * ------------------------------------------------------------------------- */
+
+/**
+ * Experience card header: role/employer block on the left, date range pinned
+ * right. Wraps to stacked on narrow screens so long role titles never collide
+ * with the date. (new)
+ */
+export const EXPERIENCE_HEADER_ROW =
+  "flex flex-wrap items-start justify-between gap-4";
+/** Role title inside an experience card — no flex, so the text can wrap. (new) */
+export const EXPERIENCE_ROLE_TITLE = "text-white text-lg";
+/** Employer + program badges directly under the role title. (new) */
+export const EXPERIENCE_META_ROW = "flex flex-wrap items-center gap-2 mt-1";
+
+/* ---------------------------------------------------------------------------
  * NON-CLASS CONSTANTS
  * ------------------------------------------------------------------------- */
 

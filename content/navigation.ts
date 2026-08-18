@@ -49,7 +49,7 @@ export interface NavCta extends Hideable {
 export interface NavContent {
   /** Wordmark text. */
   brand: string;
-  /** The 5 desktop anchors, in order. */
+  /** The desktop anchors, in page order. */
   links: NavLink[];
   /** The Contact button. */
   cta: NavCta;
@@ -59,6 +59,7 @@ export const navContent: NavContent = {
   brand: "Prajith Ravisankar",
   links: [
     { href: "#about", label: "About" },
+    { href: "#experience", label: "Experience" },
     { href: "#education", label: "Education" },
     { href: "#certifications", label: "Certifications" },
     { href: "#opensource", label: "Open Source" },

@@ -1,251 +1,207 @@
 import { ExternalLink } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { SectionBackdrop } from "@/components/portfolio/SectionBackdrop";
 import { SectionHeader } from "@/components/portfolio/SectionHeader";
+import { sectionArt } from "@/content/section-art";
+import { aboutContent, type AboutContent } from "@/content/profile";
 import {
-  AVATAR,
-  AVATAR_FALLBACK,
-  BADGE_ICON,
-  BADGE_SOLID,
-  BLOCK_OFFSET,
-  BUTTON_OUTLINE,
-  CARD_SURFACE_SOFT,
-  CARD_TITLE_DISPLAY,
-  CARD_TITLE_ICON,
-  COL_LINKS,
-  COL_PROFILE_NAME,
-  GRID_CARDS_3,
-  ICON_MD_ACCENT,
-  ICON_SM,
-  ICON_SM_ACCENT,
+  ABOUT_AVATAR,
+  ABOUT_AVATAR_FALLBACK,
+  ABOUT_BIO,
+  ABOUT_BLOCK,
+  ABOUT_BLOCK_LABEL,
+  ABOUT_BLOCK_STACK,
+  ABOUT_COL_LEFT,
+  ABOUT_COL_RIGHT,
+  ABOUT_COL_SPACER,
+  ABOUT_EMAIL,
+  ABOUT_GRID,
+  ABOUT_IDENTITY_ROW,
+  ABOUT_LINK,
+  ABOUT_LINK_ROW,
+  ABOUT_MUTED,
+  ABOUT_NAME,
+  ABOUT_SKILL,
+  ABOUT_SKILL_ICON,
+  ABOUT_SKILL_ROW,
+  ABOUT_STAT_ROW,
+  ABOUT_STAT_VALUE,
+  ABOUT_STRONG,
   ICON_XS,
-  LINK_ACCENT_SM,
-  LINK_ROW,
-  ROW_BETWEEN,
-  ROW_BUTTONS,
-  ROW_PROFILE_HEADER,
+  SECTION_ART_SCRIM_EDGES,
+  SECTION_ART_SCRIM_SOFT,
   SECTION_CONTAINER,
   SECTION_SHELL,
-  SEPARATOR,
-  STACK_MD,
-  STACK_SM,
-  STACK_TEXT_SM,
-  STACK_XS,
-  TAG_ROW,
-  TEXT_ACCENT,
-  TEXT_BODY_MUTED_LG,
-  TEXT_MUTED,
-  TEXT_MUTED_SM,
-  TEXT_MUTED_SM_ALT,
-  TEXT_ROW_LIGHT,
-  TEXT_STRONG,
 } from "@/components/portfolio/tokens";
-import { aboutContent, type AboutContent } from "@/content/profile";
 
 /**
- * The "About Me" bento grid (lines 115-365 of the original page.tsx): a
- * profile card spanning 2 columns, an education summary card spanning 1, and a
- * full-width contact card carrying `id="contact"`.
+ * The About section, set on the lake artwork.
  *
- * Fidelity notes:
- * - All three cards use CARD_SURFACE_SOFT (hover:bg-white/[0.06]). Later
- *   sections use CARD_SURFACE (hover:bg-white/[0.07]) — do not unify.
- * - The profile card is the only one with the `group` class. Nothing consumes
- *   it today; it is kept because the original has it.
- * - CardContent spacing is NOT uniform: profile has no className, education
- *   uses `space-y-3`, contact uses `space-y-4`.
- * - The section's padding is `pt-32 pb-20 px-6` (clears the fixed nav) rather
- *   than the `py-20 px-6` every other section uses, so it is a prop with that
- *   default instead of the shared SECTION_SHELL token.
- * - The Boot.dev button has no leading icon; the two email links use
- *   rel="noreferrer" and only the first wraps its text in a <div>.
+ * COMPOSITION. This illustration is centre-weighted — the sun, the peak and
+ * the rower are all mid-frame — so unlike the videos section (photographer on
+ * the right, content on the left) the copy is split to the LEFT and RIGHT
+ * thirds and the middle four columns are deliberately left empty. Those outer
+ * thirds are dark mountain and pine, which is where reversed text reads best
+ * anyway, so the layout and the painting want the same thing.
+ *
+ * NO CARDS. The previous version was three glass panels in a bento grid. Over
+ * a painting this open, panels are clutter: they cover the view and add a
+ * second visual system on top of the one already there. The copy is set
+ * directly on the artwork and separated by hairlines instead.
+ *
+ * The scrim is the edge vignette rather than the default top-to-bottom wash,
+ * which would have dimmed exactly the part worth looking at.
  *
  * Presentational only — no hooks, so no "use client".
  */
 export interface AboutSectionProps {
   /** Content override. Defaults to the real About content. */
   content?: AboutContent;
-  /**
-   * <section> classes. Defaults to the shared SECTION_SHELL ("py-20 px-6").
-   * The nav-clearing offset lives on PAGE_CONTENT rather than here, so
-   * whichever section renders first is spaced correctly.
-   */
-  className?: string;
 }
 
 export function AboutSection({
   content = aboutContent,
-  className = SECTION_SHELL,
 }: AboutSectionProps = {}) {
   const { heading, profile, education, contact } = content;
   const EducationIcon = education.icon;
   const ContactIcon = contact.icon;
   const LocationIcon = contact.locationIcon;
 
-  return (
-    <section id={heading.id} className={className}>
-      <div className={SECTION_CONTAINER}>
-        <SectionHeader title={heading.title} subtitle={heading.subtitle} />
+  const skills = profile.skills.filter((skill) => !skill.hidden);
+  const stats = education.stats.filter((stat) => !stat.hidden);
+  const socials = contact.socials.filter((social) => !social.hidden);
+  const emails = contact.emails.filter((email) => !email.hidden);
 
-        <div className={GRID_CARDS_3}>
-          {/* Profile Card - Spans 2 columns */}
-          <Card className={`lg:col-span-2 ${CARD_SURFACE_SOFT} group`}>
-            <CardHeader>
-              <div className={ROW_PROFILE_HEADER}>
-                <Avatar className={AVATAR}>
+  return (
+    <SectionBackdrop
+      art={sectionArt.about}
+      fadeTop={false}
+      fadeBottom={false}
+      scrimClassName={SECTION_ART_SCRIM_EDGES}
+      underScrimClassName={SECTION_ART_SCRIM_SOFT}
+    >
+      <section id={heading.id} className={SECTION_SHELL}>
+        <div className={SECTION_CONTAINER}>
+          <SectionHeader
+            title={heading.title}
+            subtitle={heading.subtitle}
+            onArt
+          />
+
+          <div className={ABOUT_GRID}>
+            {/* Left third — identity and story. */}
+            <div className={ABOUT_COL_LEFT}>
+              <div className={ABOUT_IDENTITY_ROW}>
+                <Avatar className={ABOUT_AVATAR}>
                   <AvatarImage
                     src={profile.avatar.src}
                     alt={profile.avatar.alt}
                   />
-                  <AvatarFallback className={AVATAR_FALLBACK}>
+                  <AvatarFallback className={ABOUT_AVATAR_FALLBACK}>
                     {profile.avatar.fallback}
                   </AvatarFallback>
                 </Avatar>
-                <div className={COL_PROFILE_NAME}>
-                  <CardTitle className={CARD_TITLE_DISPLAY}>
-                    {profile.name}
-                  </CardTitle>
+                <div>
+                  <p className={ABOUT_NAME}>{profile.name}</p>
+                  <p className={ABOUT_MUTED}>{education.degree}</p>
                 </div>
               </div>
-            </CardHeader>
-            <CardContent>
-              <div className={TAG_ROW}>
-                {profile.skills
-                  .filter((skill) => !skill.hidden)
-                  .map((skill) => {
-                    const SkillIcon = skill.icon;
-                    return (
-                      <Badge
-                        key={skill.label}
-                        variant="secondary"
-                        className={BADGE_SOLID}
-                      >
-                        <SkillIcon className={BADGE_ICON} />
-                        {skill.label}
-                      </Badge>
-                    );
-                  })}
-              </div>
 
-              <div className={BLOCK_OFFSET}>
-                <p className={TEXT_BODY_MUTED_LG}>{profile.bio}</p>
-              </div>
-            </CardContent>
-          </Card>
+              <p className={ABOUT_BIO}>{profile.bio}</p>
 
-          {/* Education Card */}
-          <Card className={`lg:col-span-1 ${CARD_SURFACE_SOFT}`}>
-            <CardHeader>
-              <CardTitle className={CARD_TITLE_ICON}>
-                <EducationIcon className={ICON_MD_ACCENT} />
-                {education.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className={STACK_SM}>
-              <div>
-                <p className={TEXT_STRONG}>{education.institution}</p>
-                <p className={TEXT_MUTED_SM_ALT}>{education.degree}</p>
+              <div className={ABOUT_SKILL_ROW}>
+                {skills.map((skill) => {
+                  const SkillIcon = skill.icon;
+                  return (
+                    <span key={skill.label} className={ABOUT_SKILL}>
+                      <SkillIcon className={ABOUT_SKILL_ICON} />
+                      {skill.label}
+                    </span>
+                  );
+                })}
               </div>
-              <Separator className={SEPARATOR} />
-              <div className={STACK_TEXT_SM}>
-                {education.stats
-                  .filter((stat) => !stat.hidden)
-                  .map((stat) => (
-                    <div key={stat.label} className={ROW_BETWEEN}>
-                      <span className={TEXT_MUTED}>{stat.label}</span>
-                      <span
-                        className={stat.emphasized ? TEXT_STRONG : TEXT_ACCENT}
-                      >
-                        {stat.value}
-                      </span>
-                    </div>
-                  ))}
-              </div>
-            </CardContent>
-          </Card>
+            </div>
 
-          {/* Contact Card - Full Width */}
-          <Card id={contact.id} className={`lg:col-span-3 ${CARD_SURFACE_SOFT}`}>
-            <CardHeader>
-              <CardTitle className={CARD_TITLE_ICON}>
-                <ContactIcon className={ICON_MD_ACCENT} />
-                {contact.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className={STACK_MD}>
-              <div className={TEXT_ROW_LIGHT}>
-                <LocationIcon className={ICON_SM_ACCENT} />
-                <span>{contact.location}</span>
-              </div>
+            {/* The view. Intentionally empty — the sun, the peak, the boat. */}
+            <div className={ABOUT_COL_SPACER} aria-hidden="true" />
 
-              <div className={ROW_BUTTONS}>
-                {contact.socials
-                  .filter((social) => !social.hidden)
-                  .map((social) => {
-                    const SocialIcon = social.icon;
-                    return (
-                      <Button
-                        key={social.label}
-                        variant="outline"
-                        size="sm"
-                        className={BUTTON_OUTLINE}
-                        asChild
-                      >
+            {/* Right third — the facts. */}
+            <div className={ABOUT_COL_RIGHT}>
+              <div className={ABOUT_BLOCK_STACK}>
+                <div className={ABOUT_BLOCK}>
+                  <p className={ABOUT_BLOCK_LABEL}>
+                    <EducationIcon className={ICON_XS} />
+                    {education.title}
+                  </p>
+                  <p className={ABOUT_STRONG}>{education.institution}</p>
+                  <p className={ABOUT_MUTED}>{education.degree}</p>
+                  <div className="mt-4 space-y-2">
+                    {stats.map((stat) => (
+                      <div key={stat.label} className={ABOUT_STAT_ROW}>
+                        <span className={ABOUT_MUTED}>{stat.label}</span>
+                        <span className={ABOUT_STAT_VALUE}>{stat.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className={ABOUT_BLOCK} id={contact.id}>
+                  <p className={ABOUT_BLOCK_LABEL}>
+                    <ContactIcon className={ICON_XS} />
+                    {contact.title}
+                  </p>
+                  <p className={`${ABOUT_MUTED} flex items-center gap-2`}>
+                    <LocationIcon className={ICON_XS} />
+                    {contact.location}
+                  </p>
+
+                  <div className={ABOUT_LINK_ROW}>
+                    {socials.map((social) => {
+                      const SocialIcon = social.icon;
+                      return (
                         <a
+                          key={social.href}
                           href={social.href}
                           target={social.external ? "_blank" : undefined}
                           rel={social.rel}
-                          className={LINK_ROW}
+                          className={ABOUT_LINK}
                         >
-                          {SocialIcon ? <SocialIcon className={ICON_SM} /> : null}
+                          {SocialIcon ? (
+                            <SocialIcon className={ICON_XS} />
+                          ) : null}
                           {social.label}
                           {social.showExternalIcon ? (
                             <ExternalLink className={ICON_XS} />
                           ) : null}
                         </a>
-                      </Button>
-                    );
-                  })}
-              </div>
+                      );
+                    })}
+                  </div>
 
-              <Separator className={SEPARATOR} />
-
-              <div className={STACK_XS}>
-                <p className={TEXT_MUTED_SM}>{contact.emailLabel}</p>
-                <div className={COL_LINKS}>
-                  {contact.emails
-                    .filter((email) => !email.hidden)
-                    .map((email) => (
-                      <a
-                        key={email.href}
-                        href={email.href}
-                        target={email.external ? "_blank" : undefined}
-                        rel={email.rel}
-                        className={LINK_ACCENT_SM}
-                      >
-                        {email.wrapInDiv ? (
-                          <div>{email.address}</div>
-                        ) : (
-                          email.address
-                        )}
-                      </a>
-                    ))}
+                  <div className="mt-5">
+                    <p className={ABOUT_BLOCK_LABEL}>{contact.emailLabel}</p>
+                    <div className="space-y-1">
+                      {emails.map((email) => (
+                        <a
+                          key={email.href}
+                          href={email.href}
+                          target={email.external ? "_blank" : undefined}
+                          rel={email.rel}
+                          className={ABOUT_EMAIL}
+                        >
+                          {email.address}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </SectionBackdrop>
   );
 }
 

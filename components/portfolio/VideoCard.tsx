@@ -6,6 +6,9 @@ import type { YouTubeVideo } from "@/lib/youtube";
 import {
   BADGE_SOLID_OVERLAY,
   CARD_LINK_WRAP,
+  CARD_ON_ART,
+  CARD_ON_ART_BODY,
+  CARD_ON_ART_TITLE,
   CARD_SURFACE_MEDIA,
   CARD_TITLE_LG_ICON,
   ICON_HOVER_REVEAL,
@@ -44,15 +47,20 @@ const DATE_FORMAT = new Intl.DateTimeFormat("en-US", {
 
 export interface VideoCardProps {
   video: YouTubeVideo;
+  /**
+   * Render for a section sitting on full-bleed artwork: translucent dark card
+   * instead of paper, reversed type, and a lift on hover.
+   */
+  onArt?: boolean;
 }
 
-export function VideoCard({ video }: VideoCardProps) {
+export function VideoCard({ video, onArt = false }: VideoCardProps) {
   const { url, title, thumbnail, description, published } = video;
   const publishedLabel = DATE_FORMAT.format(new Date(published));
 
   return (
     <a href={url} target="_blank" rel={REL_EXTERNAL} className={CARD_LINK_WRAP}>
-      <Card className={CARD_SURFACE_MEDIA}>
+      <Card className={onArt ? `${CARD_ON_ART} h-full overflow-hidden group cursor-pointer` : CARD_SURFACE_MEDIA}>
         <div className={MEDIA_FRAME}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={thumbnail} alt={title} className={MEDIA_IMAGE} />
@@ -64,14 +72,14 @@ export function VideoCard({ video }: VideoCardProps) {
           </div>
         </div>
         <CardHeader>
-          <CardTitle className={CARD_TITLE_LG_ICON}>
+          <CardTitle className={onArt ? CARD_ON_ART_TITLE : CARD_TITLE_LG_ICON}>
             {title}
             <ExternalLink className={ICON_HOVER_REVEAL} />
           </CardTitle>
         </CardHeader>
         {description ? (
           <CardContent>
-            <p className={TEXT_CLAMP_MUTED}>{description}</p>
+            <p className={onArt ? CARD_ON_ART_BODY : TEXT_CLAMP_MUTED}>{description}</p>
           </CardContent>
         ) : null}
       </Card>

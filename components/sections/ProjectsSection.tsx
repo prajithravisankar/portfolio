@@ -3,7 +3,10 @@
 import { ProjectCard } from "@/components/portfolio/ProjectCard";
 import { SectionHeader } from "@/components/portfolio/SectionHeader";
 import {
-  GRID_CARDS_3,
+  PRJ_COL_CONTENT,
+  PRJ_COL_SPACER,
+  PRJ_GRID,
+  PRJ_ITEMS,
   SECTION_CONTAINER,
   SECTION_SHELL,
 } from "@/components/portfolio/tokens";
@@ -36,12 +39,18 @@ export function ProjectsSection() {
           subtitle={projectsSection.subheading}
         />
 
-        <div className={GRID_CARDS_3}>
+        <div className={PRJ_GRID}>
+          <div className={PRJ_COL_CONTENT}>
+            <div className={PRJ_ITEMS}>
           {projects
             .filter((project) => !project.hidden)
             .map((project) => (
               <ProjectCard key={project.id} project={project} />
-            ))}
+              ))}
+            </div>
+          </div>
+          {/* The figure, the cat, the meadow. Intentionally empty. */}
+          <div className={PRJ_COL_SPACER} aria-hidden="true" />
         </div>
       </div>
     </section>

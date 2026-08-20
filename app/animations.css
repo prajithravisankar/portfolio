@@ -38,3 +38,87 @@ html {
     animation: none;
   }
 }
+
+/* ===========================================================================
+   HERO — ambient motion.
+
+   The brief was "something alive in the background", the way premium landing
+   pages loop a video. This does it with CSS instead of a video file, which
+   matters: a looping MP4 behind the fold costs megabytes, blocks the LCP, and
+   autoplays inconsistently on iOS low-power mode. Two very slow transforms
+   read as ambient rather than animated.
+
+   - kenburns: a 40s drift/scale on the artwork. Long enough that no visitor
+     consciously sees it move; short enough that the page never feels frozen.
+   - duskShift: the warm overlay breathes, imitating light changing at sunset.
+
+   Both are disabled outright under prefers-reduced-motion — this kind of slow
+   drift is a common vestibular-migraine trigger, and the hero is still
+   perfectly good as a still image.
+   =========================================================================== */
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.12) translate3d(-1.5%, -1.2%, 0);
+  }
+}
+
+@keyframes duskShift {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.72;
+  }
+}
+
+.hero-kenburns {
+  animation: kenburns 40s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hero-dusk {
+  animation: duskShift 14s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-kenburns,
+  .hero-dusk {
+    animation: none;
+  }
+  .hero-kenburns {
+    transform: scale(1.04);
+  }
+}
+
+/* ===========================================================================
+   SECTION BACKDROP — viewport-scale ("parallax") mode.
+
+   A tall section with an `object-cover` <img> scales the artwork up to cover
+   the section's height, which on a long section crops most of its width away
+   and reads as heavily zoomed in. Painting it as a background with
+   `background-attachment: fixed` sizes it to the VIEWPORT instead, so the
+   composition stays close to the original framing and the artwork holds still
+   while the content scrolls over it.
+
+   Fixed attachment is only applied from `md` up: iOS Safari has long-standing
+   bugs where a fixed background is sized against the document rather than the
+   viewport, which on a long page blows the image up enormously. Below `md` it
+   falls back to a normal scrolling background, which looks fine.
+   =========================================================================== */
+
+.bg-parallax {
+  background-size: cover;
+  background-position: var(--bg-pos, 50% 50%);
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .bg-parallax {
+    background-attachment: fixed;
+  }
+}

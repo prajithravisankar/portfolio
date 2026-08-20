@@ -213,7 +213,11 @@ export const aboutContent: AboutContent = {
       { icon: CheckCircle2, label: "Testing / TDD" },
       { icon: Brain, label: "Maps + AI Integrations" },
     ],
-    bio: "I'm a passionate and dedicated full-stack developer with a strong foundation in building scalable web applications and RESTful APIs. Currently pursuing a Bachelor's degree in Computer Science at Lakehead University, I have a keen interest in cloud computing, AI integrations, and open-source contributions. Let's connect and explore innovative solutions together!",
+    // Rewritten for the Workshop theme. The previous copy led with
+    // "passionate and dedicated", which is true of every candidate and so
+    // carries no information — the loudest generic-portfolio tell there is.
+    // Every sentence below names something checkable instead.
+    bio: "I work on backends: multi-tenant Django integrations with OAuth and webhook verification, Celery pipelines that survive duplicate deliveries, and a FastAPI service doing semantic search over 14,000+ ad-targeting options with pgvector. Two of those are live in production. I am finishing a CS degree at Lakehead University, and I film most of the work and put it on YouTube — currently Day 28.",
   },
 
   education: {

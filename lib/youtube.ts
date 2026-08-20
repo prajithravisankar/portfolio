@@ -150,3 +150,28 @@ export async function getRecentVideos(
 export async function getAllVideos(): Promise<YouTubeVideo[]> {
   return getRecentVideos(Number.POSITIVE_INFINITY);
 }
+
+/**
+ * The current "Day N" of the building-in-public series, read from the most
+ * recent video title (e.g. "Until I Get a Job — Day 28 | ...").
+ *
+ * This is a live proof-of-work number: it goes up on its own every time a
+ * video is published, with nothing to edit by hand. That is the entire point
+ * of deriving it rather than hardcoding it — a stale counter is worse than no
+ * counter.
+ *
+ * @returns the highest day number found across recent uploads, or null if the
+ * feed is unreachable or no title matches the pattern. Callers must handle
+ * null by hiding the counter rather than printing a zero.
+ */
+export async function getBuildingInPublicDay(): Promise<number | null> {
+  const videos = await getAllVideos();
+
+  const days = videos
+    .map((video) => video.title.match(/\bDay\s+(\d{1,4})\b/i)?.[1])
+    .filter((day): day is string => Boolean(day))
+    .map(Number)
+    .filter((day) => Number.isFinite(day) && day > 0);
+
+  return days.length > 0 ? Math.max(...days) : null;
+}

@@ -7,8 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: Geist Mono, monospace;
-  --font-mono: Geist Mono, monospace;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-tech), ui-monospace, monospace;
+  --font-display: var(--font-display-face), ui-serif, Georgia, serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -97,45 +98,76 @@
 }
 
 :root {
-  --radius: 0rem;
-  --background: #000000; /* pure black */
-  --foreground: #ffffff; /* pure white */
-  --card: #0a0a0a; /* very dark card */
-  --card-foreground: #ffffff;
-  --popover: #0a0a0a;
-  --popover-foreground: #ffffff;
-  --primary: #ffffff;
-  --primary-foreground: #000000;
-  --secondary: #ffffff;
-  --secondary-foreground: #000000;
-  --muted: #111111;
-  --muted-foreground: #bbbbbb;
-  --accent: #ffffff;
-  --accent-foreground: #000000;
-  --destructive: #ffffff;
-  --border: rgba(255, 255, 255, 0.06);
-  --input: rgba(255, 255, 255, 0.04);
-  --ring: rgba(255, 255, 255, 0.06);
-  --chart-1: #ffffff;
-  --chart-2: #ffffff;
-  --chart-3: #ffffff;
-  --chart-4: #ffffff;
-  --chart-5: #ffffff;
-  --sidebar: #0a0a0a;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #ffffff;
-  --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #ffffff;
-  --sidebar-accent-foreground: #000000;
-  --sidebar-border: rgba(255, 255, 255, 0.06);
-  --sidebar-ring: rgba(255, 255, 255, 0.04);
-  --destructive-foreground: #ffffff;
-  --font-sans: Geist Mono, monospace;
-  --font-serif: Geist Mono, monospace;
-  --font-mono: Geist Mono, monospace;
-  --shadow-color: hsl(0 0% 0%);
-  --shadow-opacity: 0;
-  --shadow-blur: 0px;
+  /* ==========================================================================
+     THEME: WORKSHOP
+
+     A warm paper ground rather than the near-universal dev-portfolio black.
+     Two reasons, both practical rather than decorative:
+
+     1. Almost every engineer's site is dark, so light IS the differentiator.
+     2. The clay imagery this theme is built around is warm and saturated.
+        Bright clay composited onto #000 reads as pasted-on; on warm paper it
+        sits in the same light as the page.
+
+     Ink is deliberately not #000 and paper is not #fff — a slight warmth in
+     both is what separates "printed" from "default browser".
+     ========================================================================== */
+  --radius: 0.125rem;
+
+  --paper: #f6f2ea; /* warm bone ground */
+  --paper-rgb: 246 242 234; /* same colour as channels, for alpha gradients */
+  --paper-raised: #fffdf8; /* cards, one step toward the light */
+  --paper-sunk: #ede7db; /* wells, tags, quiet fills */
+  --ink: #17130d; /* near-black, warm */
+  --ink-soft: #5f574a; /* secondary copy */
+  --ink-faint: #8c8377; /* captions, metadata */
+  --accent: #b8461f; /* terracotta — fired clay */
+  --accent-soft: #e8dccd; /* accent at low energy */
+  --line: rgba(23, 19, 13, 0.14); /* hairline rules and card edges */
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper-raised);
+  --card-foreground: var(--ink);
+  --popover: var(--paper-raised);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--paper-sunk);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-sunk);
+  --muted-foreground: var(--ink-soft);
+  --accent-foreground: var(--paper);
+  --destructive: #9b2c17;
+  --destructive-foreground: var(--paper);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: rgba(184, 70, 31, 0.35);
+
+  --chart-1: var(--accent);
+  --chart-2: #6b7f6e;
+  --chart-3: #a8763c;
+  --chart-4: #7a6a8c;
+  --chart-5: #4a6b7c;
+
+  --sidebar: var(--paper-raised);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--paper);
+  --sidebar-accent: var(--paper-sunk);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--line);
+  --sidebar-ring: var(--ring);
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-display-face), ui-serif, Georgia, serif;
+  --font-mono: var(--font-mono-tech), ui-monospace, monospace;
+
+  /* Print-like: shadows are almost absent. Depth comes from the hairline
+     rules and the paper/raised value step, not from drop shadows. */
+  --shadow-color: hsl(30 20% 20%);
+  --shadow-opacity: 0.06;
+  --shadow-blur: 2px;
   --shadow-spread: 0px;
   --shadow-offset-x: 0px;
   --shadow-offset-y: 1px;
@@ -193,7 +225,18 @@
   h4,
   h5,
   h6 {
-    @apply font-semibold tracking-tight;
+    font-family: var(--font-display-face), ui-serif, Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    /* Fraunces' variable axes: softened terminals and the "wonk" alternates,
+       so display type reads hand-cut rather than machined. */
+    font-variation-settings: "SOFT" 30, "WONK" 1;
+  }
+
+  /* Tabular figures everywhere numbers are compared down a column
+     (grades, metrics, the day counter) so digits do not jitter. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
   }
 }
 

@@ -47,10 +47,11 @@ export const PAGE_CONTENT = "relative z-10";
 /** Fixed translucent nav bar. (1x) */
 export const NAV_BAR = "fixed top-0 w-full z-50 transition-colors duration-300";
 /** Nav while it sits over the full-bleed hero artwork: no bar at all. */
-export const NAV_BAR_OVER_HERO = "bg-transparent border-b border-transparent";
+export const NAV_BAR_OVER_HERO =
+  "bg-[rgba(16,12,24,0.10)] backdrop-blur-[2px] border-b border-transparent";
 /** Nav once the page has scrolled past the hero: paper bar, hairline rule. */
 export const NAV_BAR_SCROLLED =
-  "bg-[color:var(--paper)]/92 backdrop-blur-md border-b border-[color:var(--line)]";
+  "bg-[rgba(16,12,24,0.52)] backdrop-blur-xl backdrop-saturate-150 border-b border-[rgba(255,240,225,0.14)] shadow-[inset_0_1px_0_0_rgba(255,240,225,0.10),0_8px_28px_-12px_rgba(10,6,18,0.55)]";
 /** Reversed wordmark and links while over the artwork. */
 export const NAV_BRAND_OVER_HERO = "text-[#FFF6EC]";
 export const NAV_LINK_OVER_HERO =
@@ -414,8 +415,20 @@ export const FOOTER_BRAND_BLOCK = "text-center md:text-left";
 export const FOOTER_BRAND = "text-xl font-bold text-[color:var(--ink)] mb-2";
 /** Footer social icon row. (1x) */
 export const FOOTER_SOCIAL_ROW = "flex items-center gap-4";
+/**
+ * Footer social links. Full ink rather than the shared LINK_MUTED: the footer
+ * sits at the thin end of the closing section's left-graded paper wash, over
+ * the lit meadow, where muted greys vanish entirely.
+ */
+export const FOOTER_LINK =
+  "text-[color:var(--ink)] hover:text-[color:var(--accent)] transition-colors";
+/** Tagline under the wordmark — one step darker than the shared muted token. */
+export const FOOTER_TAGLINE = "text-[color:var(--ink)]/75 text-sm";
+/** Rule above the legal line, dark enough to read on the artwork. */
+export const FOOTER_SEPARATOR = "my-8 bg-[color:var(--line)]";
 /** Footer copyright line. (1x) */
-export const FOOTER_LEGAL = "text-center text-[color:var(--ink-faint)] text-sm";
+export const FOOTER_LEGAL =
+  "text-center text-[color:var(--ink-soft)] text-sm";
 
 /* ---------------------------------------------------------------------------
  * EXPERIENCE
@@ -442,10 +455,10 @@ export const NAV_MOBILE_TOGGLE =
   "lg:hidden -mr-2 p-2 text-[color:var(--ink-soft)] hover:text-[color:var(--ink)] transition-colors";
 /** Expanded mobile panel holding the stacked links. (new) */
 export const NAV_MOBILE_PANEL =
-  "lg:hidden flex flex-col gap-1 border-t border-[color:var(--line)] pt-3 pb-2";
+  "lg:hidden flex flex-col gap-1 border-t border-[rgba(255,240,225,0.16)] pt-3 pb-2";
 /** One stacked link inside the mobile panel. (new) */
 export const NAV_MOBILE_LINK =
-  "py-2 text-sm text-[color:var(--ink-soft)] hover:text-[color:var(--ink)] transition-colors";
+  "py-2 text-sm text-[rgba(255,240,225,0.82)] hover:text-[#FFC46B] transition-colors";
 
 /* ---------------------------------------------------------------------------
  * SECTION CTA

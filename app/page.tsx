@@ -9,7 +9,9 @@ import {
   FOOTER_ROW,
   FOOTER_SOCIAL_ROW,
   ICON_MD,
-  LINK_MUTED,
+  FOOTER_LINK,
+  FOOTER_SEPARATOR,
+  FOOTER_TAGLINE,
   PAGE_BACKDROP,
   PAGE_BACKDROP_INNER,
   PAGE_CONTENT,
@@ -18,8 +20,6 @@ import {
   SECTION_ART_FADE_TOP_PAPER,
   SECTION_ART_SCRIM_PAPER_LEFT,
   SECTION_CONTAINER,
-  SEPARATOR_SPACED,
-  TEXT_MUTED_SM_ALT,
 } from "@/components/portfolio/tokens";
 import { SectionBackdrop } from "@/components/portfolio/SectionBackdrop";
 import { sectionArt } from "@/content/section-art";
@@ -55,7 +55,6 @@ export default function Home() {
           art={sectionArt.projects}
           parallax
           parallaxSrc="/section-projects-2400.webp"
-          parallaxSize="auto 92%"
           scrimClassName={SECTION_ART_SCRIM_PAPER_LEFT}
           fadeTopClassName={SECTION_ART_FADE_TOP_PAPER}
           fadeBottom={false}
@@ -68,7 +67,7 @@ export default function Home() {
             <div className={FOOTER_ROW}>
               <div className={FOOTER_BRAND_BLOCK}>
                 <p className={FOOTER_BRAND}>Prajith Ravisankar</p>
-                <p className={TEXT_MUTED_SM_ALT}>
+                <p className={FOOTER_TAGLINE}>
                   Computer Science Student • Open Source Contributor
                 </p>
               </div>
@@ -77,7 +76,7 @@ export default function Home() {
                   href="https://github.com/prajithravisankar"
                   target="_blank"
                   rel={REL_EXTERNAL}
-                  className={LINK_MUTED}
+                  className={FOOTER_LINK}
                 >
                   <Github className={ICON_MD} />
                 </a>
@@ -85,19 +84,19 @@ export default function Home() {
                   href="https://www.linkedin.com/in/prajithravisankar/"
                   target="_blank"
                   rel={REL_EXTERNAL}
-                  className={LINK_MUTED}
+                  className={FOOTER_LINK}
                 >
                   <Linkedin className={ICON_MD} />
                 </a>
                 <a
                   href="mailto:prajithravisankar@gmail.com"
-                  className={LINK_MUTED}
+                  className={FOOTER_LINK}
                 >
                   <Mail className={ICON_MD} />
                 </a>
               </div>
             </div>
-            <Separator className={SEPARATOR_SPACED} />
+            <Separator className={FOOTER_SEPARATOR} />
             <p className={FOOTER_LEGAL}>
               © 2025 Prajith Ravisankar. Built with Next.js and Tailwind CSS.
             </p>

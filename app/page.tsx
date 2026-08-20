@@ -4,6 +4,8 @@ import { Separator } from "@/components/ui/separator";
 import {
   FOOTER,
   FOOTER_BRAND,
+  FOOTER_CREDIT,
+  FOOTER_CREDIT_LINK,
   FOOTER_BRAND_BLOCK,
   FOOTER_LEGAL,
   FOOTER_ROW,
@@ -21,7 +23,9 @@ import {
   SECTION_ART_SCRIM_PAPER_LEFT,
   SECTION_CONTAINER,
 } from "@/components/portfolio/tokens";
+import { AmbientAudio } from "@/components/portfolio/AmbientAudio";
 import { SectionBackdrop } from "@/components/portfolio/SectionBackdrop";
+import { ambientAudio } from "@/content/audio";
 import { sectionArt } from "@/content/section-art";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { CertificationsSection } from "@/components/sections/CertificationsSection";
@@ -97,6 +101,45 @@ export default function Home() {
               </div>
             </div>
             <Separator className={FOOTER_SEPARATOR} />
+            <p className={FOOTER_CREDIT}>
+              Music:{" "}
+              <a
+                href={ambientAudio.attribution.sourceUrl}
+                target="_blank"
+                rel={REL_EXTERNAL}
+                className={FOOTER_CREDIT_LINK}
+              >
+                {ambientAudio.attribution.title}
+              </a>{" "}
+              by{" "}
+              <a
+                href={ambientAudio.attribution.authorUrl}
+                target="_blank"
+                rel={REL_EXTERNAL}
+                className={FOOTER_CREDIT_LINK}
+              >
+                {ambientAudio.attribution.author}
+              </a>
+              , licensed under{" "}
+              <a
+                href={ambientAudio.attribution.licenseUrl}
+                target="_blank"
+                rel={REL_EXTERNAL}
+                className={FOOTER_CREDIT_LINK}
+              >
+                {ambientAudio.attribution.licenseLabel}
+              </a>
+              . Promoted by{" "}
+              <a
+                href={ambientAudio.attribution.sourceUrl}
+                target="_blank"
+                rel={REL_EXTERNAL}
+                className={FOOTER_CREDIT_LINK}
+              >
+                {ambientAudio.attribution.sourceLabel}
+              </a>
+              .
+            </p>
             <p className={FOOTER_LEGAL}>
               © 2025 Prajith Ravisankar. Built with Next.js and Tailwind CSS.
             </p>
@@ -104,6 +147,8 @@ export default function Home() {
         </footer>
         </SectionBackdrop>
       </div>
+
+      <AmbientAudio />
     </div>
   );
 }

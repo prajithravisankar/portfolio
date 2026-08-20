@@ -912,6 +912,27 @@ export const PRJ_CTA_ICON =
 export const FOOTER_ON_ART = "px-6 pb-14 pt-8";
 
 /* ---------------------------------------------------------------------------
+ * AMBIENT AUDIO TOGGLE
+ *
+ * Floating bottom-right rather than in the nav: the bar already carries seven
+ * anchors plus a CTA and has no room. Same dark glass as the nav so it reads
+ * as part of the same chrome, and it sits above the artwork on every section.
+ * ------------------------------------------------------------------------- */
+
+export const AUDIO_TOGGLE =
+  "fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full border border-[rgba(255,240,225,0.18)] bg-[rgba(16,12,24,0.60)] px-3.5 py-2.5 text-[rgba(255,240,225,0.86)] backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_0_0_rgba(255,240,225,0.10),0_8px_28px_-12px_rgba(10,6,18,0.6)] transition-colors hover:text-[#FFC46B] hover:border-[rgba(255,196,107,0.45)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC46B]";
+export const AUDIO_TOGGLE_ICON = "h-4 w-4 shrink-0";
+/** Label is hidden on phones — the icon and aria-label carry it there. */
+export const AUDIO_TOGGLE_LABEL =
+  "hidden sm:inline font-mono text-[11px] uppercase tracking-[0.14em]";
+
+/** Footer credit line for the CC BY track. */
+export const FOOTER_CREDIT =
+  "mt-3 text-center text-xs text-[color:var(--ink)]/65";
+export const FOOTER_CREDIT_LINK =
+  "underline underline-offset-2 decoration-[color:var(--ink)]/30 hover:text-[color:var(--accent)] hover:decoration-[color:var(--accent)] transition-colors";
+
+/* ---------------------------------------------------------------------------
  * NON-CLASS CONSTANTS
  * ------------------------------------------------------------------------- */
 

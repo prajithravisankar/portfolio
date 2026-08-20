@@ -38,15 +38,25 @@ export const PAGE_BACKDROP = "fixed inset-0 overflow-hidden pointer-events-none"
 /** Inner (currently empty) gradient plate inside the backdrop. (1x) */
 export const PAGE_BACKDROP_INNER = "absolute inset-0 pointer-events-none";
 /** Content layer stacked above the backdrop. (1x) */
-export const PAGE_CONTENT = "relative z-10 pt-12";
+export const PAGE_CONTENT = "relative z-10";
 
 /* ---------------------------------------------------------------------------
  * NAVIGATION BAR
  * ------------------------------------------------------------------------- */
 
 /** Fixed translucent nav bar. (1x) */
-export const NAV_BAR =
-  "fixed top-0 w-full z-50 bg-[color:var(--paper)]/85 backdrop-blur-md border-b border-[color:var(--line)]";
+export const NAV_BAR = "fixed top-0 w-full z-50 transition-colors duration-300";
+/** Nav while it sits over the full-bleed hero artwork: no bar at all. */
+export const NAV_BAR_OVER_HERO = "bg-transparent border-b border-transparent";
+/** Nav once the page has scrolled past the hero: paper bar, hairline rule. */
+export const NAV_BAR_SCROLLED =
+  "bg-[color:var(--paper)]/92 backdrop-blur-md border-b border-[color:var(--line)]";
+/** Reversed wordmark and links while over the artwork. */
+export const NAV_BRAND_OVER_HERO = "text-[#FFF6EC]";
+export const NAV_LINK_OVER_HERO =
+  "text-[rgba(255,240,225,0.82)] hover:text-[#FFC46B]";
+export const NAV_CTA_OVER_HERO =
+  "bg-transparent border border-[rgba(255,240,225,0.45)] text-[#FFF6EC] hover:bg-[rgba(255,240,225,0.14)]";
 /** Nav inner container — note it carries its own px/py, unlike SECTION_CONTAINER. (1x) */
 export const NAV_INNER = "max-w-7xl mx-auto px-6 py-4";
 /** Brand / links / CTA row. (1x) */
@@ -445,51 +455,72 @@ export const NAV_MOBILE_LINK =
 export const SECTION_CTA_ROW = "flex justify-center mt-12";
 
 /* ---------------------------------------------------------------------------
- * HERO
+ * HERO — full-bleed cinematic
  *
- * Asymmetric on purpose. The previous theme centred every heading, which is
- * the most common shape a template takes and reads as un-designed. Here the
- * text column is wider than the image column and both are left-anchored, so
- * the page has a spine to read down.
+ * The artwork runs edge to edge behind the copy rather than sitting in a
+ * column beside it. Three stacked layers make the text legible without
+ * flattening the picture:
+ *
+ *   1. the artwork itself, very slowly drifting (see animations.css)
+ *   2. a dusk wash in the artwork's own hues, which breathes
+ *   3. a directional scrim, dark at the bottom-left where the copy sits and
+ *      clear at the top-right where the sky and the cat are
+ *
+ * The section then fades into the paper ground at its base, so the dark hero
+ * meets the light body as a gradient rather than a hard seam.
  * ------------------------------------------------------------------------- */
 
-/** Hero section shell — extra top padding clears the fixed nav. */
-export const HERO_SHELL = "pt-16 pb-20 md:pt-24 md:pb-28 px-6";
-/** 12-column split: 7 for the claim, 5 for the image, stacked on mobile. */
-export const HERO_GRID =
-  "grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center";
-export const HERO_TEXT_COL = "lg:col-span-7";
+/** Section shell — nearly full height, copy anchored to the bottom. */
+export const HERO_SHELL =
+  "relative isolate flex min-h-[88svh] items-end overflow-hidden px-6 pb-16 pt-32 md:pb-24";
+/** Absolutely-positioned layer stack behind the copy. */
+export const HERO_BACKDROP = "absolute inset-0 -z-10 overflow-hidden";
+/** The artwork. object-position is set inline from the content focal point. */
+export const HERO_ART = "h-full w-full object-cover";
+/** Fallback when no artwork is present — a painted dusk in the same hues. */
+export const HERO_ART_FALLBACK =
+  "h-full w-full bg-[linear-gradient(180deg,#4a3b6b_0%,#8d5f7c_38%,#d08a5c_72%,#f0b27a_100%)]";
+/** Warm dusk wash over the artwork. */
+export const HERO_DUSK =
+  "absolute inset-0 bg-[radial-gradient(120%_90%_at_72%_38%,rgba(255,176,92,0.42)_0%,rgba(120,70,140,0.30)_45%,rgba(24,16,38,0.55)_100%)]";
+/** Directional scrim: heavy where the copy sits, clear over the artwork. */
+export const HERO_SCRIM =
+  "absolute inset-0 bg-[linear-gradient(100deg,rgba(10,6,18,0.90)_0%,rgba(10,6,18,0.78)_34%,rgba(10,6,18,0.45)_58%,rgba(10,6,18,0.12)_82%,rgba(10,6,18,0.02)_100%)]";
+/** Bottom fade into the paper ground so the dark hero does not end abruptly. */
+export const HERO_FADE =
+  "absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent_0%,var(--paper)_100%)]";
+/** Copy column, held to a readable measure over the artwork. */
+export const HERO_TEXT_COL = "relative z-10 w-full max-w-3xl";
 /** Small uppercase locator above the headline. */
 export const HERO_EYEBROW =
-  "font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--ink-faint)] mb-6";
-/** The display headline. Fluid so it never wraps awkwardly between breakpoints. */
+  "font-mono text-xs uppercase tracking-[0.22em] text-[rgba(255,240,225,0.72)] mb-5";
+/** Display headline, reversed out of the artwork. */
 export const HERO_HEADLINE =
-  "font-display text-[clamp(2.75rem,7vw,5.25rem)] leading-[0.98] font-semibold tracking-[-0.03em] text-[color:var(--ink)]";
-/** Final headline line, in terracotta — one accent, used once. */
-export const HERO_HEADLINE_LINE_ACCENT = "text-[color:var(--accent)]";
+  "font-display text-[clamp(2.75rem,7vw,5.5rem)] leading-[0.98] font-semibold tracking-[-0.03em] text-[#FFF6EC] [text-wrap:balance] [text-shadow:0_1px_30px_rgba(10,6,18,0.55)]";
+/** Final headline line — warm gold, picked from the sunset in the artwork. */
+export const HERO_HEADLINE_LINE_ACCENT = "text-[#FFC46B]";
 /** Live day counter pulled from the YouTube feed. */
 export const HERO_DAY_BADGE =
-  "mt-7 inline-flex items-center gap-2 font-mono text-sm text-[color:var(--ink-soft)]";
+  "mt-6 inline-flex flex-wrap items-center gap-2 font-mono text-sm text-[rgba(255,240,225,0.78)]";
 export const HERO_DAY_NUMBER =
-  "tabular inline-flex items-center border border-[color:var(--accent)] text-[color:var(--accent)] px-2 py-0.5";
-/** The claim paragraph. Measure capped for readability. */
+  "tabular inline-flex items-center border border-[#FFC46B] text-[#FFC46B] px-2 py-0.5";
+/** The claim paragraph. */
 export const HERO_STAND =
-  "mt-7 max-w-2xl text-lg md:text-xl leading-relaxed text-[color:var(--ink-soft)]";
+  "mt-6 max-w-2xl text-base md:text-lg leading-relaxed text-[rgba(255,241,228,0.86)]";
 /** Proof strip. */
 export const HERO_STAT_ROW =
-  "mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-[color:var(--line)] pt-8";
+  "mt-9 grid grid-cols-1 sm:grid-cols-3 gap-5 border-t border-[rgba(255,240,225,0.22)] pt-7";
 export const HERO_STAT_VALUE =
-  "font-mono tabular text-2xl md:text-3xl text-[color:var(--ink)]";
+  "font-mono tabular text-2xl md:text-3xl text-[#FFF6EC]";
 export const HERO_STAT_LABEL =
-  "mt-1 text-sm leading-snug text-[color:var(--ink-faint)]";
-export const HERO_ACTIONS = "mt-10 flex flex-wrap items-center gap-3";
-/** Image column: 4:5 portrait frame, hairline rule, no drop shadow. */
-export const HERO_IMAGE_FRAME =
-  "lg:col-span-5 relative aspect-[4/5] w-full overflow-hidden border border-[color:var(--line)] bg-[color:var(--paper-sunk)]";
-export const HERO_IMAGE = "h-full w-full object-cover";
-/** Stand-in while the clay render does not exist yet. */
-export const HERO_IMAGE_PLACEHOLDER =
-  "flex h-full w-full items-center justify-center font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--ink-faint)]";
+  "mt-1 text-sm leading-snug text-[rgba(255,240,225,0.66)]";
+export const HERO_ACTIONS = "mt-9 flex flex-wrap items-center gap-3";
+/** Primary action on the artwork — warm fill, dark label. */
+export const HERO_BUTTON_PRIMARY =
+  "bg-[#FFC46B] text-[#241608] hover:bg-[#FFD695] transition-colors";
+/** Secondary action on the artwork — hairline, reversed. */
+export const HERO_BUTTON_GHOST =
+  "border border-[rgba(255,240,225,0.45)] bg-transparent text-[#FFF6EC] hover:bg-[rgba(255,240,225,0.12)] transition-colors";
 
 /* ---------------------------------------------------------------------------
  * SOLID BUTTON

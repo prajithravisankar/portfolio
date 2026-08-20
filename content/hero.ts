@@ -38,12 +38,26 @@ export interface HeroContent {
   /** Proof strip. Four is the most that stays scannable. */
   stats: HeroStat[];
   actions: HeroAction[];
-  /** Hero image. `src` null until the clay render lands. */
-  image: {
+  /**
+   * Full-bleed background artwork sitting behind the hero copy.
+   *
+   * `src` is a path under /public. When it is null the hero falls back to a
+   * painted dusk gradient in the same hues, so the page never renders a broken
+   * image or an empty black box — it just looks like a plainer hero.
+   */
+  background: {
     src: string | null;
+    /** Responsive candidates. Served as a plain srcset, widths in `w`. */
+    srcSet?: string;
+    /** Sizes hint. The artwork is full-bleed, so it is always 100vw. */
+    sizes?: string;
     alt: string;
-    /** Shown in place of the image while it does not exist yet. */
-    placeholderNote: string;
+    /**
+     * Horizontal focal point as a CSS object-position value. The artwork puts
+     * the figure slightly right of centre, so on narrow screens the crop is
+     * biased right to keep him and the cat in frame.
+     */
+    focal: string;
   };
 }
 
@@ -61,9 +75,20 @@ export const heroContent: HeroContent = {
     { href: "#projects", label: "See the work" },
     { href: "#contact", label: "Get in touch" },
   ],
-  image: {
-    src: null,
-    alt: "Claymation figure of Prajith at his desk, building in public",
-    placeholderNote: "Hero image slot",
+  background: {
+    /*
+     * Encoded from a 2980x1408 / 2.7 MB JPEG down to three WebP widths.
+     * The largest is 164 KB — a 94% saving on what is the page's LCP element.
+     * The source JPEG is deliberately NOT committed: at 2.7 MB it would sit in
+     * git history forever for no benefit, since nothing serves it.
+     */
+    src: "/hero-desk-1400.webp",
+    srcSet:
+      "/hero-desk-800.webp 800w, /hero-desk-1400.webp 1400w, /hero-desk-2400.webp 2400w",
+    sizes: "100vw",
+    alt:
+      "Illustration of a developer at a desk at dusk with an orange cat on his shoulder, " +
+      "looking out over a city skyline",
+    focal: "58% 45%",
   },
 };

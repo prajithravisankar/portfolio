@@ -26,7 +26,7 @@ import { youtubeArchive, youtubeChannel } from "@/content/youtube";
 import { getAllVideos } from "@/lib/youtube";
 
 export const metadata: Metadata = {
-  title: "All Videos — Prajith Ravisankar",
+  title: "All Videos",
   description: "Every episode of building in public on YouTube.",
 };
 

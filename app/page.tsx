@@ -21,6 +21,7 @@ import {
 } from "@/components/portfolio/tokens";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { CertificationsSection } from "@/components/sections/CertificationsSection";
+import { HeroSection } from "@/components/sections/HeroSection";
 import { EducationSection } from "@/components/sections/EducationSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { OpenSourceSection } from "@/components/sections/OpenSourceSection";
@@ -39,6 +40,7 @@ export default function Home() {
       {/* Content */}
       <div className={PAGE_CONTENT}>
         <SiteNav />
+        <HeroSection />
         <YouTubeSection />
         <AboutSection />
         <ExperienceSection />

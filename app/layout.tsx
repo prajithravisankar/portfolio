@@ -1,16 +1,41 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Instrument_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteMetadata } from "@/content/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+/**
+ * THEME: WORKSHOP — type stack.
+ *
+ * Three faces, three jobs, none of them the Next.js default:
+ *
+ * - Fraunces carries every display line. It is a variable serif with SOFT and
+ *   WONK axes, which is why it is here rather than a neutral serif: dialled up
+ *   it reads hand-cut rather than machined — the same quality the clay imagery
+ *   has. It is the biggest "designed, not generated" signal on the page.
+ * - Instrument Sans handles body copy. Quiet, slightly narrow, and unlike Inter
+ *   not already on every third portfolio.
+ * - JetBrains Mono is reserved for technical data: metrics, course codes, tech
+ *   tags, the day counter. Monospace earns its keep when it marks MACHINE
+ *   facts; using it for everything (as the previous theme did) throws that
+ *   distinction away.
+ */
+const fraunces = Fraunces({
+  variable: "--font-display-face",
   subsets: ["latin"],
+  axes: ["SOFT", "WONK", "opsz"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const instrumentSans = Instrument_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono-tech",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 /**
@@ -57,7 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${fraunces.variable} ${instrumentSans.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
       </body>

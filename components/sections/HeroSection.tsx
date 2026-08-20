@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Youtube } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { heroContent } from "@/content/hero";
+import { youtubeChannel } from "@/content/youtube";
 import { getBuildingInPublicDay } from "@/lib/youtube";
 import {
   HERO_ACTIONS,
@@ -11,21 +12,20 @@ import {
   HERO_BACKDROP,
   HERO_BUTTON_GHOST,
   HERO_BUTTON_PRIMARY,
+  HERO_CHANNEL_ICON,
+  HERO_CHANNEL_LINK,
   HERO_DAY_BADGE,
   HERO_DAY_NUMBER,
   HERO_DUSK,
   HERO_EYEBROW,
-  HERO_FADE,
   HERO_HEADLINE,
   HERO_HEADLINE_LINE_ACCENT,
   HERO_SCRIM,
   HERO_SHELL,
   HERO_STAND,
-  HERO_STAT_LABEL,
-  HERO_STAT_ROW,
-  HERO_STAT_VALUE,
   HERO_TEXT_COL,
   ICON_XS,
+  REL_EXTERNAL,
   SECTION_CONTAINER,
 } from "@/components/portfolio/tokens";
 
@@ -50,7 +50,7 @@ import {
  * high because it IS the LCP element.
  */
 export async function HeroSection() {
-  const { eyebrow, headline, standfirst, stats, actions, background } =
+  const { eyebrow, headline, standfirst, actions, background, channelLinkLabel } =
     heroContent;
   const day = await getBuildingInPublicDay();
 
@@ -74,7 +74,6 @@ export async function HeroSection() {
         )}
         <div className={`${HERO_DUSK} hero-dusk`} />
         <div className={HERO_SCRIM} />
-        <div className={HERO_FADE} />
       </div>
 
       <div className={`${SECTION_CONTAINER} w-full`}>
@@ -92,7 +91,20 @@ export async function HeroSection() {
                 }
               >
                 {line}
-                {index < headline.length - 1 ? <br /> : null}
+                {index === headline.length - 1 ? (
+                  <a
+                    href={youtubeChannel.url}
+                    target="_blank"
+                    rel={REL_EXTERNAL}
+                    aria-label={channelLinkLabel}
+                    title={channelLinkLabel}
+                    className={HERO_CHANNEL_LINK}
+                  >
+                    <Youtube className={HERO_CHANNEL_ICON} aria-hidden="true" />
+                  </a>
+                ) : (
+                  <br />
+                )}
               </span>
             ))}
           </h1>
@@ -106,14 +118,6 @@ export async function HeroSection() {
 
           <p className={HERO_STAND}>{standfirst}</p>
 
-          <dl className={HERO_STAT_ROW}>
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <dt className={HERO_STAT_VALUE}>{stat.value}</dt>
-                <dd className={HERO_STAT_LABEL}>{stat.label}</dd>
-              </div>
-            ))}
-          </dl>
 
           <div className={HERO_ACTIONS}>
             {actions.map((action, index) => (

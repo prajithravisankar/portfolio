@@ -115,6 +115,7 @@
   --radius: 0.125rem;
 
   --paper: #f6f2ea; /* warm bone ground */
+  --paper-rgb: 246 242 234; /* same colour as channels, for alpha gradients */
   --paper-raised: #fffdf8; /* cards, one step toward the light */
   --paper-sunk: #ede7db; /* wells, tags, quiet fills */
   --ink: #17130d; /* near-black, warm */

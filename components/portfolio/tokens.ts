@@ -486,9 +486,17 @@ export const HERO_DUSK =
 /** Directional scrim: heavy where the copy sits, clear over the artwork. */
 export const HERO_SCRIM =
   "absolute inset-0 bg-[linear-gradient(100deg,rgba(10,6,18,0.90)_0%,rgba(10,6,18,0.78)_34%,rgba(10,6,18,0.45)_58%,rgba(10,6,18,0.12)_82%,rgba(10,6,18,0.02)_100%)]";
-/** Bottom fade into the paper ground so the dark hero does not end abruptly. */
+/**
+ * Bottom fade into the paper ground.
+ *
+ * Shorter and back-weighted rather than a linear ramp. A straight
+ * transparent-to-paper gradient starts whitening immediately, which washed out
+ * the desk and the figure's back. This holds under 5% opacity for the first
+ * 42% of its height, so nearly all the visible fade happens in the last ~35px
+ * and much more of the artwork survives.
+ */
 export const HERO_FADE =
-  "absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent_0%,var(--paper)_100%)]";
+  "absolute inset-x-0 bottom-0 h-28 md:h-32 bg-[linear-gradient(180deg,rgba(246,242,234,0)_0%,rgba(246,242,234,0.18)_38%,rgba(246,242,234,0.62)_72%,rgba(246,242,234,1)_100%)]";
 /** Copy column, held to a readable measure over the artwork. */
 export const HERO_TEXT_COL = "relative z-10 w-full max-w-3xl";
 /** Small uppercase locator above the headline. */
@@ -499,21 +507,24 @@ export const HERO_HEADLINE =
   "font-display text-[clamp(2.75rem,7vw,5.5rem)] leading-[0.98] font-semibold tracking-[-0.03em] text-[#FFF6EC] [text-wrap:balance] [text-shadow:0_1px_30px_rgba(10,6,18,0.55)]";
 /** Final headline line — warm gold, picked from the sunset in the artwork. */
 export const HERO_HEADLINE_LINE_ACCENT = "text-[#FFC46B]";
+/**
+ * YouTube glyph sitting on the headline. Sized in `em` so it scales with the
+ * clamped display type instead of drifting out of proportion at breakpoints,
+ * and nudged down slightly to sit on the type's optical centre rather than its
+ * baseline.
+ */
+export const HERO_CHANNEL_LINK =
+  "ml-[0.18em] inline-flex translate-y-[0.08em] align-middle text-[#FFC46B] transition-colors hover:text-[#FFF6EC] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFC46B]";
+export const HERO_CHANNEL_ICON = "h-[0.72em] w-[0.72em]";
+
 /** Live day counter pulled from the YouTube feed. */
 export const HERO_DAY_BADGE =
-  "mt-6 inline-flex flex-wrap items-center gap-2 font-mono text-sm text-[rgba(255,240,225,0.78)]";
+  "mt-7 inline-flex flex-wrap items-center gap-2 font-mono text-sm text-[rgba(255,240,225,0.78)]";
 export const HERO_DAY_NUMBER =
   "tabular inline-flex items-center border border-[#FFC46B] text-[#FFC46B] px-2 py-0.5";
 /** The claim paragraph. */
 export const HERO_STAND =
   "mt-6 max-w-2xl text-base md:text-lg leading-relaxed text-[rgba(255,241,228,0.86)]";
-/** Proof strip. */
-export const HERO_STAT_ROW =
-  "mt-9 grid grid-cols-1 sm:grid-cols-3 gap-5 border-t border-[rgba(255,240,225,0.22)] pt-7";
-export const HERO_STAT_VALUE =
-  "font-mono tabular text-2xl md:text-3xl text-[#FFF6EC]";
-export const HERO_STAT_LABEL =
-  "mt-1 text-sm leading-snug text-[rgba(255,240,225,0.66)]";
 export const HERO_ACTIONS = "mt-9 flex flex-wrap items-center gap-3";
 /** Primary action on the artwork — warm fill, dark label. */
 export const HERO_BUTTON_PRIMARY =
@@ -529,6 +540,363 @@ export const HERO_BUTTON_GHOST =
 /** Primary action — ink fill on paper. The only high-contrast button. */
 export const BUTTON_SOLID =
   "bg-[color:var(--ink)] text-[color:var(--paper)] hover:bg-[color:var(--accent)] transition-colors";
+
+/* ---------------------------------------------------------------------------
+ * SECTION BACKDROP — full-bleed artwork behind a whole section
+ *
+ * Same idea as the hero, but banded: the artwork fades in from the paper
+ * ground at the top and back out at the bottom, so the section reads as an
+ * inset plate rather than a second hero competing with the first.
+ * ------------------------------------------------------------------------- */
+
+/** Wrapper that establishes the stacking context and clips the artwork. */
+export const SECTION_ART_SHELL = "relative isolate overflow-hidden";
+export const SECTION_ART_LAYER = "absolute inset-0 -z-10 overflow-hidden";
+/** Viewport-pinned variant, for pages too tall to stretch the artwork over. */
+export const SECTION_ART_LAYER_FIXED = "fixed inset-0 -z-10 overflow-hidden";
+export const SECTION_ART_IMAGE = "h-full w-full object-cover";
+/** Darkening wash so reversed copy and cards hold up over saturated artwork. */
+export const SECTION_ART_SCRIM =
+  "absolute inset-0 bg-[linear-gradient(180deg,rgba(14,9,24,0.82)_0%,rgba(14,9,24,0.62)_38%,rgba(14,9,24,0.68)_72%,rgba(14,9,24,0.86)_100%)]";
+/**
+ * Edge vignette — the inverse of SECTION_ART_SCRIM.
+ *
+ * For centre-weighted artwork (the lake: sun, peak and boat all mid-frame).
+ * Darkens the left and right thirds where copy sits and leaves the middle
+ * almost untouched, so the content frames the view instead of covering it.
+ */
+export const SECTION_ART_SCRIM_EDGES =
+  "absolute inset-0 bg-[linear-gradient(90deg,rgba(14,9,24,0.88)_0%,rgba(14,9,24,0.74)_22%,rgba(14,9,24,0.22)_42%,rgba(14,9,24,0.16)_58%,rgba(14,9,24,0.74)_78%,rgba(14,9,24,0.88)_100%)]";
+/** A light overall darkening laid under the vignette so nothing blows out. */
+export const SECTION_ART_SCRIM_SOFT =
+  "absolute inset-0 bg-[rgba(14,9,24,0.30)]";
+
+/** Fade in from the paper ground at the top edge. */
+export const SECTION_ART_FADE_TOP =
+  "absolute inset-x-0 top-0 h-24 md:h-28 bg-[linear-gradient(180deg,rgba(246,242,234,1)_0%,rgba(246,242,234,0.62)_28%,rgba(246,242,234,0.18)_62%,rgba(246,242,234,0)_100%)]";
+/** …and back out at the bottom. */
+export const SECTION_ART_FADE_BOTTOM =
+  "absolute inset-x-0 bottom-0 h-24 md:h-28 bg-[linear-gradient(180deg,rgba(246,242,234,0)_0%,rgba(246,242,234,0.18)_38%,rgba(246,242,234,0.62)_72%,rgba(246,242,234,1)_100%)]";
+
+/* Reversed type for a section sitting on artwork. */
+export const SECTION_TITLE_ON_ART = "text-[#FFF6EC]";
+/** Quiet body copy on artwork — the archive's back link and cap note. */
+export const TEXT_MUTED_ON_ART = "text-sm text-[rgba(255,240,225,0.62)]";
+export const LINK_ON_ART =
+  "text-sm text-[rgba(255,240,225,0.82)] hover:text-[#FFC46B] transition-colors";
+export const SECTION_SUBTITLE_ON_ART =
+  "text-[rgba(255,240,225,0.72)] text-lg max-w-xl";
+
+/* ---------------------------------------------------------------------------
+ * CARDS ON ARTWORK
+ *
+ * The one place frosted glass is correct rather than lazy: these genuinely sit
+ * on a photograph, which is what the effect is for. On the flat paper sections
+ * it would just be decoration, which is why it was stripped there.
+ * ------------------------------------------------------------------------- */
+
+export const CARD_ON_ART =
+  "border-[rgba(255,240,225,0.16)] bg-[rgba(18,12,28,0.55)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[rgba(255,196,107,0.55)] hover:bg-[rgba(18,12,28,0.68)]";
+export const CARD_ON_ART_TITLE =
+  "text-[#FFF6EC] text-lg flex items-center gap-2";
+export const CARD_ON_ART_BODY = "text-[rgba(255,240,225,0.66)] line-clamp-2";
+/** Ghost button that reads on artwork. */
+export const BUTTON_ON_ART =
+  "border border-[rgba(255,240,225,0.42)] bg-transparent text-[#FFF6EC] hover:bg-[rgba(255,240,225,0.14)] transition-colors";
+
+/* ---------------------------------------------------------------------------
+ * VIDEO GRID ON ARTWORK
+ *
+ * A 2x2 block held to the left half of the container instead of a full-width
+ * row of three. The point is negative space: it leaves the right of the
+ * illustration uncovered so the artwork is part of the composition rather than
+ * something the cards sit on top of.
+ * ------------------------------------------------------------------------- */
+
+/** Left-hand column that the 2x2 grid and its CTA both live in. */
+export const VIDEO_COLUMN = "w-full lg:max-w-3xl";
+/** Two-up on tablet and above, single column on a phone. */
+export const GRID_VIDEOS_2X2 = "grid grid-cols-1 sm:grid-cols-2 gap-5";
+/** CTA aligned to the grid's left edge, not the page centre. */
+export const VIDEO_CTA_ROW = "flex justify-start mt-10";
+
+/* ---------------------------------------------------------------------------
+ * ABOUT ON ARTWORK
+ *
+ * No cards. Glass panels over a painting this open would be clutter — the ask
+ * was for the content and the artwork to amplify each other, so the copy is
+ * set directly on the image and separated by hairlines instead of boxes.
+ * The middle four columns are deliberately empty: that is where the sun, the
+ * peak and the rower are.
+ * ------------------------------------------------------------------------- */
+
+export const ABOUT_GRID =
+  "grid grid-cols-1 lg:grid-cols-12 gap-y-12 gap-x-8 items-start";
+export const ABOUT_COL_LEFT = "lg:col-span-4";
+/** The view. Empty by design — do not put content here. */
+export const ABOUT_COL_SPACER = "hidden lg:block lg:col-span-4";
+export const ABOUT_COL_RIGHT = "lg:col-span-4";
+
+export const ABOUT_NAME =
+  "font-display text-3xl md:text-4xl font-semibold tracking-tight text-[#FFF6EC]";
+export const ABOUT_ROLE =
+  "mt-1 font-mono text-xs uppercase tracking-[0.18em] text-[rgba(255,240,225,0.62)]";
+export const ABOUT_BIO =
+  "mt-6 text-[15px] leading-relaxed text-[rgba(255,240,225,0.82)]";
+export const ABOUT_AVATAR =
+  "w-14 h-14 border border-[rgba(255,240,225,0.35)]";
+export const ABOUT_AVATAR_FALLBACK =
+  "bg-[rgba(18,12,28,0.6)] text-[#FFF6EC]";
+export const ABOUT_IDENTITY_ROW = "flex items-center gap-4";
+
+/** Small pill used for the skill row — quieter than the paper Badge. */
+export const ABOUT_SKILL =
+  "inline-flex items-center gap-1.5 border border-[rgba(255,240,225,0.22)] bg-[rgba(18,12,28,0.35)] px-2 py-1 text-xs text-[rgba(255,240,225,0.80)]";
+export const ABOUT_SKILL_ROW = "mt-6 flex flex-wrap gap-2";
+export const ABOUT_SKILL_ICON = "w-3 h-3";
+
+/** Hairline-separated block on the right-hand column. */
+export const ABOUT_BLOCK =
+  "border-t border-[rgba(255,240,225,0.22)] pt-5 first:border-t-0 first:pt-0";
+export const ABOUT_BLOCK_STACK = "space-y-7";
+export const ABOUT_BLOCK_LABEL =
+  "font-mono text-xs uppercase tracking-[0.18em] text-[rgba(255,240,225,0.55)] mb-3 flex items-center gap-2";
+export const ABOUT_STRONG = "text-[#FFF6EC] font-medium";
+export const ABOUT_MUTED = "text-sm text-[rgba(255,240,225,0.68)]";
+export const ABOUT_STAT_ROW =
+  "flex items-baseline justify-between gap-4 text-sm";
+export const ABOUT_STAT_VALUE = "tabular font-mono text-[#FFF6EC]";
+export const ABOUT_LINK_ROW = "mt-3 flex flex-wrap gap-2";
+export const ABOUT_LINK =
+  "inline-flex items-center gap-2 border border-[rgba(255,240,225,0.28)] px-3 py-1.5 text-sm text-[rgba(255,240,225,0.88)] hover:border-[#FFC46B] hover:text-[#FFC46B] transition-colors";
+export const ABOUT_EMAIL =
+  "block text-sm text-[rgba(255,240,225,0.78)] hover:text-[#FFC46B] transition-colors";
+
+/* ---------------------------------------------------------------------------
+ * EXPERIENCE ON ARTWORK — the light treatment
+ *
+ * The lighthouse illustration is pale and high-key, unlike the dusk city and
+ * the lake. Reversing cream text onto it would need a scrim heavy enough to
+ * destroy the pastel work, so this section inverts the pattern: a PAPER wash
+ * over the artwork and ordinary ink type on top. It also ties the illustrated
+ * band back to the Workshop body instead of reading as a third dark plate.
+ *
+ * The wash is graded — near-opaque on the left where the timeline sits,
+ * thinning to almost nothing on the right so the lighthouse and the lightning
+ * stay legible.
+ * ------------------------------------------------------------------------- */
+
+export const SECTION_ART_SCRIM_LEFT =
+  "absolute inset-0 bg-[linear-gradient(90deg,rgba(12,9,20,0.90)_0%,rgba(12,9,20,0.82)_34%,rgba(12,9,20,0.58)_56%,rgba(12,9,20,0.34)_76%,rgba(12,9,20,0.26)_100%)]";
+/** Retained for any future pale artwork that wants the inverted treatment. */
+export const SECTION_ART_SCRIM_PAPER =
+  "absolute inset-0 bg-[linear-gradient(90deg,rgba(246,242,234,0.94)_0%,rgba(246,242,234,0.88)_38%,rgba(246,242,234,0.62)_60%,rgba(246,242,234,0.34)_80%,rgba(246,242,234,0.22)_100%)]";
+/** Paper fades for a light-treated section — top and bottom edges. */
+export const SECTION_ART_FADE_TOP_PAPER =
+  "absolute inset-x-0 top-0 h-20 bg-[linear-gradient(180deg,rgba(246,242,234,1)_0%,rgba(246,242,234,0)_100%)]";
+export const SECTION_ART_FADE_BOTTOM_PAPER =
+  "absolute inset-x-0 bottom-0 h-20 bg-[linear-gradient(180deg,rgba(246,242,234,0)_0%,rgba(246,242,234,1)_100%)]";
+
+/* Timeline. A single hairline rail with a marker per role, rather than a stack
+ * of cards — cards would re-introduce the boxed look the theme removed, and
+ * would hide more of the sea than they need to. */
+
+/** Column the timeline occupies; the right of the frame stays open. */
+export const EXP_COLUMN = "w-full lg:max-w-4xl";
+/** The rail: a vertical hairline the markers sit on. */
+export const EXP_RAIL =
+  "relative border-l border-[rgba(255,240,225,0.24)] pl-8 md:pl-10 space-y-14";
+/** One role. `group` so the marker can respond to hovering the whole entry. */
+export const EXP_ENTRY = "relative group";
+/** Dot on the rail, aligned to the role title's cap height. */
+export const EXP_MARKER =
+  "absolute -left-[2.3rem] md:-left-[2.8rem] top-1.5 grid h-4 w-4 place-items-center rounded-full border border-[rgba(255,240,225,0.32)] bg-[rgba(12,9,20,0.85)] transition-colors duration-200 group-hover:border-[#FFC46B]";
+export const EXP_MARKER_DOT =
+  "h-1.5 w-1.5 rounded-full bg-[rgba(255,240,225,0.55)] transition-colors duration-200 group-hover:bg-[#FFC46B]";
+/** Date sits above the title as an eyebrow rather than floating right. */
+export const EXP_DATE =
+  "font-mono text-xs uppercase tracking-[0.16em] text-[rgba(255,240,225,0.60)]";
+export const EXP_ROLE =
+  "mt-2 font-display text-2xl md:text-[1.75rem] leading-tight font-semibold text-[#FFF6EC]";
+export const EXP_ORG_ROW =
+  "mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-[rgba(255,240,225,0.70)]";
+export const EXP_ORG =
+  "text-[#FFF6EC]";
+export const EXP_PROGRAM =
+  "text-[rgba(255,240,225,0.55)]";
+export const EXP_TECH_ROW = "mt-4 flex flex-wrap gap-1.5";
+export const EXP_TECH =
+  "border border-[rgba(255,240,225,0.24)] bg-[rgba(18,12,28,0.32)] px-2 py-0.5 font-mono text-[11px] text-[rgba(255,240,225,0.78)]";
+export const EXP_BULLETS =
+  "mt-5 space-y-2.5 text-[15px] leading-relaxed text-[rgba(255,240,225,0.80)]";
+export const EXP_BULLET = "flex items-start gap-3";
+export const EXP_BULLET_MARK =
+  "mt-[0.55em] h-1 w-1 shrink-0 rounded-full bg-[#FFC46B]";
+
+/* ---------------------------------------------------------------------------
+ * ACADEMIC JOURNEY ON ARTWORK
+ *
+ * Mirror image of the Experience treatment. That artwork's subject (the
+ * lighthouse) is on the right, so the copy went left. This one's subject — the
+ * boy reading with the cat, which is the whole reason it suits an academic
+ * section — is on the LEFT, so the copy goes right and the scrim darkens that
+ * side instead.
+ *
+ * The course list is deliberately compact: term header, then one line per
+ * course with the grade set right. The previous card-and-tile version was tall
+ * enough to cover most of the picture; this occupies roughly a third of the
+ * height, so the tree, the swing and the sky above stay visible.
+ * ------------------------------------------------------------------------- */
+
+/** Darkens the right where the copy sits; clears left over the reader. */
+export const SECTION_ART_SCRIM_RIGHT =
+  "absolute inset-0 bg-[linear-gradient(90deg,rgba(12,9,20,0.24)_0%,rgba(12,9,20,0.32)_24%,rgba(12,9,20,0.62)_46%,rgba(12,9,20,0.84)_66%,rgba(12,9,20,0.90)_100%)]";
+
+/** 12-column grid whose left five columns are left empty for the reader. */
+export const EDU_GRID = "grid grid-cols-1 lg:grid-cols-12 gap-8";
+export const EDU_COL_SPACER = "hidden lg:block lg:col-span-5";
+export const EDU_COL_CONTENT = "lg:col-span-7";
+export const EDU_STACK = "space-y-10";
+
+export const EDU_TERM_BLOCK =
+  "border-t border-[rgba(255,240,225,0.24)] pt-5 first:border-t-0 first:pt-0";
+export const EDU_TERM_ROW = "flex flex-wrap items-baseline justify-between gap-2";
+export const EDU_TERM =
+  "font-display text-xl md:text-2xl font-semibold text-[#FFF6EC]";
+export const EDU_TERM_DATES =
+  "font-mono text-xs uppercase tracking-[0.16em] text-[rgba(255,240,225,0.55)]";
+/** One course: name and code left, grade right, on a single baseline. */
+export const EDU_COURSE_LIST = "mt-4 space-y-2.5";
+export const EDU_COURSE_ROW =
+  "flex items-baseline gap-4 border-b border-[rgba(255,240,225,0.12)] pb-2.5 last:border-b-0";
+export const EDU_COURSE_NAME = "text-[15px] text-[#FFF6EC]";
+export const EDU_COURSE_CODE =
+  "font-mono text-[11px] uppercase tracking-[0.12em] text-[rgba(255,240,225,0.50)]";
+export const EDU_COURSE_META = "min-w-0 flex-1";
+export const EDU_COURSE_GRADE =
+  "tabular font-mono text-lg text-[#FFC46B] shrink-0";
+export const EDU_COURSE_CREDITS =
+  "font-mono text-[11px] text-[rgba(255,240,225,0.45)] shrink-0 w-16 text-right";
+
+/* ---------------------------------------------------------------------------
+ * CERTIFICATIONS ON ARTWORK — the light treatment
+ *
+ * The ship illustration is pale and high-key. Reversed cream type would need a
+ * scrim heavy enough to destroy the god-rays, so this section takes the
+ * inverted treatment: a paper wash and ordinary ink type. It also lands where
+ * the page wants a breather — between two dark plates — so the band lifts
+ * rather than piling on more weight.
+ *
+ * NO CAROUSEL. The old version was an Embla carousel of five image cards. It
+ * hid four of the five behind an interaction, needed a client bundle just to
+ * scroll, and the images themselves are generic course banners carrying no
+ * information the title does not. As a plain list all five are visible at once,
+ * the section stops shipping JavaScript, and the picture keeps its right half.
+ * ------------------------------------------------------------------------- */
+
+/** Paper wash graded left-heavy, thinning over the ship and the rays. */
+export const SECTION_ART_SCRIM_PAPER_LEFT =
+  "absolute inset-0 bg-[linear-gradient(90deg,rgba(246,242,234,0.93)_0%,rgba(246,242,234,0.86)_36%,rgba(246,242,234,0.58)_58%,rgba(246,242,234,0.30)_80%,rgba(246,242,234,0.20)_100%)]";
+
+export const CERT_GRID = "grid grid-cols-1 lg:grid-cols-12 gap-8";
+export const CERT_COL_CONTENT = "lg:col-span-7";
+/** The ship and the rays. Intentionally empty. */
+export const CERT_COL_SPACER = "hidden lg:block lg:col-span-5";
+export const CERT_LIST = "divide-y divide-[color:var(--line)]";
+/** Whole row is the link; `group` drives the hover state. */
+export const CERT_ROW =
+  "group flex items-baseline gap-4 py-4 first:pt-0 transition-colors";
+export const CERT_INDEX =
+  "tabular font-mono text-[11px] text-[color:var(--ink-faint)] w-6 shrink-0";
+export const CERT_BODY = "block min-w-0 flex-1";
+export const CERT_TITLE_ROW = "flex items-center gap-2";
+/* CERT_BODY/CERT_CATEGORY/CERT_DESC are spans (an <a> may not contain block
+ * elements in valid HTML), so they carry explicit display utilities. */
+export const CERT_TITLE =
+  "font-display text-lg md:text-xl font-semibold text-[color:var(--ink)] group-hover:text-[color:var(--accent)] transition-colors";
+export const CERT_ARROW =
+  "h-3.5 w-3.5 shrink-0 text-[color:var(--ink-faint)] opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-[color:var(--accent)]";
+export const CERT_CATEGORY =
+  "block mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-[color:var(--ink-faint)]";
+export const CERT_DESC =
+  "block mt-2 text-sm leading-relaxed text-[color:var(--ink-soft)]";
+
+/* ---------------------------------------------------------------------------
+ * OPEN SOURCE ON ARTWORK — the light treatment, two-up
+ *
+ * Second pale plate, so it takes the paper wash like the certifications
+ * section. It is laid out as a TWO-COLUMN grid rather than a single numbered
+ * list specifically so the two light bands do not read as the same section
+ * twice — same treatment, different shape.
+ *
+ * Each entry leads with the repository rather than the PR title: for open
+ * source the interesting fact is WHERE the work landed, not what it was
+ * called. The merge state and PR number sit together at the foot in the
+ * accent, since "merged" is the claim being made.
+ * ------------------------------------------------------------------------- */
+
+export const OSS_GRID = "grid grid-cols-1 lg:grid-cols-12 gap-8";
+export const OSS_COL_CONTENT = "lg:col-span-8";
+/** The delta and the sun. Intentionally empty. */
+export const OSS_COL_SPACER = "hidden lg:block lg:col-span-4";
+export const OSS_ITEMS = "grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-7";
+export const OSS_ITEM =
+  "group block border-t border-[color:var(--line)] pt-4 transition-colors hover:border-[color:var(--accent)]";
+export const OSS_REPO =
+  "block font-mono text-[11px] uppercase tracking-[0.14em] text-[color:var(--ink-faint)]";
+export const OSS_TITLE =
+  "mt-2 block font-display text-lg font-semibold leading-snug text-[color:var(--ink)] group-hover:text-[color:var(--accent)] transition-colors";
+export const OSS_DESC =
+  "mt-2 block text-sm leading-relaxed text-[color:var(--ink-soft)]";
+export const OSS_FOOT =
+  "mt-3 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.12em] text-[color:var(--accent)]";
+export const OSS_FOOT_DOT =
+  "h-1 w-1 rounded-full bg-[color:var(--accent)]";
+
+/* ---------------------------------------------------------------------------
+ * FEATURED PROJECTS ON ARTWORK — the closing plate
+ *
+ * The last illustration bookends the hero: the same figure and the same cat,
+ * out of the city and at rest. It runs behind the footer as well, so the page
+ * ends on the view rather than on a bar.
+ *
+ * Pale artwork, so the paper wash and ink type again. The figure sits right of
+ * centre and is protected; the copy takes the waterfall side.
+ *
+ * THE CARDS LOST THEIR VIDEOS. Each compact trigger card used to embed a
+ * YouTube iframe — five of them loading on every page view, for videos already
+ * embedded inside the modal each card opens. Removing them from the trigger
+ * costs nothing (the video is still one click away, where someone actually
+ * wants it) and buys back both the page weight and the artwork.
+ * ------------------------------------------------------------------------- */
+
+export const PRJ_GRID = "grid grid-cols-1 lg:grid-cols-12 gap-8";
+export const PRJ_COL_CONTENT = "lg:col-span-7";
+/** The figure, the cat, the meadow. Intentionally empty. */
+export const PRJ_COL_SPACER = "hidden lg:block lg:col-span-5";
+export const PRJ_ITEMS = "grid grid-cols-1 md:grid-cols-2 gap-5";
+/** Trigger card: paper panel, hairline, lifts and warms on hover. */
+export const PRJ_CARD =
+  "group flex h-full w-full cursor-pointer flex-col border border-[color:var(--line)] bg-[rgba(255,253,248,0.72)] p-5 text-left backdrop-blur-[2px] transition-all duration-200 hover:-translate-y-1 hover:border-[color:var(--accent)] hover:bg-[rgba(255,253,248,0.88)]";
+export const PRJ_CARD_TOP = "flex items-start justify-between gap-3";
+export const PRJ_BADGE =
+  "font-mono text-[11px] uppercase tracking-[0.14em] text-[color:var(--ink-faint)]";
+export const PRJ_CARD_ICON = "h-4 w-4 text-[color:var(--ink-faint)]";
+export const PRJ_TITLE =
+  "mt-3 font-display text-xl font-semibold text-[color:var(--ink)] group-hover:text-[color:var(--accent)] transition-colors";
+export const PRJ_SUBTITLE = "mt-1 text-sm text-[color:var(--ink-soft)]";
+export const PRJ_SUMMARY =
+  "mt-3 text-sm leading-relaxed text-[color:var(--ink-soft)] line-clamp-3";
+export const PRJ_TAGS = "mt-4 flex flex-wrap gap-1.5";
+export const PRJ_TAG =
+  "border border-[color:var(--line)] px-1.5 py-0.5 font-mono text-[10px] text-[color:var(--ink-faint)]";
+export const PRJ_CTA =
+  "mt-auto pt-4 flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-[color:var(--accent)]";
+export const PRJ_CTA_ICON =
+  "h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5";
+
+/** Footer reversed for the paper wash it now sits on. */
+export const FOOTER_ON_ART = "px-6 pb-14 pt-8";
 
 /* ---------------------------------------------------------------------------
  * NON-CLASS CONSTANTS

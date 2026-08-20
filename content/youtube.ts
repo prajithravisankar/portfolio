@@ -36,7 +36,7 @@ export const youtubeChannel: YouTubeChannel = {
   channelId: "UCpXkG3uUft9EEw53NJawIhg",
   handle: "@BigOGrindset",
   url: "https://www.youtube.com/@BigOGrindset",
-  displayCount: 3,
+  displayCount: 4,
   revalidateSeconds: 3600,
 };
 

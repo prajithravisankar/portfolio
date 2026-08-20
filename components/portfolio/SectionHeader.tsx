@@ -4,6 +4,8 @@ import {
   SECTION_SUBTITLE,
   SECTION_TITLE,
   SECTION_TITLE_ACCENT,
+  SECTION_TITLE_ON_ART,
+  SECTION_SUBTITLE_ON_ART,
 } from "@/components/portfolio/tokens";
 
 /**
@@ -32,19 +34,31 @@ export interface SectionHeaderProps {
   subtitle?: string;
   /** Extra classes merged onto the wrapper <div>. */
   className?: string;
+  /**
+   * Reverse the type for a section sitting on full-bleed artwork. Ink-on-paper
+   * headings are unreadable over a photograph.
+   */
+  onArt?: boolean;
 }
 
 export function SectionHeader({
   title,
   subtitle,
   className,
+  onArt = false,
 }: SectionHeaderProps) {
   return (
     <div className={cn(SECTION_HEADER_WRAP, className)}>
       <h2 className={SECTION_TITLE}>
-        <span className={SECTION_TITLE_ACCENT}>{title}</span>
+        <span className={onArt ? SECTION_TITLE_ON_ART : SECTION_TITLE_ACCENT}>
+          {title}
+        </span>
       </h2>
-      {subtitle ? <p className={SECTION_SUBTITLE}>{subtitle}</p> : null}
+      {subtitle ? (
+        <p className={onArt ? SECTION_SUBTITLE_ON_ART : SECTION_SUBTITLE}>
+          {subtitle}
+        </p>
+      ) : null}
     </div>
   );
 }

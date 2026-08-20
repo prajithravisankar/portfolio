@@ -15,10 +15,14 @@ import {
   PAGE_CONTENT,
   PAGE_ROOT,
   REL_EXTERNAL,
+  SECTION_ART_FADE_TOP_PAPER,
+  SECTION_ART_SCRIM_PAPER_LEFT,
   SECTION_CONTAINER,
   SEPARATOR_SPACED,
   TEXT_MUTED_SM_ALT,
 } from "@/components/portfolio/tokens";
+import { SectionBackdrop } from "@/components/portfolio/SectionBackdrop";
+import { sectionArt } from "@/content/section-art";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { CertificationsSection } from "@/components/sections/CertificationsSection";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -47,7 +51,16 @@ export default function Home() {
         <EducationSection />
         <CertificationsSection />
         <OpenSourceSection />
-        <ProjectsSection />
+        <SectionBackdrop
+          art={sectionArt.projects}
+          parallax
+          parallaxSrc="/section-projects-2400.webp"
+          parallaxSize="auto 92%"
+          scrimClassName={SECTION_ART_SCRIM_PAPER_LEFT}
+          fadeTopClassName={SECTION_ART_FADE_TOP_PAPER}
+          fadeBottom={false}
+        >
+          <ProjectsSection />
 
         {/* Footer */}
         <footer className={FOOTER}>
@@ -90,6 +103,7 @@ export default function Home() {
             </p>
           </div>
         </footer>
+        </SectionBackdrop>
       </div>
     </div>
   );

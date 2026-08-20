@@ -2,53 +2,46 @@ import { Fragment } from "react";
 
 import { TagList } from "@/components/portfolio/TagList";
 import {
+  PRJ_BADGE,
+  PRJ_CARD,
+  PRJ_CARD_ICON,
+  PRJ_CARD_TOP,
+  PRJ_CTA,
+  PRJ_CTA_ICON,
+  PRJ_SUBTITLE,
+  PRJ_SUMMARY,
+  PRJ_TAGS,
+  PRJ_TAG,
+  PRJ_TITLE,
   BADGE_SOLID,
   BULLET_ITEM,
   BULLET_LIST,
   BULLET_MARK,
-  BUTTON_GHOST_FULL,
   BUTTON_GHOST_FULL_STRONG,
-  CARD_BODY_FILL,
-  CARD_SURFACE_TRIGGER,
-  CARD_SURFACE_TRIGGER_SOFT,
-  CARD_TITLE_XL,
   DIALOG_DESCRIPTION,
   DIALOG_PANEL,
   DIALOG_TITLE,
   ICON_LG_ACCENT,
   ICON_MD,
-  ICON_MD_ACCENT_SOFT,
   ICON_SM,
   ICON_SM_ACCENT,
-  ICON_TRAILING,
   LINK_ROW_CENTERED,
   PANEL_TILE,
-  ROW_BETWEEN_TOP_CARD,
   ROW_ICON_LG,
   SEPARATOR,
   STACK_SM,
   SUBHEADING_ICON,
   SUBHEADING_INLINE_ICON,
   SUBHEADING_PLAIN,
-  TAG_ROW_CARD,
   TEXT_BODY_LIGHT,
-  TEXT_CARD_SUMMARY,
-  TEXT_CLAMP_LIGHT,
-  TEXT_CLAMP_MUTED,
   TEXT_MUTED_SM_ALT,
   TEXT_STRONG,
   VIDEO_FRAME,
-  VIDEO_FRAME_CARD,
   VIDEO_IFRAME,
 } from "@/components/portfolio/tokens";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import {
   Dialog,
@@ -65,7 +58,6 @@ import type {
   ProjectHeading,
   ProjectVideo,
 } from "@/content/projects";
-import { cn } from "@/lib/utils";
 
 /**
  * One "Featured Projects" entry: the compact <DialogTrigger> card plus the full
@@ -94,18 +86,6 @@ import { cn } from "@/lib/utils";
  * (component references are not serialisable).
  */
 
-/**
- * Returns whichever candidate token already contains `variant` as one of its
- * classes, so the emitted class string stays byte-identical to the original
- * markup instead of being re-ordered by tailwind-merge. Falls back to merging
- * the variant onto the first candidate if the data ever grows a new value.
- */
-function withVariant(variant: string, ...candidates: string[]): string {
-  return (
-    candidates.find((candidate) => candidate.split(" ").includes(variant)) ??
-    cn(candidates[0], variant)
-  );
-}
 
 /** A 16:9 YouTube frame. `className` picks the card vs. modal frame token. */
 function ProjectVideoFrame({
@@ -198,49 +178,30 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   // The two trigger-card surfaces differ only in their hover tint, and the two
   // clamped descriptions only in their text colour — pick the matching token.
-  const cardSurfaceClass = withVariant(
-    style.cardHoverClass,
-    CARD_SURFACE_TRIGGER,
-    CARD_SURFACE_TRIGGER_SOFT
-  );
-  const cardDescriptionClass = withVariant(
-    style.cardDescriptionToneClass,
-    TEXT_CLAMP_MUTED,
-    TEXT_CLAMP_LIGHT
-  );
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Card className={cardSurfaceClass}>
-          <CardHeader>
-            <div className={ROW_BETWEEN_TOP_CARD}>
-              <Badge className={BADGE_SOLID}>{card.badge}</Badge>
-              <BadgeIcon className={ICON_MD_ACCENT_SOFT} />
-            </div>
-            <CardTitle className={CARD_TITLE_XL}>{card.title}</CardTitle>
-            <CardDescription className={cardDescriptionClass}>
-              {card.description}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className={CARD_BODY_FILL}>
-            <div>
-              <ProjectVideoFrame
-                video={card.video}
-                className={cn(
-                  VIDEO_FRAME_CARD,
-                  style.cardVideoWrapperExtraClass
-                )}
-              />
-              <p className={TEXT_CARD_SUMMARY}>{card.summary}</p>
-              <TagList tags={card.tech} size="sm" className={TAG_ROW_CARD} />
-            </div>
-            <Button className={cn(BUTTON_GHOST_FULL, style.cardCtaExtraClass)}>
-              {card.ctaLabel}
-              <CtaIcon className={ICON_TRAILING} />
-            </Button>
-          </CardContent>
-        </Card>
+        <button type="button" className={PRJ_CARD}>
+          <span className={PRJ_CARD_TOP}>
+            <span className={PRJ_BADGE}>{card.badge}</span>
+            <BadgeIcon className={PRJ_CARD_ICON} aria-hidden="true" />
+          </span>
+          <span className={PRJ_TITLE}>{card.title}</span>
+          <span className={PRJ_SUBTITLE}>{card.description}</span>
+          <span className={PRJ_SUMMARY}>{card.summary}</span>
+          <span className={PRJ_TAGS}>
+            {card.tech.map((tech) => (
+              <span key={tech} className={PRJ_TAG}>
+                {tech}
+              </span>
+            ))}
+          </span>
+          <span className={PRJ_CTA}>
+            {card.ctaLabel}
+            <CtaIcon className={PRJ_CTA_ICON} aria-hidden="true" />
+          </span>
+        </button>
       </DialogTrigger>
       <DialogContent className={DIALOG_PANEL}>
         <DialogHeader>

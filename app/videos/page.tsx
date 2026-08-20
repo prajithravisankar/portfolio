@@ -3,14 +3,15 @@ import { ArrowLeft, ExternalLink, Youtube } from "lucide-react";
 import type { Metadata } from "next";
 
 import { Button } from "@/components/ui/button";
+import { SectionBackdrop } from "@/components/portfolio/SectionBackdrop";
 import { SectionHeader } from "@/components/portfolio/SectionHeader";
 import { VideoCard } from "@/components/portfolio/VideoCard";
 import {
-  BUTTON_OUTLINE,
+  BUTTON_ON_ART,
   GRID_CARDS_3,
   ICON_XS,
   LINK_ROW_CENTERED,
-  NAV_LINK,
+  LINK_ON_ART,
   PAGE_BACKDROP,
   PAGE_BACKDROP_INNER,
   PAGE_CONTENT,
@@ -20,8 +21,9 @@ import {
   SECTION_CONTAINER,
   SECTION_CTA_ROW,
   SECTION_SHELL,
-  TEXT_MUTED_SM,
+  TEXT_MUTED_ON_ART,
 } from "@/components/portfolio/tokens";
+import { sectionArt } from "@/content/section-art";
 import { youtubeArchive, youtubeChannel } from "@/content/youtube";
 import { getAllVideos } from "@/lib/youtube";
 
@@ -50,10 +52,16 @@ export default async function VideosPage() {
         <div className={PAGE_BACKDROP_INNER} />
       </div>
 
-      <div className={PAGE_CONTENT}>
+      <SectionBackdrop
+        art={sectionArt.videos}
+        fixed
+        fadeTop={false}
+        fadeBottom={false}
+        className={PAGE_CONTENT}
+      >
         <section className={SECTION_SHELL}>
           <div className={SECTION_CONTAINER}>
-            <Link href="/" className={`${NAV_LINK} ${ROW_ICON}`}>
+            <Link href="/" className={`${LINK_ON_ART} ${ROW_ICON}`}>
               <ArrowLeft className={ICON_XS} />
               {youtubeArchive.backLabel}
             </Link>
@@ -61,27 +69,28 @@ export default async function VideosPage() {
             <SectionHeader
               title={youtubeArchive.title}
               subtitle={youtubeArchive.subtitle}
+              onArt
             />
 
             {videos.length > 0 ? (
               <>
                 <div className={GRID_CARDS_3}>
                   {videos.map((video) => (
-                    <VideoCard key={video.id} video={video} />
+                    <VideoCard key={video.id} video={video} onArt />
                   ))}
                 </div>
-                <p className={`${TEXT_MUTED_SM} text-center mt-10`}>
+                <p className={`${TEXT_MUTED_ON_ART} text-center mt-10`}>
                   {youtubeArchive.olderNote}
                 </p>
               </>
             ) : (
-              <p className={`${TEXT_MUTED_SM} text-center`}>
+              <p className={`${TEXT_MUTED_ON_ART} text-center`}>
                 {youtubeArchive.olderNote}
               </p>
             )}
 
             <div className={SECTION_CTA_ROW}>
-              <Button variant="outline" className={BUTTON_OUTLINE} asChild>
+              <Button variant="outline" className={BUTTON_ON_ART} asChild>
                 <a
                   href={youtubeChannel.url}
                   target="_blank"
@@ -96,7 +105,7 @@ export default async function VideosPage() {
             </div>
           </div>
         </section>
-      </div>
+      </SectionBackdrop>
     </div>
   );
 }

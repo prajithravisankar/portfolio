@@ -94,3 +94,31 @@ html {
     transform: scale(1.04);
   }
 }
+
+/* ===========================================================================
+   SECTION BACKDROP — viewport-scale ("parallax") mode.
+
+   A tall section with an `object-cover` <img> scales the artwork up to cover
+   the section's height, which on a long section crops most of its width away
+   and reads as heavily zoomed in. Painting it as a background with
+   `background-attachment: fixed` sizes it to the VIEWPORT instead, so the
+   composition stays close to the original framing and the artwork holds still
+   while the content scrolls over it.
+
+   Fixed attachment is only applied from `md` up: iOS Safari has long-standing
+   bugs where a fixed background is sized against the document rather than the
+   viewport, which on a long page blows the image up enormously. Below `md` it
+   falls back to a normal scrolling background, which looks fine.
+   =========================================================================== */
+
+.bg-parallax {
+  background-size: cover;
+  background-position: var(--bg-pos, 50% 50%);
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .bg-parallax {
+    background-attachment: fixed;
+  }
+}

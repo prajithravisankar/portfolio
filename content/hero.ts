@@ -14,13 +14,6 @@
  * ============================================================================
  */
 
-export interface HeroStat {
-  /** The number or short value. Rendered in mono with tabular figures. */
-  value: string;
-  /** What the number is. Kept to a few words. */
-  label: string;
-}
-
 export interface HeroAction {
   href: string;
   label: string;
@@ -35,9 +28,13 @@ export interface HeroContent {
   headline: string[];
   /** The claim, in plain language. Two sentences at most. */
   standfirst: string;
-  /** Proof strip. Four is the most that stays scannable. */
-  stats: HeroStat[];
   actions: HeroAction[];
+  /**
+   * Link out to the YouTube channel, rendered as a glyph on the headline.
+   * The href is NOT stored here — it comes from content/youtube.ts so the
+   * channel URL keeps exactly one home.
+   */
+  channelLinkLabel: string;
   /**
    * Full-bleed background artwork sitting behind the hero copy.
    *
@@ -66,11 +63,7 @@ export const heroContent: HeroContent = {
   headline: ["Building backends", "in public."],
   standfirst:
     "Computer science student at Lakehead University. Two systems I architected are live in production at a startup — Django, Celery, FastAPI, PostgreSQL with pgvector. I film the work most days and publish it.",
-  stats: [
-    { value: "14,000+", label: "targeting options normalised across six ad platforms" },
-    { value: "<100ms", label: "filtered queries across the full taxonomy" },
-    { value: "1st / 108", label: "LavaPunk Hackathon, 488 participants" },
-  ],
+  channelLinkLabel: "Watch on YouTube — @BigOGrindset",
   actions: [
     { href: "#projects", label: "See the work" },
     { href: "#contact", label: "Get in touch" },

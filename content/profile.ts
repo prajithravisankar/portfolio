@@ -226,7 +226,7 @@ export const aboutContent: AboutContent = {
     institution: "Lakehead University",
     degree: "Hons. BSc in Computer Science",
     stats: [
-      { label: "Expected Graduation", value: "May 2027" },
+      { label: "Expected Graduation", value: "December 2027" },
       { label: "Current GPA", value: "85.7%", emphasized: true },
     ],
   },

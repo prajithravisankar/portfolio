@@ -857,6 +857,15 @@ export const CERT_TITLE =
   "font-display text-lg md:text-xl font-semibold text-[color:var(--ink)] group-hover:text-[color:var(--accent)] transition-colors";
 export const CERT_ARROW =
   "h-3.5 w-3.5 shrink-0 text-[color:var(--ink-faint)] opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-[color:var(--accent)]";
+/** Issuer + category line. Two providers are mixed now, so say which. */
+export const CERT_META =
+  "block mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-[color:var(--ink-faint)]";
+/** Title styling for a credential with no verification link — no hover shift. */
+export const CERT_TITLE_STATIC =
+  "font-display text-lg md:text-xl font-semibold text-[color:var(--ink)]";
+/** Row wrapper for an unlinked credential: same rhythm, no pointer affordance. */
+export const CERT_ROW_STATIC = "flex items-baseline gap-4 py-4 first:pt-0";
+
 export const CERT_CATEGORY =
   "block mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-[color:var(--ink-faint)]";
 export const CERT_DESC =

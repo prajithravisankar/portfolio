@@ -7,7 +7,9 @@ import { certificationsSection } from "@/content/certifications";
 import {
   CERT_ARROW,
   CERT_BODY,
-  CERT_CATEGORY,
+  CERT_META,
+  CERT_ROW_STATIC,
+  CERT_TITLE_STATIC,
   CERT_COL_CONTENT,
   CERT_COL_SPACER,
   CERT_DESC,
@@ -65,31 +67,53 @@ export function CertificationsSection() {
           <div className={CERT_GRID}>
             <div className={CERT_COL_CONTENT}>
               <ol className={CERT_LIST}>
-                {items.map((item, index) => (
-                  <li key={item.id}>
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel={REL_EXTERNAL}
-                      className={CERT_ROW}
-                    >
+                {items.map((item, index) => {
+                  const body = (
+                    <>
                       <span className={CERT_INDEX} aria-hidden="true">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <span className={CERT_BODY}>
                         <span className={CERT_TITLE_ROW}>
-                          <span className={CERT_TITLE}>{item.title}</span>
-                          <ArrowUpRight
-                            className={CERT_ARROW}
-                            aria-hidden="true"
-                          />
+                          <span
+                            className={item.url ? CERT_TITLE : CERT_TITLE_STATIC}
+                          >
+                            {item.title}
+                          </span>
+                          {item.url ? (
+                            <ArrowUpRight
+                              className={CERT_ARROW}
+                              aria-hidden="true"
+                            />
+                          ) : null}
                         </span>
-                        <span className={CERT_CATEGORY}>{item.category}</span>
+                        <span className={CERT_META}>
+                          {item.issuer} · {item.category}
+                        </span>
                         <span className={CERT_DESC}>{item.description}</span>
                       </span>
-                    </a>
-                  </li>
-                ))}
+                    </>
+                  );
+
+                  return (
+                    <li key={item.id}>
+                      {item.url ? (
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel={REL_EXTERNAL}
+                          className={CERT_ROW}
+                        >
+                          {body}
+                        </a>
+                      ) : (
+                        // No public verification link recorded. Rendered as a
+                        // plain row rather than a link to nowhere.
+                        <div className={CERT_ROW_STATIC}>{body}</div>
+                      )}
+                    </li>
+                  );
+                })}
               </ol>
             </div>
 

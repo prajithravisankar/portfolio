@@ -52,6 +52,14 @@ export const NAV_BAR_OVER_HERO =
 /** Nav once the page has scrolled past the hero: paper bar, hairline rule. */
 export const NAV_BAR_SCROLLED =
   "bg-[rgba(16,12,24,0.52)] backdrop-blur-xl backdrop-saturate-150 border-b border-[rgba(255,240,225,0.14)] shadow-[inset_0_1px_0_0_rgba(255,240,225,0.10),0_8px_28px_-12px_rgba(10,6,18,0.55)]";
+/**
+ * Highlighted route link in the nav (the MLH submission). Gold, with a dot,
+ * so a judge scanning the bar finds it without reading every item.
+ */
+export const NAV_FEATURE =
+  "inline-flex items-center gap-1.5 text-sm text-[#FFC46B] hover:text-[#FFF6EC] transition-colors";
+export const NAV_FEATURE_DOT = "h-1.5 w-1.5 rounded-full bg-[#FFC46B]";
+
 /** Reversed wordmark and links while over the artwork. */
 export const NAV_BRAND_OVER_HERO = "text-[#FFF6EC]";
 export const NAV_LINK_OVER_HERO =
@@ -66,7 +74,7 @@ export const NAV_ROW = "flex items-center justify-between";
 export const NAV_BRAND =
   "font-display text-xl font-semibold tracking-tight text-[color:var(--ink)]";
 /** Desktop-only anchor list. (1x) */
-export const NAV_LINK_ROW = "hidden lg:flex items-center gap-8";
+export const NAV_LINK_ROW = "hidden lg:flex items-center gap-6";
 /** A single nav anchor. (5x) */
 export const NAV_LINK = "text-sm text-[color:var(--ink-soft)] hover:text-[color:var(--ink)] transition-colors";
 /** The "Contact" Button in the nav. (1x) */
@@ -539,6 +547,26 @@ export const HERO_DAY_NUMBER =
 export const HERO_STAND =
   "mt-6 max-w-2xl text-base md:text-lg leading-relaxed text-[rgba(255,241,228,0.86)]";
 export const HERO_ACTIONS = "mt-9 flex flex-wrap items-center gap-3";
+
+/**
+ * Highlighted MLH card in the hero.
+ *
+ * Deliberately the only bordered panel on the hero: it has to be found by a
+ * fellowship judge who has never seen this site, without competing with the
+ * headline. The gold left rule does the work, not a fill.
+ */
+export const HERO_FEATURED =
+  "group mt-10 block max-w-xl border-l-2 border-[#FFC46B] bg-[rgba(18,12,28,0.42)] py-4 pl-5 pr-5 backdrop-blur-sm transition-colors hover:bg-[rgba(18,12,28,0.58)]";
+export const HERO_FEATURED_EYEBROW =
+  "block font-mono text-[11px] uppercase tracking-[0.18em] text-[#FFC46B]";
+export const HERO_FEATURED_TITLE =
+  "block mt-1.5 font-display text-xl font-semibold text-[#FFF6EC]";
+export const HERO_FEATURED_BLURB =
+  "block mt-1.5 text-sm leading-relaxed text-[rgba(255,240,225,0.72)]";
+export const HERO_FEATURED_CTA =
+  "mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-[#FFF6EC] group-hover:text-[#FFC46B] transition-colors";
+export const HERO_FEATURED_ICON =
+  "h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5";
 /** Primary action on the artwork — warm fill, dark label. */
 export const HERO_BUTTON_PRIMARY =
   "bg-[#FFC46B] text-[#241608] hover:bg-[#FFD695] transition-colors";
@@ -931,6 +959,81 @@ export const FOOTER_CREDIT =
   "mt-3 text-center text-xs text-[color:var(--ink)]/65";
 export const FOOTER_CREDIT_LINK =
   "underline underline-offset-2 decoration-[color:var(--ink)]/30 hover:text-[color:var(--accent)] hover:decoration-[color:var(--accent)] transition-colors";
+
+/* ---------------------------------------------------------------------------
+ * MLH SUBMISSION PAGE — the JWT session log
+ *
+ * Reversed cream on the four skyline plates, matching the illustrated sections
+ * of the homepage. The closing footnote sits on plain paper after the last
+ * plate fades out, so it uses the ink tokens.
+ *
+ * The measure is held narrower than the homepage's: fifteen rows are read line
+ * by line, and at full width the video would sit a head-turn from the
+ * narrative it belongs to.
+ * ------------------------------------------------------------------------- */
+
+/**
+ * Official MLH lockup. Width only, height auto — the mark can never be
+ * stretched, and its intrinsic ratio is carried on the element so nothing
+ * shifts while it loads.
+ */
+export const MLH_LOGO = "block h-auto w-[172px] md:w-[196px]";
+export const MLH_LOGO_SMALL = "block h-auto w-[118px]";
+
+/** Header block on the dawn plate. Extra top padding clears the fixed nav. */
+export const MLH_HERO = "px-6 pt-32 pb-20 md:pt-36 md:pb-24";
+/** Back link reversed for the artwork. */
+export const MLH_BACK_LINK =
+  "text-sm text-[rgba(255,240,225,0.72)] hover:text-[#FFC46B] transition-colors";
+export const MLH_TITLE =
+  "font-display text-4xl md:text-6xl leading-[1.02] font-semibold tracking-[-0.02em] text-[#FFF6EC] mt-6";
+export const MLH_SUBTITLE =
+  "mt-3 font-mono text-xs uppercase tracking-[0.18em] text-[#FFC46B]";
+export const MLH_INTRO =
+  "mt-6 max-w-2xl text-[15px] md:text-base leading-relaxed text-[rgba(255,240,225,0.84)]";
+export const MLH_LINK_ROW = "mt-7 flex flex-wrap gap-2";
+export const MLH_LINK =
+  "inline-flex items-center gap-2 border border-[rgba(255,240,225,0.38)] px-3.5 py-2 text-sm text-[#FFF6EC] hover:border-[#FFC46B] hover:text-[#FFC46B] transition-colors";
+
+/** Chapter heading above each run of sessions. */
+export const MLH_CHAPTER_HEAD =
+  "mb-10 border-l-2 border-[#FFC46B] pl-4 max-w-3xl";
+export const MLH_CHAPTER_RANGE =
+  "font-mono text-xs uppercase tracking-[0.18em] text-[#FFC46B]";
+export const MLH_CHAPTER_LABEL =
+  "mt-1 font-display text-2xl md:text-3xl font-semibold text-[#FFF6EC]";
+
+/** One session row: narrative left (~7/12), video right; stacked on mobile. */
+export const MLH_ROW =
+  "grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 border-t border-[rgba(255,240,225,0.18)] py-9 first:border-t-0 first:pt-0";
+export const MLH_ROW_TEXT = "lg:col-span-7";
+export const MLH_ROW_MEDIA = "lg:col-span-5";
+export const MLH_DAY =
+  "font-mono text-xs uppercase tracking-[0.18em] text-[#FFC46B]";
+export const MLH_NARRATIVE =
+  "mt-3 max-w-2xl text-[15px] leading-relaxed text-[rgba(255,240,225,0.84)]";
+/** Timestamp chips under the video. */
+export const MLH_CHIP_ROW = "mt-3 flex flex-wrap gap-1.5";
+export const MLH_CHIP =
+  "inline-flex items-baseline gap-1.5 border border-[rgba(255,240,225,0.24)] bg-[rgba(18,12,28,0.35)] px-2 py-1 text-[12px] text-[rgba(255,240,225,0.80)] hover:border-[#FFC46B] hover:text-[#FFC46B] transition-colors";
+export const MLH_CHIP_TS = "tabular font-mono text-[11px] text-[#FFC46B]";
+
+/** Closing note and outro sit on plain paper, after the last plate fades. */
+export const MLH_FOOTNOTE =
+  "max-w-2xl text-sm leading-relaxed text-[color:var(--ink-faint)]";
+export const MLH_OUTRO = "mt-8";
+export const MLH_OUTRO_LINK =
+  "inline-flex items-center gap-2 border border-[color:var(--line)] px-4 py-2.5 text-sm text-[color:var(--ink)] hover:border-[color:var(--accent)] hover:text-[color:var(--accent)] transition-colors";
+
+/* Click-to-play video facade (shared shape, used first on this page). */
+export const FACADE_FRAME =
+  "relative block aspect-video w-full overflow-hidden border border-[color:var(--line)] bg-[color:var(--paper-sunk)]";
+export const FACADE_THUMB =
+  "h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]";
+export const FACADE_PLAY_BADGE =
+  "absolute inset-0 grid place-items-center bg-[rgba(12,9,20,0.30)] transition-colors group-hover:bg-[rgba(12,9,20,0.42)]";
+export const FACADE_PLAY_ICON =
+  "h-10 w-10 rounded-full border border-[rgba(255,240,225,0.6)] bg-[rgba(12,9,20,0.55)] p-2.5 text-[#FFF6EC] transition-transform duration-200 group-hover:scale-110";
 
 /* ---------------------------------------------------------------------------
  * NON-CLASS CONSTANTS

@@ -46,11 +46,25 @@ export interface NavCta extends Hideable {
   size?: "sm" | "default" | "lg" | "icon";
 }
 
+/**
+ * A highlighted destination that is a ROUTE, not an in-page anchor.
+ *
+ * Rendered in the accent so it stands apart from the section anchors either
+ * side of it — the MLH submission needs to be findable by a judge who has
+ * never seen this site before and is not going to scroll hunting for it.
+ */
+export interface NavFeature extends Hideable {
+  href: string;
+  label: string;
+}
+
 export interface NavContent {
   /** Wordmark text. */
   brand: string;
   /** The desktop anchors, in page order. */
   links: NavLink[];
+  /** Highlighted route link, shown just before the CTA. */
+  feature?: NavFeature;
   /** The Contact button. */
   cta: NavCta;
 }
@@ -66,6 +80,10 @@ export const navContent: NavContent = {
     { href: "#opensource", label: "Open Source" },
     { href: "#projects", label: "Projects" },
   ],
+  feature: {
+    href: "/mlh-swe-fellowship-submission",
+    label: "Fellowship",
+  },
   cta: {
     href: "#contact",
     label: "Contact",

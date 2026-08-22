@@ -112,6 +112,43 @@ export const sectionArt = {
     // figure with the cat (right) in frame together.
     focal: "50% 55%",
   },
+  /*
+   * The four NY skyline plates on the MLH submission page. Same camera
+   * position, four lighting states, so they read as one place across a
+   * changing sky rather than four unrelated pictures.
+   *
+   * Mapped to the build log's own arc, not to clock time: dawn for the
+   * setup, storm for the sessions where decode would not work, clear sky
+   * for the encode API going in cleanly, dusk for the finish.
+   */
+  jwtDawn: {
+    src: "/section-jwt-dawn-1400.webp",
+    srcSet: widths("jwt-dawn"),
+    sizes: "100vw",
+    description: "Manhattan at sunrise seen from above, warm light down the avenues",
+    focal: "50% 45%",
+  },
+  jwtStorm: {
+    src: "/section-jwt-storm-1400.webp",
+    srcSet: widths("jwt-storm"),
+    sizes: "100vw",
+    description: "Manhattan under a thunderstorm, lightning striking beyond the skyline",
+    focal: "50% 45%",
+  },
+  jwtClear: {
+    src: "/section-jwt-clear-1400.webp",
+    srcSet: widths("jwt-clear"),
+    sizes: "100vw",
+    description: "Manhattan under a clear blue afternoon sky",
+    focal: "50% 50%",
+  },
+  jwtDusk: {
+    src: "/section-jwt-dusk-1400.webp",
+    srcSet: widths("jwt-dusk"),
+    sizes: "100vw",
+    description: "Manhattan at sunset, the sky deep orange over the harbour",
+    focal: "50% 45%",
+  },
 } satisfies Record<string, SectionArt>;
 
 export type SectionArtKey = keyof typeof sectionArt;

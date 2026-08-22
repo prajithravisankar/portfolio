@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowDown, Youtube } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Youtube } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { heroContent } from "@/content/hero";
@@ -18,6 +18,13 @@ import {
   HERO_DAY_NUMBER,
   HERO_DUSK,
   HERO_EYEBROW,
+  HERO_FEATURED,
+  HERO_FEATURED_BLURB,
+  HERO_FEATURED_CTA,
+  HERO_FEATURED_EYEBROW,
+  MLH_LOGO_SMALL,
+  HERO_FEATURED_ICON,
+  HERO_FEATURED_TITLE,
   HERO_HEADLINE,
   HERO_HEADLINE_LINE_ACCENT,
   HERO_SCRIM,
@@ -50,8 +57,15 @@ import {
  * high because it IS the LCP element.
  */
 export async function HeroSection() {
-  const { eyebrow, headline, standfirst, actions, background, channelLinkLabel } =
-    heroContent;
+  const {
+    eyebrow,
+    headline,
+    standfirst,
+    actions,
+    background,
+    channelLinkLabel,
+    featured,
+  } = heroContent;
   const day = await getBuildingInPublicDay();
 
   return (
@@ -134,6 +148,26 @@ export async function HeroSection() {
               </Button>
             ))}
           </div>
+
+          <Link href={featured.href} className={HERO_FEATURED}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={featured.logo.src}
+              alt={featured.logo.alt}
+              width={featured.logo.width}
+              height={featured.logo.height}
+              className={MLH_LOGO_SMALL}
+            />
+            <span className={`${HERO_FEATURED_EYEBROW} mt-2.5`}>
+              {featured.eyebrow}
+            </span>
+            <span className={HERO_FEATURED_TITLE}>{featured.title}</span>
+            <span className={HERO_FEATURED_BLURB}>{featured.blurb}</span>
+            <span className={HERO_FEATURED_CTA}>
+              {featured.cta}
+              <ArrowUpRight className={HERO_FEATURED_ICON} aria-hidden="true" />
+            </span>
+          </Link>
         </div>
       </div>
     </section>

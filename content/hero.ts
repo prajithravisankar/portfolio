@@ -36,6 +36,22 @@ export interface HeroContent {
    */
   channelLinkLabel: string;
   /**
+   * Highlighted entry point to the MLH submission.
+   *
+   * Sits in the hero rather than only in the nav because the audience for it
+   * is a fellowship judge opening this URL cold, who should not have to scan a
+   * nav bar or scroll to find the thing they came for.
+   */
+  featured: {
+    /** Official MLH lockup, used as supplied. */
+    logo: { src: string; alt: string; width: number; height: number };
+    eyebrow: string;
+    title: string;
+    blurb: string;
+    href: string;
+    cta: string;
+  };
+  /**
    * Full-bleed background artwork sitting behind the hero copy.
    *
    * `src` is a path under /public. When it is null the hero falls back to a
@@ -64,6 +80,20 @@ export const heroContent: HeroContent = {
   standfirst:
     "Computer science student at Lakehead University. Two systems I architected are live in production at a startup — Django, Celery, FastAPI, PostgreSQL with pgvector. I film the work most days and publish it.",
   channelLinkLabel: "Watch on YouTube — @BigOGrindset",
+  featured: {
+    logo: {
+      src: "/mlh-fellowship-logo.png",
+      alt: "MLH Fellowship",
+      width: 362,
+      height: 118,
+    },
+    eyebrow: "MLH Fellowship submission",
+    title: "Building JWT from Scratch",
+    blurb:
+      "A JSON Web Token library in pure Python, zero dependencies, every build session screen-recorded and linked to the exact timestamp.",
+    href: "/mlh-swe-fellowship-submission",
+    cta: "Read the build log",
+  },
   actions: [
     { href: "#projects", label: "See the work" },
     { href: "#contact", label: "Get in touch" },

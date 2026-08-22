@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -14,6 +16,8 @@ import {
   NAV_BRAND_OVER_HERO,
   NAV_CTA_BUTTON,
   NAV_CTA_OVER_HERO,
+  NAV_FEATURE,
+  NAV_FEATURE_DOT,
   NAV_INNER,
   NAV_LINK,
   NAV_LINK_OVER_HERO,
@@ -46,6 +50,12 @@ import { navContent, type NavContent } from "@/content/navigation";
  * The mobile panel forces the solid plate regardless of scroll position, since
  * stacked links need a backdrop of their own.
  *
+ * PATH-AWARE ANCHORS. The section links are bare hashes so they scroll
+ * instantly on the homepage. From a subpage a bare "#about" points at nothing,
+ * so `anchor()` prefixes it to "/#about", which routes home and scrolls. That
+ * lets the same nav sit on /mlh-swe-fellowship-submission without a second
+ * copy of the content.
+ *
  * The original site had no mobile menu at all — below `md` the link row was
  * simply hidden, so on a phone there was no navigation whatsoever. With seven
  * anchors the desktop row also stopped fitting at `md`, hence the `lg`
@@ -65,7 +75,16 @@ export function SiteNav({
   content = navContent,
   overHero = true,
 }: SiteNavProps = {}) {
-  const { brand, links, cta } = content;
+  const { brand, links, feature, cta } = content;
+  const pathname = usePathname();
+  const onHome = pathname === "/";
+  /**
+   * Section anchors are bare hashes so they scroll instantly on the homepage.
+   * From a subpage a bare "#about" points at nothing, so it is prefixed to
+   * "/#about" — which routes home AND scrolls. Same data, correct behaviour on
+   * both, without duplicating the nav content.
+   */
+  const anchor = (href: string) => (onHome ? href : `/${href}`);
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -103,18 +122,25 @@ export function SiteNav({
             {visibleLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={anchor(link.href)}
                 className={cn(NAV_LINK, NAV_LINK_OVER_HERO)}
               >
                 {link.label}
               </a>
             ))}
+            {feature && !feature.hidden ? (
+              <Link href={feature.href} className={NAV_FEATURE}>
+                <span className={NAV_FEATURE_DOT} aria-hidden="true" />
+                {feature.label}
+              </Link>
+            ) : null}
+
             {cta.hidden ? null : (
               <Button
                 size={cta.size}
                 className={cn(NAV_CTA_BUTTON, NAV_CTA_OVER_HERO)}
               >
-                <a href={cta.href}>{cta.label}</a>
+                <a href={anchor(cta.href)}>{cta.label}</a>
               </Button>
             )}
           </div>
@@ -137,15 +163,28 @@ export function SiteNav({
             {visibleLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={anchor(link.href)}
                 className={NAV_MOBILE_LINK}
                 onClick={close}
               >
                 {link.label}
               </a>
             ))}
+            {feature && !feature.hidden ? (
+              <Link
+                href={feature.href}
+                className={`${NAV_MOBILE_LINK} text-[#FFC46B]`}
+                onClick={close}
+              >
+                {feature.label}
+              </Link>
+            ) : null}
             {cta.hidden ? null : (
-              <a href={cta.href} className={NAV_MOBILE_LINK} onClick={close}>
+              <a
+                href={anchor(cta.href)}
+                className={NAV_MOBILE_LINK}
+                onClick={close}
+              >
                 {cta.label}
               </a>
             )}

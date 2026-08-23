@@ -44,19 +44,7 @@ export interface Certification {
   /** Who issued it. Shown in the list because two providers are now mixed. */
   issuer: string;
 
-  /**
-   * <img src> — path under public/. Irregular filenames; never derive from
-   * `id`. OPTIONAL: the list treatment renders no images, and the Google
-   * badges have none.
-   */
-  image?: string;
 
-  /**
-   * <img alt>. VERBATIM and NOT derivable from `title` — e.g. the card titled
-   * "Go (Golang) Systems Programming" has alt text "Go Programming".
-   * Optional alongside `image`.
-   */
-  imageAlt?: string;
 
   /** Text of the <Badge> overlaid at the bottom-left of the image. */
   category: string;
@@ -109,8 +97,6 @@ export const certificationsSection: CertificationsSection = {
       id: "git",
       issuer: "Boot.dev",
       url: "https://www.boot.dev/certificates/4b334856-cdc5-47d2-9164-c08543e743bd",
-      image: "/learn_git.png",
-      imageAlt: "Git Certification",
       category: "Version Control",
       title: "Git Fundamentals to Internals",
       description:
@@ -120,8 +106,6 @@ export const certificationsSection: CertificationsSection = {
       id: "functional-programming",
       issuer: "Boot.dev",
       url: "https://www.boot.dev/certificates/a52170fa-b452-43b8-833f-c00bbbd1dab0",
-      image: "/learn_functional_programming.png",
-      imageAlt: "Functional Programming",
       category: "Programming Paradigm",
       title: "Functional Programming Mastery",
       description:
@@ -131,8 +115,6 @@ export const certificationsSection: CertificationsSection = {
       id: "go",
       issuer: "Boot.dev",
       url: "https://www.boot.dev/certificates/e8bb361b-55fd-479e-9a40-42e26c63586e",
-      image: "/learn_go.png",
-      imageAlt: "Go Programming",
       category: "Systems Programming",
       title: "Go (Golang) Systems Programming",
       description:
@@ -142,8 +124,6 @@ export const certificationsSection: CertificationsSection = {
       id: "linux",
       issuer: "Boot.dev",
       url: "https://www.boot.dev/certificates/a5d43fd9-3a86-4827-a792-d0643a0f8997",
-      image: "/learn_linux.png",
-      imageAlt: "Linux",
       category: "Operating Systems",
       title: "Linux Systems & CLI Fundamentals",
       description:
@@ -153,8 +133,6 @@ export const certificationsSection: CertificationsSection = {
       id: "docker",
       issuer: "Boot.dev",
       url: "https://www.boot.dev/certificates/1d7b88a6-600d-4bb8-9c02-57b4f86ecc72",
-      image: "/learn_docker.png",
-      imageAlt: "Docker",
       category: "Containerization",
       title: "Docker & Containerization Mastery",
       description:
@@ -163,6 +141,7 @@ export const certificationsSection: CertificationsSection = {
     {
       id: "gcp-infrastructure",
       issuer: "Google Cloud",
+      url: "https://www.skills.google/public_profiles/f5e93485-8b86-4280-9166-fb11a8e99dab/badges/20438464",
       category: "Skills Badge",
       title: "Infrastructure in Google Cloud",
       description:
@@ -171,6 +150,7 @@ export const certificationsSection: CertificationsSection = {
     {
       id: "gcp-networking-security",
       issuer: "Google Cloud",
+      url: "https://www.skills.google/public_profiles/f5e93485-8b86-4280-9166-fb11a8e99dab/badges/20580751",
       category: "Skills Badge",
       title: "Networking and Security in Google Cloud",
       description:
@@ -179,6 +159,7 @@ export const certificationsSection: CertificationsSection = {
     {
       id: "gcp-fundamentals",
       issuer: "Google Cloud",
+      url: "https://www.skills.google/public_profiles/f5e93485-8b86-4280-9166-fb11a8e99dab/badges/20162041",
       category: "Skills Badge",
       title: "Cloud Computing Fundamentals",
       description:

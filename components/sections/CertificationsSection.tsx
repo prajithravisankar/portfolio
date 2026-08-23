@@ -43,9 +43,8 @@ import {
  * say. As a plain list all five are visible at once, this became a server
  * component, and the right half of the picture survives.
  *
- * The `image` and `imageAlt` fields are still in content/certifications.ts —
- * nothing was deleted, so restoring a visual treatment later is a render
- * change, not a data recovery job.
+ * The image fields and their files were subsequently removed: nothing rendered
+ * them, and every credential now carries a verification link instead.
  */
 export function CertificationsSection() {
   const items = certificationsSection.items.filter((item) => !item.hidden);

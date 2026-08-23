@@ -58,7 +58,7 @@ export default function Home() {
         <SectionBackdrop
           art={sectionArt.projects}
           parallax
-          parallaxSrc="/section-projects-2400.webp"
+          parallaxSrc="/section-projects-1400.webp"
           scrimClassName={SECTION_ART_SCRIM_PAPER_LEFT}
           fadeTopClassName={SECTION_ART_FADE_TOP_PAPER}
           fadeBottom={false}

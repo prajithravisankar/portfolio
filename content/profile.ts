@@ -197,7 +197,7 @@ export const aboutContent: AboutContent = {
 
   profile: {
     avatar: {
-      src: "/temp_image.jpg",
+      src: "/avatar-224.webp",
       alt: "Prajith Ravisankar",
       fallback: "PR",
     },

@@ -50,7 +50,7 @@ export function ExperienceSection() {
     <SectionBackdrop
       art={sectionArt.experience}
       parallax
-      parallaxSrc="/section-experience-2400.webp"
+      parallaxSrc="/section-experience-1400.webp"
       fadeTop={false}
       fadeBottom={false}
       scrimClassName={SECTION_ART_SCRIM_LEFT}

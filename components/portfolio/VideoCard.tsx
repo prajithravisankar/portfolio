@@ -63,7 +63,13 @@ export function VideoCard({ video, onArt = false }: VideoCardProps) {
       <Card className={onArt ? `${CARD_ON_ART} h-full overflow-hidden group cursor-pointer` : CARD_SURFACE_MEDIA}>
         <div className={MEDIA_FRAME}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={thumbnail} alt={title} className={MEDIA_IMAGE} />
+          <img
+            src={thumbnail}
+            alt={title}
+            className={MEDIA_IMAGE}
+            loading="lazy"
+            decoding="async"
+          />
           <div className={MEDIA_SCRIM}></div>
           <div className={MEDIA_OVERLAY_SLOT}>
             <Badge className={BADGE_SOLID_OVERLAY}>

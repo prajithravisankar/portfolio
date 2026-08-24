@@ -4,6 +4,8 @@ import {
   Code2,
   ExternalLink,
   Github,
+  Layers,
+  Search,
   Sparkles,
   Star,
 } from "lucide-react";
@@ -106,7 +108,12 @@ export interface ProjectCardSummary {
   title: string;
   /** CardDescription text (rendered with `line-clamp-2` + style.cardDescriptionToneClass). */
   description: string;
-  video: ProjectVideo;
+  /**
+   * OPTIONAL. The compact trigger card no longer renders video at all — that
+   * went when five eager YouTube iframes came off first paint — so this is
+   * kept only for projects that carry one.
+   */
+  video?: ProjectVideo;
   /** <p className="text-slate-400 text-sm line-clamp-2 mb-4"> blurb. Never equal to detail.overview. */
   summary: string;
   /** Compact tech pills (text-xs). Deliberately different strings/order from detail.techStack. */
@@ -125,7 +132,8 @@ export interface ProjectDetail {
   badge: string;
   /** DialogDescription text (identical to card.description on all five). */
   description: string;
-  video: ProjectVideo;
+  /** OPTIONAL. Not every project has a recorded demo; the modal omits the frame. */
+  video?: ProjectVideo;
   /**
    * OPTIONAL — "Live Demo" h4 above the video, wrapped with the video in a
    * `space-y-3` div. Present on CBESS / Odysseyelp / Wallet Backend only;
@@ -195,6 +203,123 @@ export const projectsSection: ProjectsSectionCopy = {
 };
 
 export const projects: ProjectList = [
+  {
+    /*
+     * No recorded demo, so `video` is omitted on both the card and the detail —
+     * the modal drops the frame rather than showing an empty box. Tech tags are
+     * drawn only from techniques the project description actually names; no
+     * library or framework is inferred.
+     */
+    id: "rag-search-engine",
+    card: {
+      badge: "Retrieval Augmented Generation",
+      badgeIcon: Search,
+      title: "RAG Search Engine",
+      description: "Movie search across keyword, semantic, hybrid and image",
+      summary:
+        "A movie search engine built to learn how retrieval augmented generation works, with an LLM generating answers from the retrieved results.",
+      tech: [
+        "RAG",
+        "BM25",
+        "Embeddings",
+        "Semantic Search",
+        "Hybrid Search",
+        "Reciprocal Rank Fusion",
+        "Cross-Encoder",
+        "Multimodal Search",
+        "LLM",
+        "CLI",
+      ],
+      ctaLabel: "View Details",
+      ctaIcon: ArrowRight,
+    },
+    detail: {
+      title: "RAG Search Engine",
+      badge: "Retrieval Augmented Generation",
+      description: "Movie search across keyword, semantic, hybrid and image",
+      techHeading: "Techniques",
+      techStack: [
+        "RAG",
+        "BM25",
+        "Embeddings",
+        "Semantic Search",
+        "Hybrid Search",
+        "Reciprocal Rank Fusion",
+        "Cross-Encoder",
+        "Multimodal Search",
+        "LLM",
+        "Evaluation",
+        "CLI",
+      ],
+      showSeparatorAfterTechStack: true,
+      overviewHeading: { text: "Overview", icon: Code2 },
+      overview: [
+        {
+          text: "A movie search engine built to learn how retrieval augmented generation works. It lets you search a movie dataset using keyword search, semantic search, hybrid search, and image search, then use an LLM to generate answers from the results.",
+        },
+      ],
+      sections: [
+        {
+          heading: "What it does",
+          icon: Sparkles,
+          items: [
+            {
+              text: "Keyword search: classic BM25 style search over movie descriptions.",
+            },
+            {
+              text: "Semantic search: search using text embeddings to match by meaning.",
+            },
+            {
+              text: "Hybrid search: combines keyword and semantic search, with weighted and reciprocal rank fusion methods.",
+            },
+            {
+              text: "Reranking: reorders results using a cross encoder or an LLM.",
+            },
+            {
+              text: "Query enhancement: spell correction, query expansion, and query rewriting to improve search results.",
+            },
+            {
+              text: "Multimodal search: search for movies using an image instead of text.",
+            },
+            {
+              text: "RAG: ask questions and get an LLM generated answer based on search results, with support for summaries and citations.",
+            },
+            {
+              text: "Evaluation: measures search quality with precision, recall, and F1 scores against a golden dataset.",
+            },
+          ],
+        },
+        {
+          heading: "Project structure",
+          icon: Layers,
+          items: [
+            {
+              text: "cli/ — command line tools, one per feature: keyword search, semantic search, hybrid search, multimodal search, augmented generation, evaluation.",
+            },
+            { text: "cli/lib/ — the underlying logic for each feature." },
+            { text: "data/ — movie dataset, golden test set, and sample files." },
+            {
+              text: "cache/ — cached embeddings and indexes, so search is fast after the first run.",
+            },
+          ],
+        },
+      ],
+      cta: {
+        href: "https://github.com/prajithravisankar/retrieval-augmented-generation",
+        label: "View on GitHub",
+        icon: Github,
+        trailingIcon: ExternalLink,
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+    },
+    style: {
+      cardHoverClass: "",
+      cardDescriptionToneClass: "text-[color:var(--ink-soft)]",
+      cardCtaExtraClass: "font-semibold",
+      detailBodyClass: "space-y-6 mt-4",
+    },
+  },
   {
     id: "cbess",
     card: {

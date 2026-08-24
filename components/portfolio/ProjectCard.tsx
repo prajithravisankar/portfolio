@@ -220,11 +220,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 heading={detail.demoHeading}
                 className={SUBHEADING_INLINE_ICON}
               />
-              <ProjectVideoFrame video={detail.video} className={VIDEO_FRAME} />
+              {detail.video ? (
+                <ProjectVideoFrame
+                  video={detail.video}
+                  className={VIDEO_FRAME}
+                />
+              ) : null}
             </div>
-          ) : (
+          ) : detail.video ? (
             <ProjectVideoFrame video={detail.video} className={VIDEO_FRAME} />
-          )}
+          ) : null}
 
           {detail.award && AwardIcon ? (
             <div className={PANEL_TILE}>

@@ -1,7 +1,28 @@
 import type { Metadata } from "next";
 import { Fraunces, Instrument_Sans, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { siteMetadata } from "@/content/site";
+
+/**
+ * LinkClicks Universal Pixel.
+ *
+ * Two parts, and the ORDER between them is the whole trick: the first script
+ * defines the `window.lk` command queue, the second loads the pixel that drains
+ * it. If the loader runs first, every `lk(...)` call before it lands is lost.
+ *
+ * `beforeInteractive` on the stub puts it in the server-rendered HTML, ahead of
+ * hydration, which is the App Router equivalent of "paste it in <head>" from the
+ * vendor's instructions — and it guarantees the queue exists before anything can
+ * call it. The loader is `afterInteractive` so it does not block first paint;
+ * being async, it would not block anyway, and the queue means nothing is dropped
+ * while it is in flight.
+ *
+ * Raw <script> tags are avoided on purpose: in the App Router they are not
+ * reliably placed in <head>, and the ordering above would then be down to luck.
+ */
+const LINKCLICKS_PIXEL_SRC =
+  "https://pixel.linkclicks.com/pixel/6cf69cbb-32f4-41bc-a0f4-d80d75a2297b.js";
 
 /**
  * THEME: WORKSHOP — type stack.
@@ -81,6 +102,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Script id="linkclicks-pixel-queue" strategy="beforeInteractive">
+        {`window.lk=window.lk||function(){(window.lk.q=window.lk.q||[]).push(arguments)};`}
+      </Script>
+      <Script
+        id="linkclicks-pixel-loader"
+        src={LINKCLICKS_PIXEL_SRC}
+        strategy="afterInteractive"
+      />
       <body
         className={`${fraunces.variable} ${instrumentSans.variable} ${jetbrainsMono.variable} antialiased`}
       >
